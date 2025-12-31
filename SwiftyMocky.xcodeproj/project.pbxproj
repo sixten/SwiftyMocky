@@ -10,18 +10,15 @@
 		023E5B0925ECD4B400B975CD /* ComposedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023E5B0825ECD4B400B975CD /* ComposedServiceTests.swift */; };
 		023E5B0A25ECD4B400B975CD /* ComposedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023E5B0825ECD4B400B975CD /* ComposedServiceTests.swift */; };
 		023E5B0B25ECD4B400B975CD /* ComposedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023E5B0825ECD4B400B975CD /* ComposedServiceTests.swift */; };
-		136D1FD5B90F87009EDDF350 /* Pods_Mocky_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E649ECF55738052FFD6D124 /* Pods_Mocky_Tests_iOS.framework */; };
-		1D5310CA3DE7147ACC9E7E26 /* Pods_Mocky_Tests_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EF60CBE53D81700C87FB82 /* Pods_Mocky_Tests_tvOS.framework */; };
-		5CB0B098232DC176CC9CACD8 /* Pods_Mocky_Example_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C9BECF310A1D4EDD384137 /* Pods_Mocky_Example_tvOS.framework */; };
+		1FAB0B422F05C912001FB666 /* SwiftyMocky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAFC9EF1FAF244D003F776A /* SwiftyMocky.framework */; };
+		1FAB0B432F05C912001FB666 /* SwiftyMocky.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCAFC9EF1FAF244D003F776A /* SwiftyMocky.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66087FEBDA538F4C138743F2 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		6921396CE20C5E332DE41D60 /* Pods_Mocky_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5568CBB5C310F46C201A252 /* Pods_Mocky_Example_iOS.framework */; };
 		6C3186ED22DF613C00746DCC /* ProtocolWithGenericConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186EC22DF613C00746DCC /* ProtocolWithGenericConstraints.swift */; };
 		6C3186EE22DF613C00746DCC /* ProtocolWithGenericConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186EC22DF613C00746DCC /* ProtocolWithGenericConstraints.swift */; };
 		6C3186EF22DF613C00746DCC /* ProtocolWithGenericConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186EC22DF613C00746DCC /* ProtocolWithGenericConstraints.swift */; };
 		6C3186F222DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186F122DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift */; };
 		6C3186F322DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186F122DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift */; };
 		6C3186F422DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186F122DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift */; };
-		7C10E4406673B3B3B7474E2C /* Pods_Mocky_Tests_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B5EFCCD4E35E7C80D1E560 /* Pods_Mocky_Tests_macOS.framework */; };
 		BB4F9E470E0BD27A959C97EB /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C81D094D22C0C59800A0427F /* CustomAssertionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D094C22C0C59800A0427F /* CustomAssertionsTests.swift */; };
 		C81D094E22C0C59800A0427F /* CustomAssertionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D094C22C0C59800A0427F /* CustomAssertionsTests.swift */; };
@@ -42,7 +39,6 @@
 		C8B87413215A54B1002CF376 /* PropertiesHandlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B87412215A54B1002CF376 /* PropertiesHandlingTests.swift */; };
 		C8B87414215A54B1002CF376 /* PropertiesHandlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B87412215A54B1002CF376 /* PropertiesHandlingTests.swift */; };
 		C8B87415215A54B1002CF376 /* PropertiesHandlingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B87412215A54B1002CF376 /* PropertiesHandlingTests.swift */; };
-		CA7F06FB19E540DE2083EE80 /* Pods_Mocky_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4960EAA67C2E0980248C6B94 /* Pods_Mocky_Example_macOS.framework */; };
 		CC07B603202215F600F51534 /* ProtocolMethodsThatDifferOnlyInReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B601202215D500F51534 /* ProtocolMethodsThatDifferOnlyInReturnType.swift */; };
 		CC07B604202215F600F51534 /* ProtocolMethodsThatDifferOnlyInReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B601202215D500F51534 /* ProtocolMethodsThatDifferOnlyInReturnType.swift */; };
 		CC07B605202215F700F51534 /* ProtocolMethodsThatDifferOnlyInReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07B601202215D500F51534 /* ProtocolMethodsThatDifferOnlyInReturnType.swift */; };
@@ -330,8 +326,6 @@
 		CCE351661FCC0B9700A76C4C /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE351621FCC0B9700A76C4C /* Mock.generated.swift */; };
 		CCE351671FCC0B9700A76C4C /* ItemsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE351631FCC0B9700A76C4C /* ItemsRepositoryMock.swift */; };
 		CCE351681FCC0B9700A76C4C /* Mocky_tvOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE351641FCC0B9700A76C4C /* Mocky_tvOS_Tests.swift */; };
-		D5A3B8E663F5C1E93005417D /* Pods_Mocky_Example_iOS_15.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804A136FF4426600B9404159 /* Pods_Mocky_Example_iOS_15.framework */; };
-		DCD9D935A62C7590C4267FFF /* Pods_Mocky_Tests_iOS_15.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0183EA4DB760A37EE1C5C98 /* Pods_Mocky_Tests_iOS_15.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,30 +373,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1FAB0B442F05C912001FB666 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1FAB0B432F05C912001FB666 /* SwiftyMocky.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		023E5B0825ECD4B400B975CD /* ComposedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposedServiceTests.swift; sourceTree = "<group>"; };
-		246A92EED69C0F4A7DB30FEC /* Pods-Mocky_Example_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_macOS/Pods-Mocky_Example_macOS.release.xcconfig"; sourceTree = "<group>"; };
-		44584DB014A47595C33FBF7B /* Pods-Mocky_Tests_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_macOS/Pods-Mocky_Tests_macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		47EB3B0E1FC3562B00905329 /* Mocky_Example_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mocky_Example_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47EB3B211FC356B000905329 /* Mocky_Tests_tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mocky_Tests_tvOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4960EAA67C2E0980248C6B94 /* Pods_Mocky_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A18BEE608FDDA6D1B72681A /* Pods-Mocky_Example_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_tvOS/Pods-Mocky_Example_tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		5ABA0D357F98DC923C090E09 /* Pods-Mocky_Tests_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_iOS/Pods-Mocky_Tests_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		5E649ECF55738052FFD6D124 /* Pods_Mocky_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Mocky_Example_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mocky_Example_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACE51AFB9204008FA782 /* Mocky_Tests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mocky_Tests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		64EF60CBE53D81700C87FB82 /* Pods_Mocky_Tests_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Tests_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3186EC22DF613C00746DCC /* ProtocolWithGenericConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolWithGenericConstraints.swift; sourceTree = "<group>"; };
 		6C3186F122DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolWithGenericConstraintsTests.swift; sourceTree = "<group>"; };
-		7194340B3CD91B825FCB78FB /* Pods-Mocky_Example_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_iOS/Pods-Mocky_Example_iOS.release.xcconfig"; sourceTree = "<group>"; };
-		7A9B02B1C24E9AC79ABF999C /* Pods-Mocky_Example_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_iOS/Pods-Mocky_Example_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		804A136FF4426600B9404159 /* Pods_Mocky_Example_iOS_15.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Example_iOS_15.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DDEF4635180A969B16362F7 /* Pods-Mocky_Tests_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_iOS/Pods-Mocky_Tests_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		94B5EFCCD4E35E7C80D1E560 /* Pods_Mocky_Tests_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Tests_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9C9BECF310A1D4EDD384137 /* Pods_Mocky_Example_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Example_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAEE52510F67C7DF13FF8AF2 /* Pods-Mocky_Example_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_tvOS/Pods-Mocky_Example_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		BCB5C12EDA17046011396E79 /* Pods-Mocky_Tests_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_tvOS/Pods-Mocky_Tests_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C5FAF6F747D4D4252AECA670 /* Pods-Mocky_Example_iOS_15.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_iOS_15.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_iOS_15/Pods-Mocky_Example_iOS_15.debug.xcconfig"; sourceTree = "<group>"; };
 		C81D094C22C0C59800A0427F /* CustomAssertionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAssertionsTests.swift; sourceTree = "<group>"; };
 		C8294EAA2299345C0036BC94 /* SwiftyPrototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyPrototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8294EAC2299345C0036BC94 /* Prototyping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prototyping.h; sourceTree = "<group>"; };
@@ -414,7 +406,6 @@
 		C8EF7B7921FB423A00AFA545 /* TemplateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateHelper.swift; sourceTree = "<group>"; };
 		C8EF7B7A21FB423A00AFA545 /* ParameterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterWrapper.swift; sourceTree = "<group>"; };
 		C8EF7B7B21FB423A00AFA545 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		C8EF7B7D21FB423A00AFA545 /* Header.swifttemplate */ = {isa = PBXFileReference; lastKnownFileType = text; path = Header.swifttemplate; sourceTree = "<group>"; };
 		C8EF7B7E21FB423A00AFA545 /* Main.swifttemplate */ = {isa = PBXFileReference; lastKnownFileType = text; path = Main.swifttemplate; sourceTree = "<group>"; };
 		C8EF7B7F21FB423A00AFA545 /* TypeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWrapper.swift; sourceTree = "<group>"; };
 		C8EF7B8021FB423A00AFA545 /* SubscriptWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptWrapper.swift; sourceTree = "<group>"; };
@@ -471,9 +462,9 @@
 		CC66EF06270DD0E800D9B424 /* AsyncMethodsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncMethodsProtocol.swift; sourceTree = "<group>"; };
 		CC66EF0B270DD2CA00D9B424 /* AsyncMethodsProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncMethodsProtocolTests.swift; sourceTree = "<group>"; };
 		CC6DE6A92715F0D900502AEE /* Mocky_Example_iOS_15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mocky_Example_iOS_15.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC6DE6AA2715F0DA00502AEE /* Mocky_Example_iOS_15-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Mocky_Example_iOS_15-Info.plist"; path = "/Users/andrzejmichnia/Projekty/Private/SwiftyMocky/Mocky_Example_iOS_15-Info.plist"; sourceTree = "<absolute>"; };
+		CC6DE6AA2715F0DA00502AEE /* Mocky_Example_iOS_15-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mocky_Example_iOS_15-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CC6DE6D92715F23600502AEE /* Mocky_Tests_iOS_15.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mocky_Tests_iOS_15.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC6DE6DA2715F23600502AEE /* Mocky_Tests_iOS_15-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Mocky_Tests_iOS_15-Info.plist"; path = "/Users/andrzejmichnia/Projekty/Private/SwiftyMocky/Mocky_Tests_iOS_15-Info.plist"; sourceTree = "<absolute>"; };
+		CC6DE6DA2715F23600502AEE /* Mocky_Tests_iOS_15-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mocky_Tests_iOS_15-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CC6DE6DF2715F51500502AEE /* Mock.15.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.15.generated.swift; sourceTree = "<group>"; };
 		CC7AC87A27162C88008E5753 /* MockyAssert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockyAssert.swift; sourceTree = "<group>"; };
 		CC7AC87B27162C88008E5753 /* SwiftyMockyTestObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMockyTestObserver.swift; sourceTree = "<group>"; };
@@ -539,15 +530,7 @@
 		CCE351631FCC0B9700A76C4C /* ItemsRepositoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsRepositoryMock.swift; sourceTree = "<group>"; };
 		CCE351641FCC0B9700A76C4C /* Mocky_tvOS_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocky_tvOS_Tests.swift; sourceTree = "<group>"; };
 		CCE351651FCC0B9700A76C4C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0183EA4DB760A37EE1C5C98 /* Pods_Mocky_Tests_iOS_15.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Tests_iOS_15.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0DC19016F4652E71732B830 /* Pods-Mocky_Tests_iOS_15.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_iOS_15.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_iOS_15/Pods-Mocky_Tests_iOS_15.release.xcconfig"; sourceTree = "<group>"; };
-		D290CFFDAAD79EDAC911BB4A /* Pods-Mocky_Example_iOS_15.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_iOS_15.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_iOS_15/Pods-Mocky_Example_iOS_15.release.xcconfig"; sourceTree = "<group>"; };
-		D4CF1AC7A6F257BB2904DA55 /* Pods-Mocky_Tests_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_tvOS/Pods-Mocky_Tests_tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		D8800E89CF0FDD37D5C97682 /* Pods-Mocky_Tests_iOS_15.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_iOS_15.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_iOS_15/Pods-Mocky_Tests_iOS_15.debug.xcconfig"; sourceTree = "<group>"; };
-		E0F0B024E7EFDB2727CEE125 /* Pods-Mocky_Tests_macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Tests_macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Tests_macOS/Pods-Mocky_Tests_macOS.release.xcconfig"; sourceTree = "<group>"; };
 		E467147D1ECEF4D600C7DAB3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E5568CBB5C310F46C201A252 /* Pods_Mocky_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mocky_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E671CB0D6255BBBB2FADDA17 /* Pods-Mocky_Example_macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mocky_Example_macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mocky_Example_macOS/Pods-Mocky_Example_macOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,7 +538,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CB0B098232DC176CC9CACD8 /* Pods_Mocky_Example_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +545,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D5310CA3DE7147ACC9E7E26 /* Pods_Mocky_Tests_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +553,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				66087FEBDA538F4C138743F2 /* (null) in Frameworks */,
-				6921396CE20C5E332DE41D60 /* Pods_Mocky_Example_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +561,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB4F9E470E0BD27A959C97EB /* (null) in Frameworks */,
-				136D1FD5B90F87009EDDF350 /* Pods_Mocky_Tests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,7 +575,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA7F06FB19E540DE2083EE80 /* Pods_Mocky_Example_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +582,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C10E4406673B3B3B7474E2C /* Pods_Mocky_Tests_macOS.framework in Frameworks */,
+				1FAB0B422F05C912001FB666 /* SwiftyMocky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +590,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5A3B8E663F5C1E93005417D /* Pods_Mocky_Example_iOS_15.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +597,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCD9D935A62C7590C4267FFF /* Pods_Mocky_Tests_iOS_15.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +620,6 @@
 				607FACE81AFB9204008FA782 /* Example for Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				7FCC8434BB6BB8DECC81772A /* Frameworks */,
-				C28303449AB54C13301D7738 /* Pods */,
 				CC6DE6AA2715F0DA00502AEE /* Mocky_Example_iOS_15-Info.plist */,
 				CC6DE6DA2715F23600502AEE /* Mocky_Tests_iOS_15-Info.plist */,
 			);
@@ -711,46 +686,14 @@
 			isa = PBXGroup;
 			children = (
 				E467147D1ECEF4D600C7DAB3 /* XCTest.framework */,
-				4960EAA67C2E0980248C6B94 /* Pods_Mocky_Example_macOS.framework */,
-				A9C9BECF310A1D4EDD384137 /* Pods_Mocky_Example_tvOS.framework */,
-				94B5EFCCD4E35E7C80D1E560 /* Pods_Mocky_Tests_macOS.framework */,
-				64EF60CBE53D81700C87FB82 /* Pods_Mocky_Tests_tvOS.framework */,
-				804A136FF4426600B9404159 /* Pods_Mocky_Example_iOS_15.framework */,
-				D0183EA4DB760A37EE1C5C98 /* Pods_Mocky_Tests_iOS_15.framework */,
-				E5568CBB5C310F46C201A252 /* Pods_Mocky_Example_iOS.framework */,
-				5E649ECF55738052FFD6D124 /* Pods_Mocky_Tests_iOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C28303449AB54C13301D7738 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7A9B02B1C24E9AC79ABF999C /* Pods-Mocky_Example_iOS.debug.xcconfig */,
-				7194340B3CD91B825FCB78FB /* Pods-Mocky_Example_iOS.release.xcconfig */,
-				AAEE52510F67C7DF13FF8AF2 /* Pods-Mocky_Example_tvOS.debug.xcconfig */,
-				5A18BEE608FDDA6D1B72681A /* Pods-Mocky_Example_tvOS.release.xcconfig */,
-				8DDEF4635180A969B16362F7 /* Pods-Mocky_Tests_iOS.debug.xcconfig */,
-				5ABA0D357F98DC923C090E09 /* Pods-Mocky_Tests_iOS.release.xcconfig */,
-				BCB5C12EDA17046011396E79 /* Pods-Mocky_Tests_tvOS.debug.xcconfig */,
-				D4CF1AC7A6F257BB2904DA55 /* Pods-Mocky_Tests_tvOS.release.xcconfig */,
-				E671CB0D6255BBBB2FADDA17 /* Pods-Mocky_Example_macOS.debug.xcconfig */,
-				246A92EED69C0F4A7DB30FEC /* Pods-Mocky_Example_macOS.release.xcconfig */,
-				44584DB014A47595C33FBF7B /* Pods-Mocky_Tests_macOS.debug.xcconfig */,
-				E0F0B024E7EFDB2727CEE125 /* Pods-Mocky_Tests_macOS.release.xcconfig */,
-				C5FAF6F747D4D4252AECA670 /* Pods-Mocky_Example_iOS_15.debug.xcconfig */,
-				D290CFFDAAD79EDAC911BB4A /* Pods-Mocky_Example_iOS_15.release.xcconfig */,
-				D8800E89CF0FDD37D5C97682 /* Pods-Mocky_Tests_iOS_15.debug.xcconfig */,
-				D0DC19016F4652E71732B830 /* Pods-Mocky_Tests_iOS_15.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		C8EF7B7821FB423A00AFA545 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
 				C8EF7B8121FB423A00AFA545 /* ArgumentsHelper.swift */,
-				C8EF7B7D21FB423A00AFA545 /* Header.swifttemplate */,
 				C8EF7B8221FB423A00AFA545 /* Current.swift */,
 				C8EF7B7921FB423A00AFA545 /* TemplateHelper.swift */,
 				C8EF7B7B21FB423A00AFA545 /* Helpers.swift */,
@@ -1223,7 +1166,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47EB3B1A1FC3562B00905329 /* Build configuration list for PBXNativeTarget "Mocky_Example_tvOS" */;
 			buildPhases = (
-				751A52D598DE812AA707711B /* [CP] Check Pods Manifest.lock */,
 				47EB3B0A1FC3562B00905329 /* Sources */,
 				47EB3B0B1FC3562B00905329 /* Frameworks */,
 				47EB3B0C1FC3562B00905329 /* Resources */,
@@ -1241,11 +1183,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47EB3B281FC356B000905329 /* Build configuration list for PBXNativeTarget "Mocky_Tests_tvOS" */;
 			buildPhases = (
-				7153C9A0906F931268A3554D /* [CP] Check Pods Manifest.lock */,
 				47EB3B1D1FC356B000905329 /* Sources */,
 				47EB3B1E1FC356B000905329 /* Frameworks */,
 				47EB3B1F1FC356B000905329 /* Resources */,
-				AC084BAC57BCB9ADC03D8E2C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1261,7 +1201,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Mocky_Example_iOS" */;
 			buildPhases = (
-				52CEFF50E2B6E659CB5C4FF2 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
@@ -1279,7 +1218,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Mocky_Tests_iOS" */;
 			buildPhases = (
-				DE3AD6663F4906C8FE24B15A /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -1317,7 +1255,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC5B61B01FCC16F8007FB209 /* Build configuration list for PBXNativeTarget "Mocky_Example_macOS" */;
 			buildPhases = (
-				BD34BA0BED4C085F8CC18492 /* [CP] Check Pods Manifest.lock */,
 				CC5B61941FCC16F7007FB209 /* Sources */,
 				CC5B61951FCC16F7007FB209 /* Frameworks */,
 				CC5B61961FCC16F7007FB209 /* Resources */,
@@ -1335,11 +1272,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC5B61B31FCC16F8007FB209 /* Build configuration list for PBXNativeTarget "Mocky_Tests_macOS" */;
 			buildPhases = (
-				05ECDDBE2F243DB8BC457A0A /* [CP] Check Pods Manifest.lock */,
 				CC5B61A51FCC16F8007FB209 /* Sources */,
 				CC5B61A61FCC16F8007FB209 /* Frameworks */,
 				CC5B61A71FCC16F8007FB209 /* Resources */,
-				1E18951788B95FF284B2C5B2 /* [CP] Embed Pods Frameworks */,
+				1FAB0B442F05C912001FB666 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1355,7 +1291,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC6DE6A62715F0D900502AEE /* Build configuration list for PBXNativeTarget "Mocky_Example_iOS_15" */;
 			buildPhases = (
-				CC6DE67C2715F0D900502AEE /* [CP] Check Pods Manifest.lock */,
 				CC6DE67D2715F0D900502AEE /* Sources */,
 				CC6DE6A02715F0D900502AEE /* Frameworks */,
 				CC6DE6A22715F0D900502AEE /* Resources */,
@@ -1373,11 +1308,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC6DE6D62715F23600502AEE /* Build configuration list for PBXNativeTarget "Mocky_Tests_iOS_15" */;
 			buildPhases = (
-				CC6DE6AE2715F23600502AEE /* [CP] Check Pods Manifest.lock */,
 				CC6DE6AF2715F23600502AEE /* Sources */,
 				CC6DE6D22715F23600502AEE /* Frameworks */,
 				CC6DE6D42715F23600502AEE /* Resources */,
-				CC6DE6D52715F23600502AEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1449,13 +1382,13 @@
 					};
 					CC5B61971FCC16F7007FB209 = {
 						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = LFW3TC8B25;
+						DevelopmentTeam = F93H8KHSB2;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 					};
 					CC5B61A81FCC16F8007FB209 = {
 						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = LFW3TC8B25;
+						DevelopmentTeam = F93H8KHSB2;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CC5B61971FCC16F7007FB209;
@@ -1469,6 +1402,7 @@
 					};
 					CCAFC9EE1FAF244D003F776A = {
 						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = F93H8KHSB2;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
@@ -1483,6 +1417,8 @@
 				en,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			packageReferences = (
+			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1587,204 +1523,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05ECDDBE2F243DB8BC457A0A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Tests_macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1E18951788B95FF284B2C5B2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mocky_Tests_macOS/Pods-Mocky_Tests_macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftyMocky-macOS10.15/SwiftyMocky.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMocky.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mocky_Tests_macOS/Pods-Mocky_Tests_macOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52CEFF50E2B6E659CB5C4FF2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Example_iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7153C9A0906F931268A3554D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Tests_tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		751A52D598DE812AA707711B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Example_tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC084BAC57BCB9ADC03D8E2C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mocky_Tests_tvOS/Pods-Mocky_Tests_tvOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftyMocky-tvOS12.0/SwiftyMocky.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMocky.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mocky_Tests_tvOS/Pods-Mocky_Tests_tvOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BD34BA0BED4C085F8CC18492 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Example_macOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC6DE67C2715F0D900502AEE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Example_iOS_15-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC6DE6AE2715F23600502AEE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Tests_iOS_15-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC6DE6D52715F23600502AEE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mocky_Tests_iOS_15/Pods-Mocky_Tests_iOS_15-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftyMocky-iOS15.0/SwiftyMocky.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMocky.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mocky_Tests_iOS_15/Pods-Mocky_Tests_iOS_15-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE3AD6663F4906C8FE24B15A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mocky_Tests_iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DF017F044B7A2A10E9E85577 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2250,7 +1988,6 @@
 /* Begin XCBuildConfiguration section */
 		47EB3B1B1FC3562B00905329 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAEE52510F67C7DF13FF8AF2 /* Pods-Mocky_Example_tvOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -2279,7 +2016,6 @@
 		};
 		47EB3B1C1FC3562B00905329 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A18BEE608FDDA6D1B72681A /* Pods-Mocky_Example_tvOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -2306,7 +2042,6 @@
 		};
 		47EB3B291FC356B000905329 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCB5C12EDA17046011396E79 /* Pods-Mocky_Tests_tvOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2334,7 +2069,6 @@
 		};
 		47EB3B2A1FC356B000905329 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4CF1AC7A6F257BB2904DA55 /* Pods-Mocky_Tests_tvOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2471,7 +2205,6 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A9B02B1C24E9AC79ABF999C /* Pods-Mocky_Example_iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2489,7 +2222,6 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7194340B3CD91B825FCB78FB /* Pods-Mocky_Example_iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2507,7 +2239,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DDEF4635180A969B16362F7 /* Pods-Mocky_Tests_iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2533,7 +2264,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ABA0D357F98DC923C090E09 /* Pods-Mocky_Tests_iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2626,7 +2356,6 @@
 		};
 		CC5B61B11FCC16F8007FB209 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E671CB0D6255BBBB2FADDA17 /* Pods-Mocky_Example_macOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2641,12 +2370,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = LFW3TC8B25;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = F93H8KHSB2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftyMocky-Example/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoapods.org.demo.Mocky-Example-macOS1223";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.Mocky-Example-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -2657,7 +2386,6 @@
 		};
 		CC5B61B21FCC16F8007FB209 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 246A92EED69C0F4A7DB30FEC /* Pods-Mocky_Example_macOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2671,12 +2399,12 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = LFW3TC8B25;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = F93H8KHSB2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/SwiftyMocky-Example/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoapods.org.demo.Mocky-Example-macOS1223";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.Mocky-Example-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -2686,9 +2414,7 @@
 		};
 		CC5B61B41FCC16F8007FB209 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44584DB014A47595C33FBF7B /* Pods-Mocky_Tests_macOS.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2699,11 +2425,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = LFW3TC8B25;
+				DEVELOPMENT_TEAM = F93H8KHSB2;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "SwiftyMocky-Tests/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoapods.org.demo.Mocky-Example-macOSTests122";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.Mocky-Example-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
@@ -2714,9 +2440,7 @@
 		};
 		CC5B61B51FCC16F8007FB209 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0F0B024E7EFDB2727CEE125 /* Pods-Mocky_Tests_macOS.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2726,11 +2450,11 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = LFW3TC8B25;
+				DEVELOPMENT_TEAM = F93H8KHSB2;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "SwiftyMocky-Tests/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoapods.org.demo.Mocky-Example-macOSTests122";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.demo.Mocky-Example-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
@@ -2740,7 +2464,6 @@
 		};
 		CC6DE6A72715F0D900502AEE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5FAF6F747D4D4252AECA670 /* Pods-Mocky_Example_iOS_15.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2748,7 +2471,7 @@
 				INFOPLIST_FILE = "Mocky_Example_iOS_15-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -2757,7 +2480,6 @@
 		};
 		CC6DE6A82715F0D900502AEE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D290CFFDAAD79EDAC911BB4A /* Pods-Mocky_Example_iOS_15.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2765,7 +2487,7 @@
 				INFOPLIST_FILE = "Mocky_Example_iOS_15-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -2774,7 +2496,6 @@
 		};
 		CC6DE6D72715F23600502AEE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8800E89CF0FDD37D5C97682 /* Pods-Mocky_Tests_iOS_15.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2790,7 +2511,7 @@
 				INFOPLIST_FILE = "Mocky_Tests_iOS_15-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D IOS15";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mocky_Example_iOS_15.app/Mocky_Example_iOS_15";
@@ -2799,7 +2520,6 @@
 		};
 		CC6DE6D82715F23600502AEE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0DC19016F4652E71732B830 /* Pods-Mocky_Tests_iOS_15.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2811,7 +2531,7 @@
 				INFOPLIST_FILE = "Mocky_Tests_iOS_15-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D IOS15";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mocky_Example_iOS_15.app/Mocky_Example_iOS_15";
@@ -2828,12 +2548,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F93H8KHSB2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2872,11 +2592,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F93H8KHSB2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

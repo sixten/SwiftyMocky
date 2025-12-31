@@ -5,28 +5,6 @@ task :mock do
     sh "swift run swiftymocky generate"
 end
 
-task :mock_legacy do
-    print_info "Generating mocks - iOS"
-    sh "Pods/Sourcery/bin/sourcery --config .legacy/.mocky.iOS.yml"
-    print_info "Generating mocks - tvOS"
-    sh "Pods/Sourcery/bin/sourcery --config .legacy/.mocky.tvOS.yml"
-    print_info "Generating mocks - macOS"
-    sh "Pods/Sourcery/bin/sourcery --config .legacy/.mocky.macOS.yml"
-    print_info "Generating mocks - SPM"
-    sh "Pods/Sourcery/bin/sourcery --config .legacy/.mocky.spm.yml"
-end
-
-task :debug do
-    print_info "Generating mocks - iOS - debug"
-    sh "Pods/Sourcery/bin/sourcery --config .mocky.iOS.yml --disableCache --verbose"
-    print_info "Generating mocks - tvOS - debug"
-    sh "Pods/Sourcery/bin/sourcery --config .mocky.tvOS.yml --disableCache --verbose"
-    print_info "Generating mocks - macOS - debug"
-    sh "Pods/Sourcery/bin/sourcery --config .mocky.macOS.yml --disableCache --verbose"
-    print_info "Generating mocks - SPM - debug"
-    sh "Pods/Sourcery/bin/sourcery --config .mocky.spm.yml --disableCache --verbose"
-end
-
 ## [ Tools ] ###################################################################
 
 task :update do
@@ -82,10 +60,6 @@ task :test do
     sh "ice test"
 end
 
-task :xcode do
-    sh "open SwiftyMocky.xcworkspace"
-end
-
 ## [ Deploy ] ##################################################################
 
 desc "Sets new version"
@@ -102,8 +76,6 @@ task :version do
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./SwiftyMocky-Runtime/Info.plist")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Templates/Header-Mock.swifttemplate")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Templates/Header-Prototype.swifttemplate")
-        sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./SwiftyMocky.podspec")
-        sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./SwiftyPrototype.podspec")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Makefile")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Sources/CLI/Core/Application.swift")
     else
@@ -123,36 +95,6 @@ namespace :cli do
         # sh "swift build -c release --disable-sandbox"
         sh "swift build -c release"
         sh "cp ./.build/release/swiftymocky ./bin/swiftymocky"
-    end
-end
-
-desc "Deploys new version of a binary, by pushing passed tag"
-task :deploy do
-    ARGV.each { |a| task a.to_sym do ; end }
-    version = ARGV[1].to_s
-    if version && !version.to_s.strip.empty?
-        sh("git commit -m \"Deploy #{version}\"")
-        sh("git push")
-        sh("git tag #{version} && git push --tags")
-        sh("pod trunk push ./SwiftyMocky.podspec")
-        sh("pod trunk push ./SwiftyPrototype.podspec")
-    else
-        print("Missing version!\n")
-        exit(1)
-    end
-end
-
-## [ CocoaPods ] ###############################################################
-
-desc "Install project dependencies"
-desc "In case of need, pod repo update will be invoked"
-task :pods do
-    begin
-        sh "pod install"
-    rescue
-        print_info "Install failed - trying repo update"
-        sh "pod repo update"
-        sh "pod install"
     end
 end
 
