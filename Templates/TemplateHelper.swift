@@ -11,7 +11,7 @@ func areThereCollisions(between methods: [MethodWrapper]) -> Bool {
     return false
 }
 
-// herlpers
+// helpers
 func uniques(methods: [SourceryRuntime.Method]) -> [SourceryRuntime.Method] {
     func returnTypeStripped(_ method: SourceryRuntime.Method) -> String {
         let returnTypeRaw = "\(method.returnTypeName)"

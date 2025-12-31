@@ -410,7 +410,6 @@
 		C8EF7B7F21FB423A00AFA545 /* TypeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWrapper.swift; sourceTree = "<group>"; };
 		C8EF7B8021FB423A00AFA545 /* SubscriptWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptWrapper.swift; sourceTree = "<group>"; };
 		C8EF7B8121FB423A00AFA545 /* ArgumentsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentsHelper.swift; sourceTree = "<group>"; };
-		C8EF7B8221FB423A00AFA545 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		C8EF7B8321FB423A00AFA545 /* VariableWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableWrapper.swift; sourceTree = "<group>"; };
 		C8EF7B8421FB423A00AFA545 /* MethodWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodWrapper.swift; sourceTree = "<group>"; };
 		C8EF7B8521FB429700AFA545 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
@@ -694,7 +693,6 @@
 			isa = PBXGroup;
 			children = (
 				C8EF7B8121FB423A00AFA545 /* ArgumentsHelper.swift */,
-				C8EF7B8221FB423A00AFA545 /* Current.swift */,
 				C8EF7B7921FB423A00AFA545 /* TemplateHelper.swift */,
 				C8EF7B7B21FB423A00AFA545 /* Helpers.swift */,
 				C8EF7B7A21FB423A00AFA545 /* ParameterWrapper.swift */,

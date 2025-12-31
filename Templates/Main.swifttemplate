@@ -521,6 +521,9 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
 <%_ var all = types.all
     all += types.protocols.map { $0 }
     all += types.protocolCompositions.map { $0 }
+    if #available(macOS 12, iOS 16, tvOS 16, *) {
+        all.sort(using: KeyPathComparator(\.name))
+    }
 -%>
 
 <%_
@@ -533,7 +536,7 @@ let content = try await withThrowingTaskGroup(of: (Int, String).self) { group in
     }
     var fullContent = [String](repeating: "", count: all.count)
     for try await (idx, content) in group {
-        fullContent.insert(content, at: idx)
+        fullContent[idx] = content
     }
     return fullContent.joined(separator: "")
 }
