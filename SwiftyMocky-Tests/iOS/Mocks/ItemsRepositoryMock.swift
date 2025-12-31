@@ -46,8 +46,6 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
 
 
 
-
-
     open func storeItems(items: [Item]) {
         addInvocation(.m_storeItems__items_items(Parameter<[Item]>.value(`items`)))
 		let perform = methodPerformValue(.m_storeItems__items_items(Parameter<[Item]>.value(`items`))) as? ([Item]) -> Void
@@ -243,7 +241,7 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
     private func matchingCalls(_ method: Verify, file: StaticString?, line: UInt?) -> Int {
         return matchingCalls(method.method, file: file, line: line).count
     }
-    private func givenGetterValue<T>(_ method: MethodType, _ message: String) -> T {
+    private func givenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -251,7 +249,7 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
             Failure(message)
         }
     }
-    private func optionalGivenGetterValue<T>(_ method: MethodType, _ message: String) -> T? {
+    private func optionalGivenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter? {
         do {
             return try methodReturnValue(method).casted()
         } catch {

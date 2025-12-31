@@ -37,8 +37,8 @@ func stringArray(fromArguments arguments: [String: Any], forKey key: String) -> 
     }
 }
 _%>
-// Generated with SwiftyMocky 4.2.0
-// Required Sourcery: 2.2.2
+// Generated with SwiftyMocky 4.3.0
+// Required Sourcery: 2.3.0
 
 <%_ for rule in swiftLintRules(argument) { -%>
     <%_ %><%= rule %>
@@ -70,7 +70,7 @@ func areThereCollisions(between methods: [MethodWrapper]) -> Bool {
     return false
 }
 
-// herlpers
+// helpers
 func uniques(methods: [SourceryRuntime.Method]) -> [SourceryRuntime.Method] {
     func returnTypeStripped(_ method: SourceryRuntime.Method) -> String {
         let returnTypeRaw = "\(method.returnTypeName)"
@@ -452,7 +452,7 @@ class TypeWrapper {
             let wrapped = "([\\(]\(generic)\(modifiers)[\\)\\.])"
             let constraint = "([<,]\(generic)\(modifiers)[>,\\.])"
             let arrays = "([\\[:]\(generic)\(modifiers)[\\],\\.:])"
-            let tuples = "([\\(,]\(generic)\(modifiers)[,\\.\\)])"
+            let tuples = "([\\(,](inout)*\(generic)\(modifiers)[,\\.\\)])"
             let closures = "((\\-\\>)\(generic)\(modifiers)[,\\.\\)])"
             let pattern = "\(wrapped)|\(constraint)|\(arrays)|\(tuples)|\(closures)"
             guard let regex = try? NSRegularExpression(pattern: pattern) else { return false }
@@ -1604,12 +1604,13 @@ class VariableWrapper {
     }
 }
 _%>
-func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: SubscriptRegistrar) async -> String {
+<%_
+func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptRegistrar: SubscriptRegistrar) async -> (Int, String) {
     var sourceryBuffer: String = ""
     var mockedCount = 0
     let autoMockable: Bool = type.inheritedTypes.contains("AutoMockable") || type.annotations["AutoMockable"] != nil
     let protocolToDecorate = types.protocols.first(where: { $0.name == (type.annotations["mock"] as? String) })
-    guard let aProtocol = autoMockable ? type : protocolToDecorate else { return sourceryBuffer }
+    guard let aProtocol = autoMockable ? type : protocolToDecorate else { return (idx, sourceryBuffer) }
     mockedCount += 1
     var current = Current()
     let associatedTypes: [String]? = Helpers.extractAssociatedTypes(from: aProtocol)
@@ -1617,6 +1618,7 @@ func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: 
     let typeAliases: [String] = Helpers.extractTypealiases(from: aProtocol)
     let genericTypesModifier: String = Helpers.extractGenericTypesModifier(associatedTypes)
     let genericTypesConstraints: String = Helpers.extractGenericTypesConstraints(associatedTypes)
+    current.selfType = "\(type.name)\(mockTypeName)\(genericTypesModifier)"
     let allSubscripts = aProtocol.allSubscripts
     let allVariables = uniques(variables: aProtocol.allVariables.filter({ !$0.isStatic }))
     let allStaticVariables = uniques(variables: aProtocol.allVariables.filter({ $0.isStatic }))
@@ -1718,11 +1720,6 @@ func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: 
     <%_ } %> <%_ -%>
 
   <%# ================================================== METHOD REGISTRATIONS -%><%_ -%>
-    <%_ if autoMockable { -%>
-    <%_ current.selfType = "\(type.name)\(mockTypeName)\(genericTypesModifier)" -%>
-    <%_ } else { %>
-    <%_ current.selfType = "\(type.name)\(mockTypeName)\(genericTypesModifier)" -%>
-    <%_ } %>
     <%_ let wrappedSubscripts = allSubscripts.map { wrapSubscript($0, current: current, subscriptRegistrar: subscriptRegistrar) } -%>
     <%_ let wrappedMethods = allMethods.map { wrapMethod($0, current: current, methodRegistrar: methodRegistrar) }.filter({ $0.wrappedInMethodType() }) -%>
     <%_ let wrappedVariables = allVariables.map { justWrap($0, current: current) } -%>
@@ -2032,7 +2029,7 @@ func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: 
     private func matchingCalls(_ method: Verify, file: StaticString?, line: UInt?) -> Int {
         return matchingCalls(method.method, file: file, line: line).count
     }
-    private func givenGetterValue<T>(_ method: MethodType, _ message: String) -> T {
+    private func givenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -2040,7 +2037,7 @@ func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: 
             Failure(message)
         }
     }
-    private func optionalGivenGetterValue<T>(_ method: MethodType, _ message: String) -> T? {
+    private func optionalGivenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter? {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -2102,14 +2099,14 @@ func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: 
     static private func matchingCalls(_ method: StaticVerify, file: StaticString?, line: UInt?) -> Int {
         return matchingCalls(method.method, file: file, line: line).count
     }
-    static private func givenGetterValue<T>(_ method: StaticMethodType, _ message: String) -> T {
+    static private func givenGetterValue<T_Mock_Getter>(_ method: StaticMethodType, _ message: String) -> T_Mock_Getter {
         do {
             return try methodReturnValue(method).casted()
         } catch {
             Failure(message)
         }
     }
-    static private func optionalGivenGetterValue<T>(_ method: StaticMethodType, _ message: String) -> T? {
+    static private func optionalGivenGetterValue<T_Mock_Getter>(_ method: StaticMethodType, _ message: String) -> T_Mock_Getter? {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -2123,30 +2120,31 @@ func generate(type: Type, methodRegistrar: MethodRegistrar, subscriptRegistrar: 
 <%_ } else { -%>
 <%_ } -%>
 // sourcery:end
-<%_ return sourceryBuffer -%>
+<%_ return (idx, sourceryBuffer) -%>
 <%_ } -%>
 
 <%# ================================================== SETUP -%><%_ -%>
 <%_ var all = types.all
     all += types.protocols.map { $0 }
     all += types.protocolCompositions.map { $0 }
+    if #available(macOS 12, iOS 16, tvOS 16, *) {
+        all.sort(using: KeyPathComparator(\.name))
+    }
 -%>
 
 <%_
 
-let content = try await withThrowingTaskGroup(of: String.self) { group in
-    for type in all {
+let content = try await withThrowingTaskGroup(of: (Int, String).self) { group in
+    for (idx, type) in all.enumerated() {
         group.addTask {
-            let methodRegistrar = MethodRegistrar()
-            let subscriptRegistrar = SubscriptRegistrar()
-            return await generate(type: type, methodRegistrar: methodRegistrar, subscriptRegistrar: subscriptRegistrar)
+            await generate(type: type, idx: idx, methodRegistrar: MethodRegistrar(), subscriptRegistrar: SubscriptRegistrar())
         }
     }
-    var fullContent = ""
-    for try await content in group {
-        fullContent.append(content)
+    var fullContent = [String](repeating: "", count: all.count)
+    for try await (idx, content) in group {
+        fullContent[idx] = content
     }
-    return fullContent
+    return fullContent.joined(separator: "")
 }
 if content.isEmpty {
 -%>

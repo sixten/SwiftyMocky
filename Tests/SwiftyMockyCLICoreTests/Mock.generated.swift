@@ -1,9 +1,9 @@
-// Generated using Sourcery 1.8.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 2.3.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
-// Generated with SwiftyMocky 4.2.0
-// Required Sourcery: 1.8.0
+// Generated with SwiftyMocky 4.3.0
+// Required Sourcery: 2.3.0
 
 
 import SwiftyMocky
@@ -11,6 +11,7 @@ import XCTest
 import Foundation
 import PathKit
 @testable import SwiftyMockyCLICore
+
 
 
 // MARK: - GenerationCommand
@@ -52,7 +53,6 @@ open class GenerationCommandMock: GenerationCommand, Mock {
         if scopes.contains(.given) { methodReturnValues = [] }
         if scopes.contains(.perform) { methodPerformValues = [] }
     }
-
 
 
 
@@ -290,7 +290,7 @@ open class GenerationCommandMock: GenerationCommand, Mock {
     private func matchingCalls(_ method: Verify, file: StaticString?, line: UInt?) -> Int {
         return matchingCalls(method.method, file: file, line: line).count
     }
-    private func givenGetterValue<T>(_ method: MethodType, _ message: String) -> T {
+    private func givenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -298,7 +298,7 @@ open class GenerationCommandMock: GenerationCommand, Mock {
             Failure(message)
         }
     }
-    private func optionalGivenGetterValue<T>(_ method: MethodType, _ message: String) -> T? {
+    private func optionalGivenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter? {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -311,6 +311,7 @@ open class GenerationCommandMock: GenerationCommand, Mock {
     }
 }
 
+// sourcery:end
 // MARK: - InstanceFactory
 
 open class InstanceFactoryMock: InstanceFactory, Mock {
@@ -350,7 +351,6 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
         if scopes.contains(.given) { methodReturnValues = [] }
         if scopes.contains(.perform) { methodPerformValues = [] }
     }
-
 
 
 
@@ -525,7 +525,7 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
     private func matchingCalls(_ method: Verify, file: StaticString?, line: UInt?) -> Int {
         return matchingCalls(method.method, file: file, line: line).count
     }
-    private func givenGetterValue<T>(_ method: MethodType, _ message: String) -> T {
+    private func givenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -533,7 +533,7 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
             Failure(message)
         }
     }
-    private func optionalGivenGetterValue<T>(_ method: MethodType, _ message: String) -> T? {
+    private func optionalGivenGetterValue<T_Mock_Getter>(_ method: MethodType, _ message: String) -> T_Mock_Getter? {
         do {
             return try methodReturnValue(method).casted()
         } catch {
@@ -546,3 +546,4 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
     }
 }
 
+// sourcery:end
