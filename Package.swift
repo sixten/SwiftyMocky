@@ -52,7 +52,7 @@ let package = Package(
             path: "./Tests/SwiftyMockyTests"
         ),
         .testTarget(
-            name: "RuntimeLibaryTests",
+            name: "RuntimeLibraryTests",
             dependencies: ["SwiftyMocky"]
         ),
         // CLI Executable
