@@ -11,9 +11,8 @@ let package = Package(
         .tvOS("16.6"),
     ],
     products: [
-        // XCTest Runtime libraries
+        // XCTest Runtime library
         .library(name: "SwiftyMocky", targets: ["SwiftyMocky"]),
-        .library(name: "SwiftyPrototype", targets: ["SwiftyPrototype"]),
         // CLI Executable
         .executable(name: "swiftymocky", targets: ["SwiftyMockyCLI"]),
     ],
@@ -31,11 +30,6 @@ let package = Package(
             name: "SwiftyMocky",
             path: "./Sources/SwiftyMocky",
             exclude: ["Mock.swifttemplate"]
-        ),
-        .target(
-            name: "SwiftyPrototype",
-            path: "./Sources/SwiftyPrototype",
-            exclude: ["Prototype.swifttemplate"]
         ),
         .target(
             name: "Shared",

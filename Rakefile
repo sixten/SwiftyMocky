@@ -17,27 +17,7 @@ task :update do
     sh "cd ./Templates && echo 'let mockTypeName = \"Mock\"' >> #{destination}"
     sh "cd ./Templates && cat ArgumentsHelper.swift >> #{destination}"
     sh "cd ./Templates && echo \"_%>\" >> #{destination}"
-    sh "cd ./Templates && cat Header-Mock.swifttemplate >> #{destination}"
-    sh "cd ./Templates && cat Imports.swifttemplate >> #{destination}"
-    sh "cd ./Templates && echo \"<%_\" >> #{destination}"
-    sh "cd ./Templates && cat TemplateHelper.swift >> #{destination}"
-    sh "cd ./Templates && cat Helpers.swift >> #{destination}"
-    sh "cd ./Templates && cat ParameterWrapper.swift >> #{destination}"
-    sh "cd ./Templates && cat TypeWrapper.swift >> #{destination}"
-    sh "cd ./Templates && cat MethodWrapper.swift >> #{destination}"
-    sh "cd ./Templates && cat SubscriptWrapper.swift >> #{destination}"
-    sh "cd ./Templates && cat VariableWrapper.swift >> #{destination}"
-    sh "cd ./Templates && echo \"_%>\" >> #{destination}"
-    sh "cd ./Templates && cat Main.swifttemplate >> #{destination}"
-
-    # Prepare SwiftyPrototype template
-    destination = "../Sources/SwiftyPrototype/Prototype.swifttemplate"
-    sh "rm -rf #{destination}"
-    sh "cd ./Templates && echo \"<%_\" > #{destination}"
-    sh "cd ./Templates && echo 'let mockTypeName = \"Prototype\"' >> #{destination}"
-    sh "cd ./Templates && cat ArgumentsHelper.swift >> #{destination}"
-    sh "cd ./Templates && echo \"_%>\" >> #{destination}"
-    sh "cd ./Templates && cat Header-Prototype.swifttemplate >> #{destination}"
+    sh "cd ./Templates && cat Header.swifttemplate >> #{destination}"
     sh "cd ./Templates && cat Imports.swifttemplate >> #{destination}"
     sh "cd ./Templates && echo \"<%_\" >> #{destination}"
     sh "cd ./Templates && cat TemplateHelper.swift >> #{destination}"
@@ -72,8 +52,7 @@ task :version do
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./guides/Installation.md")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./guides/Overview.md")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./SwiftyMocky-Runtime/Info.plist")
-        sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Templates/Header-Mock.swifttemplate")
-        sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Templates/Header-Prototype.swifttemplate")
+        sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Templates/Header.swifttemplate")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Makefile")
         sh("sed -i '' 's|#{version_from}|#{version_to}|g' ./Sources/CLI/Core/Application.swift")
     else
