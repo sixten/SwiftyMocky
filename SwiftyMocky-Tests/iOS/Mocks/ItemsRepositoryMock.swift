@@ -6,14 +6,10 @@
 //  Copyright © 2017 MakeAWishFoundation. All rights reserved.
 //
 
+@testable import Mocky_Example_iOS
 import Foundation
 import SwiftyMocky
 import XCTest
-#if IOS15
-    @testable import Mocky_Example_iOS_15
-#else
-    @testable import Mocky_Example_iOS
-#endif
 
 // sourcery: mock = "ItemsRepository"
 class ItemsRepositoryMock: ItemsRepository, Mock {
