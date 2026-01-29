@@ -27,7 +27,6 @@ mocky.macOS:
     - ./SwiftyMocky-Tests/macOS
     exclude:
     - ./SwiftyMocky-Example/Shared/Other/Excluded.generated.swift
-    - ./SwiftyMocky-Example/Shared/Swift5.5
   output: ./SwiftyMocky-Tests/macOS/Mocks/Mock.generated.swift
   targets:
   - Mocky_Tests_macOS
@@ -42,7 +41,6 @@ mocky.spm:
     - "./SwiftyMocky-Example/Shared"
     exclude:
     - ./SwiftyMocky-Example/Shared/Other/Excluded.generated.swift
-    - ./SwiftyMocky-Example/Shared/Swift5.5
   output: ./Tests/SwiftyMockyTests/Mock.generated.swift
   targets:
   - SwiftyMockyTests
