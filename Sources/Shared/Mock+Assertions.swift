@@ -54,6 +54,31 @@ public func Verify<T: StaticMock>(_ type: T.Type, _ count: Count, _ method: T.St
     T.verify(method, count: count, file: file, line: line)
 }
 
+// MARK: - Verify with builders
+
+/// Verify method calls using builder pattern.
+/// Returns a builder factory with methods that return builders.
+///
+/// Example:
+/// ```
+/// verify(mock).method().wasCalled()
+/// verify(mock).method().wasCalled(.once)
+/// verify(mock).method().wasNeverCalled()
+/// ```
+///
+/// - Parameters:
+///   - object: Mock instance
+///   - file: Source file for XCTest assertions
+///   - line: Source line for XCTest assertions
+/// - Returns: VerifyBuilderFactory for chaining
+public func verify<M: Mock>(
+    _ object: M,
+    file: StaticString = #file,
+    line: UInt = #line
+) -> M.VerifyBuilderFactory {
+    return object.buildVerify(file: file, line: line)
+}
+
 // MARK: - Given
 
 /// Setup return value for method stubs in mock instance. When this method will be called on mock, it
@@ -94,6 +119,22 @@ public func Given<T: StaticMock>(_ type: T.Type, _ method: T.StaticGiven, _ poli
     type.given(policy.apply(to: method))
 }
 
+/// Setup return value for method stubs using builder pattern.
+/// Returns a builder factory with methods that return builders.
+///
+/// Example:
+/// ```
+/// given(mock).method().willReturn(42)
+/// given(mock).method() ~> 42  // Using operator
+/// ```
+///
+/// - Parameters:
+///   - object: Mock instance
+/// - Returns: GivenBuilderFactory for chaining
+public func given<M: Mock>(_ object: M) -> M.GivenBuilderFactory {
+    return object.buildGiven()
+}
+
 // MARK: - Perform
 
 /// Setup perform closure for method stubs in mock instance. When this method will be called on mock, it
@@ -130,6 +171,40 @@ public func Perform<T: Mock>(_ object: T, _ method: T.Perform) {
 ///   - method: Static method signature with wrapped parameters (Parameter<ValueType>) and perform closure
 public func Perform<T: StaticMock>(_ object: T.Type, _ method: T.StaticPerform) {
     T.perform(method)
+}
+
+/// Setup perform closure using builder pattern.
+/// Returns a builder factory with methods that return builders.
+///
+/// Example:
+/// ```
+/// perform(mock).method().will {
+///     print("Method called!")
+/// }
+/// ```
+///
+/// - Parameters:
+///   - object: Mock instance
+/// - Returns: PerformBuilderFactory for chaining
+public func perform<M: Mock>(_ object: M) -> M.PerformBuilderFactory {
+    return object.buildPerform()
+}
+
+/// Synonym for `perform()` to avoid name conflicts with XCTest.
+/// Use this in XCTest-based code where `perform()` conflicts with XCTest's perform methods.
+///
+/// Example:
+/// ```
+/// execute(mock).method().will {
+///     print("Method called!")
+/// }
+/// ```
+///
+/// - Parameters:
+///   - object: Mock instance
+/// - Returns: PerformBuilderFactory for chaining
+public func execute<M: Mock>(_ object: M) -> M.PerformBuilderFactory {
+    return perform(object)
 }
 
 // MARK: - Helpers
@@ -194,4 +269,42 @@ private extension StubbingPolicy {
     func apply<T>(to method: T) -> T {
         return ((method as? WithStubbingPolicy)?.with(self) as? T) ?? method
     }
+}
+
+/// Syntactic sugar for `.willReturn()` with a single value.
+///
+/// Example:
+/// ```
+/// given(mock).method() ~> 42
+/// // Equivalent to:
+/// given(mock).method().willReturn(42)
+/// ```
+///
+/// - Parameters:
+///   - builder: GivenBuilder instance
+///   - value: Value to return
+public func ~> <M: Mock, R>(
+    builder: GivenBuilder<M, R>,
+    value: R
+) {
+    builder.willReturn(value)
+}
+
+/// Syntactic sugar for `.willReturn()` with a single value on throwing methods.
+///
+/// Example:
+/// ```
+/// given(mock).throwingMethod() ~> 42
+/// // Equivalent to:
+/// given(mock).throwingMethod().willReturn(42)
+/// ```
+///
+/// - Parameters:
+///   - builder: ThrowingGivenBuilder instance
+///   - value: Value to return
+public func ~> <M: Mock, R>(
+    builder: ThrowingGivenBuilder<M, R>,
+    value: R
+) {
+    builder.willReturn(value)
 }

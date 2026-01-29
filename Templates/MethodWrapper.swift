@@ -441,6 +441,29 @@ class MethodWrapper {
         }
     }
 
+    func givenFactoryName(prefix: String = "") -> String {
+        let (annotation, _, _) = methodInfo()
+        let clauseConstraints = whereClauseExpression()
+        let builder = method.throws || method.rethrows ? "ThrowingGivenBuilder" : "GivenBuilder"
+        let returnType = returnTypeStripped(method)
+
+        return "\(annotation)public func \(method.shortName)(\(parametersForProxySignature())) -> \(builder)<\(current.selfType), \(returnType)>" + clauseConstraints
+    }
+
+    func givenFactoryBody(prefix: String = "") -> String {
+        let builder = method.throws || method.rethrows ? "ThrowingGivenBuilder" : "GivenBuilder"
+        let params = if filteredParameters.isEmpty {
+            ""
+        } else {
+            "(\(parametersForProxyInit()))"
+        }
+        return """
+        \(builder)(mock: mock, stubFactory: { m, products in
+        \t\t\t\t\(prefix)Given(method: .\(prototype)\(params), products: products)
+        \t\t\t})
+        """
+    }
+
     // Given willProduce
     func givenProduceConstructorName(prefix: String = "") -> String {
         let returnTypeString = givenReturnTypeString()
@@ -491,6 +514,25 @@ class MethodWrapper {
     }
 
     // Verify
+    func verificationFactoryName(prefix: String = "") -> String {
+        let (annotation, _, genericConstraints) = methodInfo()
+        let methodName: String
+        if methodRegistrar.returnTypeMatters(uniqueName: uniqueName) {
+            methodName = method.shortName
+        }
+        else {
+            let generics = getGenericsAmongParameters(andReturnType: true)
+            methodName = "\(method.callName)\(wrapGenerics(generics))"
+        }
+        let returnType = returnTypeStripped(method)
+        return "\(annotation)public func \(methodName)(\(parametersForProxySignature())) -> \(prefix)VerifyBuilder<\(current.selfType), \(returnType)>\(genericConstraints)"
+    }
+
+    func verificationFactoryBody(prefix: String = "") -> String {
+        let returnType = returnTypeStripped(method)
+        return "VerifyBuilder(mock: mock, method: \(verificationProxyConstructor()), returning: (\(returnType)).self, file: file, line: line)"
+    }
+
     func verificationProxyConstructorName(prefix: String = "") -> String {
         let (annotation, methodName, genericConstrains) = methodInfo()
 
@@ -503,13 +545,54 @@ class MethodWrapper {
 
     func verificationProxyConstructor(prefix: String = "") -> String {
         if filteredParameters.isEmpty {
-            return "return \(prefix)Verify(method: .\(prototype))"
+            return "\(prefix)Verify(method: .\(prototype))"
         } else {
-            return "return \(prefix)Verify(method: .\(prototype)(\(parametersForProxyInit())))"
+            return "\(prefix)Verify(method: .\(prototype)(\(parametersForProxyInit())))"
         }
     }
 
     // Perform
+    func performFactoryName(prefix: String = "") -> String {
+        let (annotation, _, genericConstraints) = methodInfo()
+        let methodName: String
+        if methodRegistrar.returnTypeMatters(uniqueName: uniqueName) {
+            methodName = method.shortName
+        }
+        else {
+            let generics = getGenericsAmongParameters(andReturnType: true)
+            methodName = "\(method.callName)\(wrapGenerics(generics))"
+        }
+        let returnType = method.returnTypeName.isVoid ? "Void" : returnTypeStripped(method)
+        let body = if filteredParameters.isEmpty {
+            "\(annotation)public func \(methodName)() -> PerformBuilder<\(current.selfType), \(returnType)>"
+        } else {
+            "\(annotation)public func \(methodName)(\(parametersForProxySignature())) -> ParameterizedPerformBuilder<\(current.selfType), \(performProxyClosureType()), \(returnType)>\(genericConstraints)"
+        }
+        return replacingSelf(body, current: current)
+    }
+
+    func performFactoryBody(prefix: String = "") -> String {
+        let returnType = if method.returnTypeName.isVoid {
+            "Void.self"
+        }
+        else {
+            replacingSelf("(\(returnTypeStripped(method))).self", current: current)
+        }
+        if filteredParameters.isEmpty {
+            return """
+            PerformBuilder(mock: mock, returning: \(returnType), performFactory: { m, __cl0sur3__ in
+            \t\t\t\t\(prefix)Perform(method: .\(prototype), performs: __cl0sur3__)
+            \t\t\t})
+            """
+        } else {
+            return """
+            ParameterizedPerformBuilder(mock: mock, returning: \(returnType), performFactory: { m, __cl0sur3__ in
+            \t\t\t\t\(prefix)Perform(method: .\(prototype)(\(parametersForProxyInit())), performs: __cl0sur3__)
+            \t\t\t})
+            """
+        }
+    }
+
     func performProxyConstructorName(prefix: String = "") -> String {
         let body: String = {
             let (annotation, methodName, genericConstrains) = methodInfo()
@@ -664,8 +747,11 @@ class MethodWrapper {
         }
     }
 
-    private func getGenericsAmongParameters() -> [String] {
+    private func getGenericsAmongParameters(andReturnType: Bool = false) -> [String] {
         return getGenericsWithoutConstraints().filter {
+            if andReturnType {
+                if TypeWrapper(method.returnTypeName, current: current).isGeneric([$0]) { return true }
+            }
             for param in self.parameters {
                 if param.isGeneric([$0]) { return true }
             }

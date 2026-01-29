@@ -16,6 +16,13 @@ public protocol Mock: AnyObject {
     /// Perform type
     associatedtype Perform
 
+    /// Builder factory type for builder-based stubbing
+    associatedtype GivenBuilderFactory
+    /// Builder factory type for builder-based performance
+    associatedtype PerformBuilderFactory
+    /// Builder factory type for builder-based verification
+    associatedtype VerifyBuilderFactory
+
     /// Registers return value for stubbed method, for specified attributes set.
     ///
     /// When this method will be called on mock, it will check for first matching given, with following rules:
@@ -48,7 +55,7 @@ public protocol Mock: AnyObject {
     /// - Parameter method: signature, with attributes (any or explicit value). Type `.` for all available
     func perform(_ method: Perform)
 
-    /// Verifies, that given method stub was called exact number of times.
+    /// Verifies that the given method stub was called exact number of times.
     ///
     /// - Parameters:
     ///   - method: Method signature with wrapped parameters (Parameter<ValueType>)
@@ -56,6 +63,21 @@ public protocol Mock: AnyObject {
     ///   - file: for XCTest print purposes
     ///   - line: for XCTest print purposes
     func verify(_ method: Verify, count: Count, file: StaticString, line: UInt)
+
+    /// Returns a builder factory for stubbing
+    /// - Returns: An instance of `GivenBuilderFactory`
+    func buildGiven() -> GivenBuilderFactory
+
+    /// Returns a builder factory for performance
+    /// - Returns: An instance of `PerformBuilderFactory`
+    func buildPerform() -> PerformBuilderFactory
+
+    /// Returns a builder factory for verification
+    /// - Parameters:
+    ///   - file: Source file for XCTest assertions
+    ///   - line: Source line for XCTest assertions
+    /// - Returns: An instance of `VerifyBuilderFactory`
+    func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory
 
     /// Clear mock internals. You can specify what to clear (invocations aka verify, givens or performs)
     /// or leave it empty to clear all mock internals.

@@ -16,6 +16,7 @@
 		1FF5F7DF2F2ABEE7006C47ED /* ClosureAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5F7DD2F2ABEE7006C47ED /* ClosureAttributes.swift */; };
 		1FF5F7E12F2ABF33006C47ED /* ClosureAttributeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5F7E02F2ABF2D006C47ED /* ClosureAttributeTests.swift */; };
 		1FF5F7E22F2ABF33006C47ED /* ClosureAttributeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5F7E02F2ABF2D006C47ED /* ClosureAttributeTests.swift */; };
+		1FF5F7E52F2BFE3F006C47ED /* Builders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5F7E42F2BFE3F006C47ED /* Builders.swift */; };
 		6C3186EF22DF613C00746DCC /* ProtocolWithGenericConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186EC22DF613C00746DCC /* ProtocolWithGenericConstraints.swift */; };
 		6C3186F422DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3186F122DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift */; };
 		C81D094F22C0C59800A0427F /* CustomAssertionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D094C22C0C59800A0427F /* CustomAssertionsTests.swift */; };
@@ -212,6 +213,7 @@
 		023E5B0825ECD4B400B975CD /* ComposedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposedServiceTests.swift; sourceTree = "<group>"; };
 		1FF5F7DD2F2ABEE7006C47ED /* ClosureAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureAttributes.swift; sourceTree = "<group>"; };
 		1FF5F7E02F2ABF2D006C47ED /* ClosureAttributeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureAttributeTests.swift; sourceTree = "<group>"; };
+		1FF5F7E42F2BFE3F006C47ED /* Builders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builders.swift; sourceTree = "<group>"; };
 		6C3186EC22DF613C00746DCC /* ProtocolWithGenericConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolWithGenericConstraints.swift; sourceTree = "<group>"; };
 		6C3186F122DF67D800746DCC /* ProtocolWithGenericConstraintsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolWithGenericConstraintsTests.swift; sourceTree = "<group>"; };
 		C81D094C22C0C59800A0427F /* CustomAssertionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAssertionsTests.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 		CC16ADB1249BE9F7003FC808 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1FF5F7E42F2BFE3F006C47ED /* Builders.swift */,
 				CC16ADB7249BE9F7003FC808 /* Count.swift */,
 				CC16ADB3249BE9F7003FC808 /* Countable.swift */,
 				CC16ADBB249BE9F7003FC808 /* GenericAttribute.swift */,
@@ -1240,6 +1243,7 @@
 				CC7AC87D27162C88008E5753 /* SwiftyMockyTestObserver.swift in Sources */,
 				CC89CC072714E0DF0020A0F8 /* Parameter+Optionals.swift in Sources */,
 				CC16ADC2249BE9F7003FC808 /* Matcher.swift in Sources */,
+				1FF5F7E52F2BFE3F006C47ED /* Builders.swift in Sources */,
 				CC16ADBC249BE9F7003FC808 /* Parameter.swift in Sources */,
 				CC89CC052714E0DF0020A0F8 /* Parameter+Compare.swift in Sources */,
 				CC16ADBE249BE9F7003FC808 /* Countable.swift in Sources */,

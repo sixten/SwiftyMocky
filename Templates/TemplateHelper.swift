@@ -2,6 +2,7 @@ struct Current {
     var selfType: String = "Self"
     var accessModifier: String = "open"
 }
+
 // Collision management
 func areThereCollisions(between methods: [MethodWrapper]) -> Bool {
     let givenSet = Set<String>(methods.map({ $0.givenConstructorName(prefix: "") }))
@@ -126,6 +127,11 @@ func stubProperty(_ variable: SourceryRuntime.Variable, _ scope: String, current
 func propertyTypes(_ variable: SourceryRuntime.Variable, current: Current) -> String {
     let wrapper = VariableWrapper(variable, scope: "scope", current: current)
     return "\(wrapper.propertyGet())" + (wrapper.readonly ? "" : "\n\t\t\(wrapper.propertySet())")
+}
+
+func propertyVerifyFactories(_ variable: SourceryRuntime.Variable, current: Current) -> String {
+    let wrapper = VariableWrapper(variable, scope: "scope", current: current)
+    return "\(wrapper.propertyVerifyGetFactory())" + (wrapper.readonly ? "" : "\n\t\t\(wrapper.propertyVerifySetFactory())")
 }
 
 func propertyMethodTypes(_ variable: SourceryRuntime.Variable, current: Current) -> String {

@@ -161,6 +161,16 @@ class SubscriptWrapper {
         return "return Given(method: .\(subscriptCasePrefix("get"))(\(parametersForProxyInit())), products: willReturn.map({ StubProduct.return($0 as Any) }))"
     }
 
+    func givenFactoryName() -> String {
+        let returnTypeString = returnsSelf ? replaceSelf : TypeWrapper(wrapped.returnTypeName, current: current).stripped
+        var attributes = self.methodAttributesNonObjc
+        attributes = attributes.isEmpty ? "" : "\(attributes)\n\t\t"
+        return "\(attributes)public func `subscript`\(genericTypesModifier ?? "")(\(parametersForProxySignature())) -> GivenBuilder<\(current.selfType), \(returnTypeString)>"
+    }
+    func givenFactoryBody() -> String {
+        return "Given(method: .\(subscriptCasePrefix("get"))(\(parametersForProxyInit())), products: products)"
+    }
+
     // Verify
     func verifyConstructorName(set: Bool = false) -> String {
         let returnTypeString = returnsSelf ? replaceSelf : nestedType
@@ -170,7 +180,18 @@ class SubscriptWrapper {
         return "\(attributes)public static func `subscript`\(genericTypesModifier ?? "")(\(parametersForProxySignature())\(returning)\(set ? ", set newValue: \(returnTypeString)" : "")) -> Verify"
     }
     func verifyConstructor(set: Bool = false) -> String {
-        return "return Verify(method: .\(subscriptCasePrefix(set ? "set" : "get"))(\(parametersForProxyInit(set: set))))"
+        return "Verify(method: .\(subscriptCasePrefix(set ? "set" : "get"))(\(parametersForProxyInit(set: set))))"
+    }
+    func verifyFactoryName(set: Bool = false) -> String {
+        let returnTypeString = set ? "Void" : TypeWrapper(wrapped.returnTypeName, current: current).stripped
+        var attributes = self.methodAttributesNonObjc
+        attributes = attributes.isEmpty ? "" : "\(attributes)\n\t\t"
+        return "\(attributes)public func `subscript`\(genericTypesModifier ?? "")(\(parametersForProxySignature())\(set ? ", set newValue: \(nestedType)" : "")) -> VerifyBuilder<\(current.selfType), \(returnTypeString)>"
+    }
+    func verifyFactoryBody(set: Bool = false) -> String {
+        let returnType = TypeWrapper(wrapped.returnTypeName, current: current).stripped
+        let returnTypeString = set ? "Void.self" : "(\(returnType)).self"
+        return "VerifyBuilder(mock: mock, method: \(verifyConstructor(set: set)), returning: \(returnTypeString), file: file, line: line)"
     }
 
     // Generics

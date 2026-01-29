@@ -12,7 +12,7 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
     let typeAliases: [String] = Helpers.extractTypealiases(from: aProtocol)
     let genericTypesModifier: String = Helpers.extractGenericTypesModifier(associatedTypes)
     let genericTypesConstraints: String = Helpers.extractGenericTypesConstraints(associatedTypes)
-    current.selfType = "\(type.name)\(mockTypeName)\(genericTypesModifier)"
+    current.selfType = autoMockable ? "\(type.name)\(mockTypeName)\(genericTypesModifier)" : type.name
     let allSubscripts = aProtocol.allSubscripts
     let allVariables = uniques(variables: aProtocol.allVariables.filter({ !$0.isStatic }))
     let allStaticVariables = uniques(variables: aProtocol.allVariables.filter({ $0.isStatic }))
@@ -197,7 +197,7 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -231,7 +231,7 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
         fileprivate var method: StaticMethodType
 
         <%_ for method in wrappedStaticMethodsForMethodType { -%>
-        <%= method.verificationProxyConstructorName(prefix: "Static") -%> { <%= method.verificationProxyConstructor(prefix: "Static") _%> }
+        <%= method.verificationProxyConstructorName(prefix: "Static") -%> { return <%= method.verificationProxyConstructor(prefix: "Static") _%> }
         <%_ } %> <%_ -%>
         <%_ for variable in allStaticVariables { -%>
         <%= propertyTypes(variable, current: current) %>
@@ -307,7 +307,7 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -346,15 +346,15 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
         fileprivate var method: MethodType
 
         <%_ for method in wrappedMethodsForMethodType { -%>
-        <%= method.verificationProxyConstructorName() -%> { <%= method.verificationProxyConstructor() _%> }
+        <%= method.verificationProxyConstructorName() -%> { return <%= method.verificationProxyConstructor() _%> }
         <%_ } %> <%_ -%>
         <%_ for variable in allVariables { -%>
         <%= propertyTypes(variable, current: current) %>
         <%_ } %> <%_ -%>
         <%_ for wrapped in wrappedSubscripts { -%>
-        <%= wrapped.verifyConstructorName() -%> { <%= wrapped.verifyConstructor() _%> }
+        <%= wrapped.verifyConstructorName() -%> { return <%= wrapped.verifyConstructor() _%> }
         <%_ if !wrapped.readonly { -%>
-        <%= wrapped.verifyConstructorName(set: true) -%> { <%= wrapped.verifyConstructor(set: true) _%> }
+        <%= wrapped.verifyConstructorName(set: true) -%> { return <%= wrapped.verifyConstructor(set: true) _%> }
         <%_ } -%>
         <%_ } %> <%_ -%>
     }
@@ -367,6 +367,67 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
         <%= method.performProxyConstructorName() -%> {
             <%= method.performProxyConstructor() _%>
         }
+        <%_ } %> <%_ -%>
+    }
+
+  <%# ================================================== BUILDER FACTORIES -%><%_ -%>
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: <%= current.selfType %>
+
+        <%_ for variable in allVariables { -%>
+        <%= wrapProperty(variable, current: current).givenFactoryName() -%> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                <%= wrapProperty(variable, current: current).givenFactoryBody() _%>
+            })
+        }
+        <%_ } %> <%_ %>
+        <%_ for method in wrappedMethodsForMethodType.filter({ !$0.method.isInitializer && (!$0.method.returnTypeName.isVoid || $0.method.throws || $0.method.rethrows) }) { -%>
+        <%= method.givenFactoryName() -%> {
+            <%= method.givenFactoryBody() _%>
+        }
+        <%_ } -%>
+        <%_ for wrapped in wrappedSubscripts { -%>
+        <%= wrapped.givenFactoryName() -%> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                <%= wrapped.givenFactoryBody() _%>
+            })
+        }
+        <%_ } -%>
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: <%= current.selfType %>
+        
+        <%_ for method in wrappedMethodsForMethodType { -%>
+        <%= method.performFactoryName() -%> {
+            <%= method.performFactoryBody() _%>
+        }
+        <%_ } %> <%_ -%>
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: <%= current.selfType %>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        <%_ for method in wrappedMethodsForMethodType { -%>
+        <%= method.verificationFactoryName() -%> {
+            <%= method.verificationFactoryBody() _%>
+        }
+        <%_ } %> <%_ -%>
+        <%_ for variable in allVariables { -%>
+        <%= propertyVerifyFactories(variable, current: current) %>
+        <%_ } %> <%_ -%>
+        <%_ for wrapped in wrappedSubscripts { -%>
+        <%= wrapped.verifyFactoryName() -%> {
+            <%= wrapped.verifyFactoryBody() _%>
+        }
+        <%_ if !wrapped.readonly { -%>
+        <%= wrapped.verifyFactoryName(set: true) -%> {
+            <%= wrapped.verifyFactoryBody(set: true) _%>
+        }
+        <%_ } -%>
         <%_ } %> <%_ -%>
     }
 
@@ -396,6 +457,20 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+  <%# ================================================== BUILDER FACTORY METHODS -%><%_ -%>
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {

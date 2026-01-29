@@ -81,6 +81,15 @@ class VariableWrapper {
         return "public static func \(variable.name)(set newValue: \(nestedType)) -> \(staticModifier)Verify { return \(staticModifier)Verify(method: .\(propertyCaseSetName)(newValue)) }"
     }
 
+    func propertyVerifyGetFactory() -> String {
+        let strippedType = TypeWrapper(variable.typeName, current: current).stripped
+        return "public var \(variable.name): VerifyBuilder<\(current.selfType), \(strippedType)> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseGetName)), returning: (\(strippedType)).self, file: file, line: line) }"
+    }
+
+    func propertyVerifySetFactory() -> String {
+        return "public func \(variable.name)(set newValue: \(nestedType)) -> VerifyBuilder<\(current.selfType), Void> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseSetName)(newValue)), returning: Void.self, file: file, line: line) }"
+    }
+
     var propertyCaseGetName: String { return "p_\(variable.name)_get".replacingOccurrences(of: "`", with: "") }
     func propertyCaseGet() -> String {
         return "case \(propertyCaseGetName)"
@@ -114,5 +123,14 @@ class VariableWrapper {
 
     func givenConstructor(prefix: String = "") -> String {
         return "return \(prefix)Given(method: .\(propertyCaseGetName), products: defaultValue.map({ StubProduct.return($0 as Any) }))"
+    }
+
+    func givenFactoryName(prefix: String = "") -> String {
+        let typeName = TypeWrapper(variable.typeName, current: current).stripped
+        return "\(attributes)func \(variable.name)(getter defaultValue: \(typeName)...) -> GivenBuilder<\(current.selfType), \(typeName)>"
+    }
+
+    func givenFactoryBody(prefix: String = "") -> String {
+        return "\(prefix)Given(method: .\(propertyCaseGetName), products: products)"
     }
 }
