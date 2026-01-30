@@ -51,6 +51,24 @@ class SimpleProtocolsTests: XCTestCase {
         mock.verify(.simpleMehtodThatReturns(), count: 3) // Can use vrify directly on mock instance
     }
 
+    func test_simpleProtocol_methodThatReturns_builderAPI() {
+        let mock = SimpleProtocolWithMethodsMock()
+
+        // New builder API version
+        verify(mock).simpleMehtodThatReturns().wasNeverCalled()
+
+        given(mock).simpleMehtodThatReturns().willReturn(0)
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 0, "Should return 0")
+
+        given(mock).simpleMehtodThatReturns().willReturn(3)
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 3, "Should return 3")
+
+        given(mock).simpleMehtodThatReturns().willReturn(-15)
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), -15, "Should return -15")
+
+        verify(mock).simpleMehtodThatReturns().wasCalled(.exactly(3))
+    }
+
     func test_simpleProtocol_methodThatReturns_attributes_verifyMatching() {
         let mock = SimpleProtocolWithMethodsMock()
 
@@ -69,6 +87,27 @@ class SimpleProtocolsTests: XCTestCase {
         Verify(mock, 2, .simpleMehtodThatReturns(param: .matching({ $0.count > 3 })))
         Verify(mock, 3, .simpleMehtodThatReturns(param: .matching({ $0.count == 3 })))
         Verify(mock, 5, .simpleMehtodThatReturns(param: .any))
+    }
+
+    func test_simpleProtocol_methodThatReturns_attributes_verifyMatching_builderAPI() {
+        let mock = SimpleProtocolWithMethodsMock()
+
+        // New builder API version
+        verify(mock).simpleMehtodThatReturns(param: .any).wasNeverCalled()
+
+        given(mock).simpleMehtodThatReturns(param: .matching({ $0.contains("a") })).willReturn("1")
+        given(mock).simpleMehtodThatReturns(param: .matching({ $0 == "aaa" })).willReturn("3")
+        given(mock).simpleMehtodThatReturns(param: .any).willReturn("no a at all")
+
+        XCTAssertEqual(mock.simpleMehtodThatReturns(param: "qqq"), "no a at all")
+        XCTAssertEqual(mock.simpleMehtodThatReturns(param: "aaa"), "3")
+        XCTAssertEqual(mock.simpleMehtodThatReturns(param: "aas"), "1")
+        XCTAssertEqual(mock.simpleMehtodThatReturns(param: "Makaron"), "1")
+        XCTAssertEqual(mock.simpleMehtodThatReturns(param: "kotlet"), "no a at all")
+
+        verify(mock).simpleMehtodThatReturns(param: .matching({ $0.count > 3 })).wasCalled(.exactly(2))
+        verify(mock).simpleMehtodThatReturns(param: .matching({ $0.count == 3 })).wasCalled(.exactly(3))
+        verify(mock).simpleMehtodThatReturns(param: .any).wasCalled(.exactly(5))
     }
 
     func test_simpleProtocol_methodsThatReturns_attributes() {
@@ -234,5 +273,68 @@ class SimpleProtocolsTests: XCTestCase {
         Verify(mock, .less(than: 2), .propertyImplicit(set: .matching({ $0! < 2 })))
         Verify(mock, .moreOrEqual(to: 4), .propertyImplicit(set: .matching({ $0! > 0 })))
         XCTAssertEqual(mock.propertyImplicit, 7)
+    }
+
+    func test_verify_count_variations_builderAPI() {
+        let mock = SimpleProtocolWithMethodsMock()
+
+        // New builder API version - test all Count variations
+        verify(mock).simpleMethod().wasNeverCalled()
+        verify(mock).simpleMethod().wasCalled(.never)
+
+        mock.simpleMethod()
+        verify(mock).simpleMethod().wasCalled(.atLeastOnce)
+        verify(mock).simpleMethod().wasCalled(.once)
+
+        mock.simpleMethod()
+        mock.simpleMethod()
+
+        verify(mock).simpleMethod().wasCalled(.exactly(3))
+        verify(mock).simpleMethod().wasCalled(.more(than: 2))
+        verify(mock).simpleMethod().wasCalled(.moreOrEqual(to: 3))
+        verify(mock).simpleMethod().wasCalled(.less(than: 4))
+        verify(mock).simpleMethod().wasCalled(.lessOrEqual(to: 3))
+
+        mock.simpleMethod()
+        mock.simpleMethod()
+
+        verify(mock).simpleMethod().wasCalled(.from(3, to: 7))
+    }
+
+    func test_willProduce_with_simple_types_builderAPI() {
+        let mock = SimpleProtocolWithMethodsMock()
+
+        // New builder API version - willProduce with simple types
+        given(mock).simpleMehtodThatReturns().willProduce { stub in
+            stub.return(10)
+            stub.return(20)
+            stub.return(30)
+        }
+
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 10)
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 20)
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 30)
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 10)  // Cycles back
+        XCTAssertEqual(mock.simpleMehtodThatReturns(), 20)
+    }
+
+    func test_void_method_with_execute_builderAPI() {
+        let mock = SimpleProtocolWithMethodsMock()
+
+        // New builder API version - void method side effects
+        var callCount = 0
+        execute(mock).simpleMethod().will {
+            callCount += 1
+        }
+
+        XCTAssertEqual(callCount, 0)
+        mock.simpleMethod()
+        XCTAssertEqual(callCount, 1)
+        mock.simpleMethod()
+        XCTAssertEqual(callCount, 2)
+        mock.simpleMethod()
+        XCTAssertEqual(callCount, 3)
+
+        verify(mock).simpleMethod().wasCalled(.exactly(3))
     }
 }

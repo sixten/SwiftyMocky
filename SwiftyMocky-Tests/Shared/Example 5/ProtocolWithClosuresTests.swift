@@ -65,4 +65,26 @@ class ProtocolWithClosuresTests: XCTestCase {
             XCTFail("Error: \(error)")
         }
     }
+
+    func test_completion_block_based_approach_builderAPI() {
+        let mock = ProtocolWithClosuresMock()
+
+        let calledCompletionBlock = expectation(description: "Should call completion block")
+
+        // New builder API version
+        execute(mock).methodThatTakesCompletionBlock(completion: .any).will { (completion) in
+            completion(true, nil)
+        }
+
+        mock.methodThatTakesCompletionBlock { (success, error) in
+            calledCompletionBlock.fulfill()
+            XCTAssertTrue(success)
+            XCTAssertNil(error)
+        }
+
+        waitForExpectations(timeout: 0.5) { (error) in
+            guard let error = error else { return }
+            XCTFail("Error: \(error)")
+        }
+    }
 }

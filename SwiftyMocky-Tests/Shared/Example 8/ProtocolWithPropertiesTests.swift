@@ -25,12 +25,12 @@ class ProtocolsWithPropertiesTests: XCTestCase {
         mock.name = "danny_13"
 
         // Get properties randomly between 10 and 20 times
-        let upper: Int = 10 + Int(arc4random_uniform(10))
+        let upper = Int.random(in: 10..<20)
         for _ in 1...upper {
             XCTAssertEqual(mock.name, "danny_13")
         }
 
-        Verify(mock, .from(10, to: 20), .name)
+        Verify(mock, .exactly(upper), .name)
     }
 
     func test_properties_setters() {
@@ -40,13 +40,13 @@ class ProtocolsWithPropertiesTests: XCTestCase {
         Verify(mock, .never, .name(set: .any))
 
         // Get properties randomly between 10 and 20 times
-        let upper: Int = 10 + Int(arc4random_uniform(10))
+        let upper = Int.random(in: 10..<20)
         for i in 1...upper {
             mock.name = "danny_\(i)"
         }
 
-        Verify(mock, .atLeastOnce, .name(set: .value("danny_1")))
-        Verify(mock, .from(10, to: 20), .name(set: .any))
+        Verify(mock, .once, .name(set: .value("danny_1")))
+        Verify(mock, .exactly(upper), .name(set: .any))
     }
 
     func test_static_properties_getters() {
@@ -59,12 +59,12 @@ class ProtocolsWithPropertiesTests: XCTestCase {
         mock.name = "danny_13"
 
         // Get properties randomly between 10 and 20 times
-        let upper: Int = 10 + Int(arc4random_uniform(10))
+        let upper = Int.random(in: 10..<20)
         for _ in 1...upper {
             XCTAssertEqual(mock.name, "danny_13")
         }
 
-        Verify(mock, .from(10, to: 20), .name)
+        Verify(mock, .exactly(upper), .name)
     }
 
     func test_static_properties_setters() {
@@ -75,12 +75,49 @@ class ProtocolsWithPropertiesTests: XCTestCase {
         Verify(mock, .never, .name(set: .any))
 
         // Get properties randomly between 10 and 20 times
-        let upper: Int = 10 + Int(arc4random_uniform(10))
+        let upper = Int.random(in: 10..<20)
         for i in 1...upper {
             mock.name = "danny_\(i)"
         }
 
-        Verify(mock, .atLeastOnce, .name(set: .value("danny_1")))
-        Verify(mock, .from(10, to: 20), .name(set: .any))
+        Verify(mock, .once, .name(set: .value("danny_1")))
+        Verify(mock, .exactly(upper), .name(set: .any))
+    }
+
+    // MARK: - Builder API Tests
+
+    func test_properties_getters_builderAPI() {
+        let mock = ProtocolWithPropertiesMock()
+
+        // New builder API version
+        verify(mock).name.wasNeverCalled()
+        verify(mock).name(set: .any).wasNeverCalled()
+
+        mock.name = "danny_13"
+
+        // Get properties randomly between 10 and 20 times
+        let upper = Int.random(in: 10..<20)
+        for _ in 1...upper {
+            XCTAssertEqual(mock.name, "danny_13")
+        }
+
+        verify(mock).name.wasCalled(.exactly(upper))
+    }
+
+    func test_properties_setters_builderAPI() {
+        let mock = ProtocolWithPropertiesMock()
+
+        // New builder API version
+        verify(mock).name.wasNeverCalled()
+        verify(mock).name(set: .any).wasNeverCalled()
+
+        // Set properties randomly between 10 and 20 times
+        let upper = Int.random(in: 10..<20)
+        for i in 1...upper {
+            mock.name = "danny_\(i)"
+        }
+
+        verify(mock).name(set: .value("danny_1")).wasCalled(.once)
+        verify(mock).name(set: .any).wasCalled(.exactly(upper))
     }
 }

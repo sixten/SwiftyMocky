@@ -56,6 +56,25 @@ class InoutParameterTests: XCTestCase {
         XCTAssertEqual(mock.returnAndInOut(value: &value), "A")
         XCTAssertEqual(value, 3)
     }
+
+    func testPerformWithInoutParams_builderAPI() {
+        let mock = InoutProtocolMock()
+
+        // New builder API version
+        given(mock).returnAndInOut(value: .any).willReturn("A")
+        execute(mock).returnAndInOut(value: .any).will { (value: inout Int) in
+            value += 1
+        }
+
+        var value = 0
+        XCTAssertEqual(value, 0)
+        XCTAssertEqual(mock.returnAndInOut(value: &value), "A")
+        XCTAssertEqual(value, 1)
+        XCTAssertEqual(mock.returnAndInOut(value: &value), "A")
+        XCTAssertEqual(value, 2)
+        XCTAssertEqual(mock.returnAndInOut(value: &value), "A")
+        XCTAssertEqual(value, 3)
+    }
     
     typealias IntClosure = (inout Int) -> Void
     
@@ -66,7 +85,26 @@ class InoutParameterTests: XCTestCase {
         Perform(mock, .genericInOutClosure(closure: .any(IntClosure.self), perform: { closure in
             closure(&value)
         }))
-        
+
+        mock.genericInOutClosure { value in
+            value += 1
+        }
+        XCTAssertEqual(value, 1)
+        mock.genericInOutClosure { value in
+            value += 10
+        }
+        XCTAssertEqual(value, 11)
+    }
+
+    func testPerformWithGenericInoutClosure_builderAPI() {
+        let mock = InoutProtocolMock()
+
+        // New builder API version
+        var value = 0
+        execute(mock).genericInOutClosure(closure: .any(IntClosure.self)).will { closure in
+            closure(&value)
+        }
+
         mock.genericInOutClosure { value in
             value += 1
         }

@@ -47,6 +47,32 @@ class ExampleTests: XCTestCase {
         XCTAssertEqual(others, 2)
     }
 
+    func testGivenExample_builderAPI() {
+        let mock = UserStorageTypeMock()
+
+        // New builder API version
+        given(mock).surname(for: .value("Johny")).willReturn("Bravo")
+        given(mock).surname(for: .any).willReturn("Kowalsky")
+
+        var joannas = 0
+        execute(mock).surname(for: .value("Joanna")).will { (value) in
+            print("\(value) should be Joanna")
+            joannas += 1
+        }
+
+        var others = 0
+        execute(mock).surname(for: .any).will { (value) in
+            print("\(value) should be different to Joanna")
+            others += 1
+        }
+
+        XCTAssertEqual(mock.surname(for: "Johny"), "Bravo")
+        XCTAssertEqual(mock.surname(for: "Mathew"), "Kowalsky")
+        XCTAssertEqual(mock.surname(for: "Joanna"), "Kowalsky")
+        XCTAssertEqual(joannas, 1)
+        XCTAssertEqual(others, 2)
+    }
+
     func testVerifyExample() {
         let sut = UsersViewModel()
         let mockStorage = UserStorageTypeMock()
@@ -65,6 +91,25 @@ class ExampleTests: XCTestCase {
         Verify(mockStorage, 2, .storeUser(name: .value("Johny"), surname: .any))
     }
 
+    func testVerifyExample_builderAPI() {
+        let sut = UsersViewModel()
+        let mockStorage = UserStorageTypeMock()
+
+        // inject mock to sut. Every time sut saves user data, it should trigger storage storeUser method
+        sut.usersStorage = mockStorage
+        sut.saveUser(name: "Johny", surname: "Bravo")
+        sut.saveUser(name: "Johny", surname: "Cage")
+        sut.saveUser(name: "Jon", surname: "Snow")
+
+        // New builder API version
+        // check is Jon Snow was stored at least one time
+        verify(mockStorage).storeUser(name: .value("Jon"), surname: .value("Snow")).wasCalled()
+        // total storeUser should be triggered 3 times, regardless of attributes values
+        verify(mockStorage).storeUser(name: .any, surname: .any).wasCalled(.exactly(3))
+        // two times it should be triggered with name Johny
+        verify(mockStorage).storeUser(name: .value("Johny"), surname: .any).wasCalled(.exactly(2))
+    }
+
     func test_completionBlocksBasedApproach() {
         let user = User(name: "Barabasz")
         let sut = UsersViewModel()
@@ -74,6 +119,31 @@ class ExampleTests: XCTestCase {
         Perform(mock, .getUser(for: .any, completion: .any, perform: { id, completion in
             completion(user)
         }))
+
+        let fetchExpectation = expectation(description: "Should call completion block after done")
+
+        sut.fetchUser() {
+            fetchExpectation.fulfill()
+            XCTAssertNotNil(sut.user)
+        }
+
+        waitForExpectations(timeout: 1) { (error) in
+            if let error = error {
+                XCTFail("Fetch user failed woth error: \(error)")
+            }
+        }
+    }
+
+    func test_completionBlocksBasedApproach_builderAPI() {
+        let user = User(name: "Barabasz")
+        let sut = UsersViewModel()
+        let mock = UserNetworkTypeMock(baseUrl: "http://someurl")
+        sut.userNetwork = mock
+
+        // New builder API version
+        execute(mock).getUser(for: .any, completion: .any).will { id, completion in
+            completion(user)
+        }
 
         let fetchExpectation = expectation(description: "Should call completion block after done")
 
@@ -106,6 +176,67 @@ class ExampleTests: XCTestCase {
         Given(mock, .methodThatReturnsAndThrows(param: .value("second"), willThrow: TestError.second))
         Given(mock, .methodThatReturnsAndThrows(param: .value("third"), willThrow: TestError.third))
         Given(mock, .methodThatReturnsAndThrows(param: .value("danny"), willReturn: 1))
+
+        do {
+            let value = try mock.methodThatReturnsAndThrows(param: "aaa")
+            XCTAssertEqual(value, 0)
+        } catch {
+            XCTFail("Should not fail")
+        }
+
+        do {
+            _ = try mock.methodThatReturnsAndThrows(param: "first")
+            XCTFail("Should not be here - mock should have thrown error")
+        } catch where error is TestError {
+            XCTAssertEqual(error as! TestError, TestError.first)
+        } catch {
+            XCTFail("Should not fail")
+        }
+
+        do {
+            _ = try mock.methodThatReturnsAndThrows(param: "second")
+            XCTFail("Should not be here - mock should have thrown error")
+        } catch where error is TestError {
+            XCTAssertEqual(error as! TestError, TestError.second)
+        } catch {
+            XCTFail("Should not fail")
+        }
+
+        do {
+            _ = try mock.methodThatReturnsAndThrows(param: "third")
+            XCTFail("Should not be here - mock should have thrown error")
+        } catch where error is TestError {
+            XCTAssertEqual(error as! TestError, TestError.third)
+        } catch {
+            XCTFail("Should not fail")
+        }
+
+        do {
+            let value = try mock.methodThatReturnsAndThrows(param: "danny")
+            XCTAssertEqual(value, 1)
+        } catch {
+            XCTFail("Should not fail")
+        }
+    }
+
+    func testGiven_with_throwing_builderAPI() {
+        let mock = AMassiveTestProtocolMock()
+
+        // New builder API version
+        given(mock).methodThatThrows().willThrow(TestError.first)
+
+        do {
+            try mock.methodThatThrows()
+            XCTFail("Should not be here - mock should have thrown error")
+        } catch {
+            XCTAssertTrue(error is TestError)
+        }
+
+        given(mock).methodThatReturnsAndThrows(param: .any).willReturn(0)
+        given(mock).methodThatReturnsAndThrows(param: .value("first")).willThrow(TestError.first)
+        given(mock).methodThatReturnsAndThrows(param: .value("second")).willThrow(TestError.second)
+        given(mock).methodThatReturnsAndThrows(param: .value("third")).willThrow(TestError.third)
+        given(mock).methodThatReturnsAndThrows(param: .value("danny")).willReturn(1)
 
         do {
             let value = try mock.methodThatReturnsAndThrows(param: "aaa")

@@ -65,6 +65,53 @@ class EdgeCasesTests: XCTestCase {
         XCTAssertTrue(mock.getter(swapped: key5))
     }
 
+    func test_generics_with_custom_structs_builderAPI() {
+        let mock = EdgeCasesGenericsProtocolMock()
+        Matcher.default.register(Mytest<String, [Int]>.self) { lhs, rhs in
+            return lhs.key == rhs.key
+        }
+        Matcher.default.register(Mytest<String, String>.self) { lhs, rhs in
+            return lhs.key == rhs.key
+        }
+        Matcher.default.register(Mytest<String, [Int]>.Type.self)
+        Matcher.default.register(Mytest<String, String>.Type.self)
+
+        // New builder API version with willReturn
+        given(mock).getter(swapped: .any(Mytest<String,[Int]>.self)).willReturn(false)
+
+        // New builder API version with willProduce
+        given(mock).getter(swapped: .value(Mytest(value: [1,2,3], key: "key"))).willProduce { stub in
+            stub.return(true)
+            stub.return(false)
+            stub.return(true)
+            stub.return(true)
+            stub.return(false)
+        }
+
+        let key1 = Mytest(value: [1,2,3], key: "key")
+        let key2 = Mytest(value: [1,1,1], key: "key")
+        let key3 = Mytest(value: [1,2,3], key: "other")
+        XCTAssertEqual(mock.getter(swapped: key1), true)
+        XCTAssertEqual(mock.getter(swapped: key2), false)
+        XCTAssertEqual(mock.getter(swapped: key2), true)
+        XCTAssertEqual(mock.getter(swapped: key1), true)
+        XCTAssertEqual(mock.getter(swapped: key1), false)
+
+        XCTAssertFalse(mock.getter(swapped: key3))
+        XCTAssertFalse(mock.getter(swapped: key3))
+        XCTAssertFalse(mock.getter(swapped: key3))
+        XCTAssertFalse(mock.getter(swapped: key3))
+        XCTAssertFalse(mock.getter(swapped: key3))
+
+        given(mock).getter(swapped: .any(Mytest<String,String>.self)).willReturn(true)
+
+        let key4 = Mytest(value: "[1,2,3]", key: "1")
+        let key5 = Mytest(value: "whatever", key: "2")
+
+        XCTAssertTrue(mock.getter(swapped: key4))
+        XCTAssertTrue(mock.getter(swapped: key5))
+    }
+
     func test_generics_with_custom_structs_2() {
         let mock = EdgeCasesGenericsProtocolMock()
         Matcher.default.register(Mytest<String, [Int]>.self) { lhs, rhs in
@@ -77,6 +124,30 @@ class EdgeCasesTests: XCTestCase {
         Matcher.default.register(Mytest<String, String>.Type.self)
 
         Given(mock, .getter(swapped: Parameter<Mytest<String, String>>.value(Mytest(value: "", key: "1")), willReturn: 1,2,3))
+
+        let key4 = Mytest(value: "[1,2,3]", key: "1")
+
+        XCTAssertEqual(mock.getter(swapped: key4), 1)
+        XCTAssertEqual(mock.getter(swapped: key4), 2)
+        XCTAssertEqual(mock.getter(swapped: key4), 3)
+        XCTAssertEqual(mock.getter(swapped: key4), 1)
+        XCTAssertEqual(mock.getter(swapped: key4), 2)
+        XCTAssertEqual(mock.getter(swapped: key4), 3)
+    }
+
+    func test_generics_with_custom_structs_2_builderAPI() {
+        let mock = EdgeCasesGenericsProtocolMock()
+        Matcher.default.register(Mytest<String, [Int]>.self) { lhs, rhs in
+            return lhs.key == rhs.key
+        }
+        Matcher.default.register(Mytest<String, String>.self) { lhs, rhs in
+            return lhs.key == rhs.key
+        }
+        Matcher.default.register(Mytest<String, [Int]>.Type.self)
+        Matcher.default.register(Mytest<String, String>.Type.self)
+
+        // New builder API version - multiple return values
+        given(mock).getter(swapped: Parameter<Mytest<String, String>>.value(Mytest(value: "", key: "1"))).willReturn(1, 2, 3)
 
         let key4 = Mytest(value: "[1,2,3]", key: "1")
 
@@ -124,6 +195,18 @@ class EdgeCasesTests: XCTestCase {
         Perform(mock, .connect(.any, perform: { (closure: () -> String) in
             XCTAssert(closure() == "Test123")
         }))
+
+        XCTAssert(mock.connect("Test123"))
+    }
+
+    func test_autoclosures_flow_builderAPI() {
+        let mock = FailsWithAutoClosureOnSwift5Mock()
+
+        // New builder API version
+        given(mock).connect(.any).willReturn(true)
+        execute(mock).connect(.any).will { (closure: () -> String) in
+            XCTAssert(closure() == "Test123")
+        }
 
         XCTAssert(mock.connect("Test123"))
     }
