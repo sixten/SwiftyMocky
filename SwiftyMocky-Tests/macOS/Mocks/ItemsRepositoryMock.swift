@@ -134,7 +134,7 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -189,6 +189,67 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ItemsRepositoryMock
+
+
+        public func storedItems() -> GivenBuilder<ItemsRepositoryMock, [Item]?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_storedItems, products: products)
+			})
+        }
+        public func storedDetails(item: Parameter<Item>) -> GivenBuilder<ItemsRepositoryMock, ItemDetails?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_storedDetails__item_item(`item`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ItemsRepositoryMock
+        
+        public func storeItems(items: Parameter<[Item]>) -> ParameterizedPerformBuilder<ItemsRepositoryMock, ([Item]) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_storeItems__items_items(`items`), performs: __cl0sur3__)
+			})
+        }
+        public func storeDetails(details: Parameter<ItemDetails>) -> ParameterizedPerformBuilder<ItemsRepositoryMock, (ItemDetails) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_storeDetails__details_details(`details`), performs: __cl0sur3__)
+			})
+        }
+        public func storedItems() -> PerformBuilder<ItemsRepositoryMock, [Item]?> {
+            PerformBuilder(mock: mock, returning: ([Item]?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_storedItems, performs: __cl0sur3__)
+			})
+        }
+        public func storedDetails(item: Parameter<Item>) -> ParameterizedPerformBuilder<ItemsRepositoryMock, (Item) -> Void, ItemDetails?> {
+            ParameterizedPerformBuilder(mock: mock, returning: (ItemDetails?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_storedDetails__item_item(`item`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ItemsRepositoryMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func storeItems(items: Parameter<[Item]>) -> VerifyBuilder<ItemsRepositoryMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storeItems__items_items(`items`)), returning: (Void).self, file: file, line: line)
+        }
+        public func storeDetails(details: Parameter<ItemDetails>) -> VerifyBuilder<ItemsRepositoryMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storeDetails__details_details(`details`)), returning: (Void).self, file: file, line: line)
+        }
+        public func storedItems() -> VerifyBuilder<ItemsRepositoryMock, [Item]?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storedItems), returning: ([Item]?).self, file: file, line: line)
+        }
+        public func storedDetails(item: Parameter<Item>) -> VerifyBuilder<ItemsRepositoryMock, ItemDetails?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storedDetails__item_item(`item`)), returning: (ItemDetails?).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -214,6 +275,19 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {

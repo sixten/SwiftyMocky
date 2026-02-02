@@ -387,7 +387,7 @@ open class AllLiteralsContainerMock: AllLiteralsContainer, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -602,6 +602,207 @@ open class AllLiteralsContainerMock: AllLiteralsContainer, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: AllLiteralsContainerMock
+
+
+        public func methodWithStringParameter(p: Parameter<String>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithStringParameter__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithOtionalStringParameter(p: Parameter<String?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithOtionalStringParameter__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithCustomStringParameter(p: Parameter<CustomString>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithCustomStringParameter__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithCustomOptionalStringParameter(p: Parameter<CustomString?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithCustomOptionalStringParameter__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithIntParameter(p: Parameter<Int>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithIntParameter__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithCustomOptionalIntParameter(p: Parameter<CustomInt?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithCustomOptionalIntParameter__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithBool(p: Parameter<Bool?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithBool__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithFloat(p: Parameter<Float?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithFloat__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithDouble(p: Parameter<Double?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithDouble__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithArrayOfInt(p: Parameter<[Int]>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithArrayOfInt__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithArrayOfOther(p: Parameter<[SomeClass]>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithArrayOfOther__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithSetOfInt(p: Parameter<Set<Int>>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithSetOfInt__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithOptionalSetOfInt(p: Parameter<Set<Int>?>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithOptionalSetOfInt__p_p(`p`), products: products)
+			})
+        }
+        public func methodWithDict(p: Parameter<[String: SomeClass]>) -> GivenBuilder<AllLiteralsContainerMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithDict__p_p(`p`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: AllLiteralsContainerMock
+        
+        public func methodWithStringParameter(p: Parameter<String>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (String) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithStringParameter__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithOtionalStringParameter(p: Parameter<String?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (String?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithOtionalStringParameter__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithCustomStringParameter(p: Parameter<CustomString>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (CustomString) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithCustomStringParameter__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithCustomOptionalStringParameter(p: Parameter<CustomString?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (CustomString?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithCustomOptionalStringParameter__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithIntParameter(p: Parameter<Int>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (Int) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithIntParameter__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithCustomOptionalIntParameter(p: Parameter<CustomInt?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (CustomInt?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithCustomOptionalIntParameter__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithBool(p: Parameter<Bool?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (Bool?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithBool__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithFloat(p: Parameter<Float?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (Float?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithFloat__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithDouble(p: Parameter<Double?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (Double?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithDouble__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithArrayOfInt(p: Parameter<[Int]>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, ([Int]) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithArrayOfInt__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithArrayOfOther(p: Parameter<[SomeClass]>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, ([SomeClass]) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithArrayOfOther__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithSetOfInt(p: Parameter<Set<Int>>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (Set<Int>) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithSetOfInt__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithOptionalSetOfInt(p: Parameter<Set<Int>?>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, (Set<Int>?) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithOptionalSetOfInt__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithDict(p: Parameter<[String: SomeClass]>) -> ParameterizedPerformBuilder<AllLiteralsContainerMock, ([String: SomeClass]) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithDict__p_p(`p`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: AllLiteralsContainerMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWithStringParameter(p: Parameter<String>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithStringParameter__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithOtionalStringParameter(p: Parameter<String?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithOtionalStringParameter__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithCustomStringParameter(p: Parameter<CustomString>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithCustomStringParameter__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithCustomOptionalStringParameter(p: Parameter<CustomString?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithCustomOptionalStringParameter__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithIntParameter(p: Parameter<Int>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithIntParameter__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithCustomOptionalIntParameter(p: Parameter<CustomInt?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithCustomOptionalIntParameter__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithBool(p: Parameter<Bool?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithBool__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithFloat(p: Parameter<Float?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithFloat__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithDouble(p: Parameter<Double?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithDouble__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithArrayOfInt(p: Parameter<[Int]>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithArrayOfInt__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithArrayOfOther(p: Parameter<[SomeClass]>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithArrayOfOther__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithSetOfInt(p: Parameter<Set<Int>>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithSetOfInt__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithOptionalSetOfInt(p: Parameter<Set<Int>?>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithOptionalSetOfInt__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodWithDict(p: Parameter<[String: SomeClass]>) -> VerifyBuilder<AllLiteralsContainerMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithDict__p_p(`p`)), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -627,6 +828,19 @@ open class AllLiteralsContainerMock: AllLiteralsContainer, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -898,7 +1112,7 @@ open class AMassiveTestProtocolMock: AMassiveTestProtocol, Mock, StaticMock {
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -1036,7 +1250,7 @@ open class AMassiveTestProtocolMock: AMassiveTestProtocol, Mock, StaticMock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -1118,6 +1332,85 @@ open class AMassiveTestProtocolMock: AMassiveTestProtocol, Mock, StaticMock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: AMassiveTestProtocolMock
+
+        public func nonOptionalClosure(getter defaultValue: () -> Void...) -> GivenBuilder<AMassiveTestProtocolMock, () -> Void> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_nonOptionalClosure_get, products: products)
+            })
+        }
+        public func optionalClosure(getter defaultValue: (() -> Int)?...) -> GivenBuilder<AMassiveTestProtocolMock, (() -> Int)?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_optionalClosure_get, products: products)
+            })
+        }
+        public func implicitelyUnwrappedClosure(getter defaultValue: (() -> Void)?...) -> GivenBuilder<AMassiveTestProtocolMock, (() -> Void)?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_implicitelyUnwrappedClosure_get, products: products)
+            })
+        }
+
+        public func methodThatThrows() -> ThrowingGivenBuilder<AMassiveTestProtocolMock, Void> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatThrows, products: products)
+			})
+        }
+        public func methodThatReturnsAndThrows(param: Parameter<String>) -> ThrowingGivenBuilder<AMassiveTestProtocolMock, Int> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatReturnsAndThrows__param_param(`param`), products: products)
+			})
+        }
+        public func methodThatRethrows(param: Parameter<(String) throws -> Int>) -> ThrowingGivenBuilder<AMassiveTestProtocolMock, Int> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatRethrows__param_param(`param`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: AMassiveTestProtocolMock
+        
+        public func methodThatThrows() -> PerformBuilder<AMassiveTestProtocolMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatThrows, performs: __cl0sur3__)
+			})
+        }
+        public func methodThatReturnsAndThrows(param: Parameter<String>) -> ParameterizedPerformBuilder<AMassiveTestProtocolMock, (String) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatReturnsAndThrows__param_param(`param`), performs: __cl0sur3__)
+			})
+        }
+        public func methodThatRethrows(param: Parameter<(String) throws -> Int>) -> ParameterizedPerformBuilder<AMassiveTestProtocolMock, ((String) throws -> Int) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatRethrows__param_param(`param`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: AMassiveTestProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodThatThrows() -> VerifyBuilder<AMassiveTestProtocolMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatThrows), returning: (Void).self, file: file, line: line)
+        }
+        public func methodThatReturnsAndThrows(param: Parameter<String>) -> VerifyBuilder<AMassiveTestProtocolMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatReturnsAndThrows__param_param(`param`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodThatRethrows(param: Parameter<(String) throws -> Int>) -> VerifyBuilder<AMassiveTestProtocolMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatRethrows__param_param(`param`)), returning: (Int).self, file: file, line: line)
+        }
+        public var nonOptionalClosure: VerifyBuilder<AMassiveTestProtocolMock, () -> Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_nonOptionalClosure_get), returning: (() -> Void).self, file: file, line: line) }
+		public func nonOptionalClosure(set newValue: Parameter<() -> Void>) -> VerifyBuilder<AMassiveTestProtocolMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_nonOptionalClosure_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var optionalClosure: VerifyBuilder<AMassiveTestProtocolMock, (() -> Int)?> { VerifyBuilder(mock: mock, method: Verify(method: .p_optionalClosure_get), returning: ((() -> Int)?).self, file: file, line: line) }
+		public func optionalClosure(set newValue: Parameter<(() -> Int)?>) -> VerifyBuilder<AMassiveTestProtocolMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_optionalClosure_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var implicitelyUnwrappedClosure: VerifyBuilder<AMassiveTestProtocolMock, (() -> Void)?> { VerifyBuilder(mock: mock, method: Verify(method: .p_implicitelyUnwrappedClosure_get), returning: ((() -> Void)?).self, file: file, line: line) }
+		public func implicitelyUnwrappedClosure(set newValue: Parameter<(() -> Void)?>) -> VerifyBuilder<AMassiveTestProtocolMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_implicitelyUnwrappedClosure_set(newValue)), returning: Void.self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -1143,6 +1436,19 @@ open class AMassiveTestProtocolMock: AMassiveTestProtocol, Mock, StaticMock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -1355,7 +1661,7 @@ open class AnotherProtocolMock: AnotherProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -1392,6 +1698,46 @@ open class AnotherProtocolMock: AnotherProtocol, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: AnotherProtocolMock
+
+
+        public func doSomething<T: ProtocolWithAssociatedType2>(type: Parameter<T>) -> GivenBuilder<AnotherProtocolMock, T.ValueType?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_doSomething__type_type(`type`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: AnotherProtocolMock
+        
+        public func doSomething<T>(type: Parameter<T>) -> ParameterizedPerformBuilder<AnotherProtocolMock, (T) -> Void, T.ValueType?> where T:ProtocolWithAssociatedType2 {
+            ParameterizedPerformBuilder(mock: mock, returning: (T.ValueType?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_doSomething__type_type(`type`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func doSomething2<T>(type: Parameter<T>, withValue: Parameter<T.ValueType?>) -> ParameterizedPerformBuilder<AnotherProtocolMock, (T, T.ValueType?) -> Void, Void> where T:ProtocolWithAssociatedType2 {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_doSomething2__type_typewithValue_withValue(`type`.wrapAsGeneric(), `withValue`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: AnotherProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func doSomething<T>(type: Parameter<T>) -> VerifyBuilder<AnotherProtocolMock, T.ValueType?> where T:ProtocolWithAssociatedType2 {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_doSomething__type_type(`type`.wrapAsGeneric())), returning: (T.ValueType?).self, file: file, line: line)
+        }
+        public func doSomething2<T>(type: Parameter<T>, withValue: Parameter<T.ValueType?>) -> VerifyBuilder<AnotherProtocolMock, Void> where T:ProtocolWithAssociatedType2 {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_doSomething2__type_typewithValue_withValue(`type`.wrapAsGeneric(), `withValue`.wrapAsGeneric())), returning: (Void).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -1417,6 +1763,19 @@ open class AnotherProtocolMock: AnotherProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -1549,7 +1908,7 @@ open class AsyncMethodsProtocolMock: AsyncMethodsProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -1586,6 +1945,41 @@ open class AsyncMethodsProtocolMock: AsyncMethodsProtocol, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: AsyncMethodsProtocolMock
+
+
+        @available(iOS 15.0.0, macOS 12.0.0, tvOS 15.0.0, *)
+		public func loadListOfItems() -> GivenBuilder<AsyncMethodsProtocolMock, [String]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_loadListOfItems, products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: AsyncMethodsProtocolMock
+        
+        @available(iOS 15.0.0, macOS 12.0.0, tvOS 15.0.0, *)
+		public func loadListOfItems() -> PerformBuilder<AsyncMethodsProtocolMock, [String]> {
+            PerformBuilder(mock: mock, returning: ([String]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_loadListOfItems, performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: AsyncMethodsProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        @available(iOS 15.0.0, macOS 12.0.0, tvOS 15.0.0, *)
+		public func loadListOfItems() -> VerifyBuilder<AsyncMethodsProtocolMock, [String]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_loadListOfItems), returning: ([String]).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -1611,6 +2005,19 @@ open class AsyncMethodsProtocolMock: AsyncMethodsProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -1745,7 +2152,7 @@ open class AVeryAssociatedProtocolMock<T1,T2>: AVeryAssociatedProtocol, Mock whe
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -1778,6 +2185,38 @@ open class AVeryAssociatedProtocolMock<T1,T2>: AVeryAssociatedProtocol, Mock whe
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: AVeryAssociatedProtocolMock<T1,T2>
+
+
+        public func fetch(for value: Parameter<T2>) -> GivenBuilder<AVeryAssociatedProtocolMock<T1,T2>, T1> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_fetch__for_value(`value`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: AVeryAssociatedProtocolMock<T1,T2>
+        
+        public func fetch(for value: Parameter<T2>) -> ParameterizedPerformBuilder<AVeryAssociatedProtocolMock<T1,T2>, (T2) -> Void, T1> {
+            ParameterizedPerformBuilder(mock: mock, returning: (T1).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_fetch__for_value(`value`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: AVeryAssociatedProtocolMock<T1,T2>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func fetch(for value: Parameter<T2>) -> VerifyBuilder<AVeryAssociatedProtocolMock<T1,T2>, T1> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_fetch__for_value(`value`)), returning: (T1).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -1803,6 +2242,19 @@ open class AVeryAssociatedProtocolMock<T1,T2>: AVeryAssociatedProtocol, Mock whe
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -1993,7 +2445,7 @@ open class AVeryGenericProtocolMock: AVeryGenericProtocol, Mock, StaticMock {
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -2068,7 +2520,7 @@ open class AVeryGenericProtocolMock: AVeryGenericProtocol, Mock, StaticMock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -2101,6 +2553,38 @@ open class AVeryGenericProtocolMock: AVeryGenericProtocol, Mock, StaticMock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: AVeryGenericProtocolMock
+
+
+        public func methodConstrained<A,B,C>(param: Parameter<A>) -> GivenBuilder<AVeryGenericProtocolMock, (B,C)> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodConstrained__param_param(`param`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: AVeryGenericProtocolMock
+        
+        public func methodConstrained<A,B,C>(param: Parameter<A>) -> ParameterizedPerformBuilder<AVeryGenericProtocolMock, (A) -> Void, (B,C)> {
+            ParameterizedPerformBuilder(mock: mock, returning: ((B,C)).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodConstrained__param_param(`param`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: AVeryGenericProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodConstrained<A,B,C>(param: Parameter<A>) -> VerifyBuilder<AVeryGenericProtocolMock, (B,C)> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodConstrained__param_param(`param`.wrapAsGeneric())), returning: ((B,C)).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -2126,6 +2610,19 @@ open class AVeryGenericProtocolMock: AVeryGenericProtocol, Mock, StaticMock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -2487,7 +2984,7 @@ open class ComplicatedServiceTypeMock: ComplicatedServiceType, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -2616,6 +3113,138 @@ open class ComplicatedServiceTypeMock: ComplicatedServiceType, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ComplicatedServiceTypeMock
+
+        public func youCouldOnlyGetThis(getter defaultValue: String...) -> GivenBuilder<ComplicatedServiceTypeMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_youCouldOnlyGetThis_get, products: products)
+            })
+        }
+
+        public func serviceName() -> GivenBuilder<ComplicatedServiceTypeMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_serviceName, products: products)
+			})
+        }
+        public func getPoint(from point: Parameter<Point>) -> GivenBuilder<ComplicatedServiceTypeMock, Point> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getPoint__from_point(`point`), products: products)
+			})
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> GivenBuilder<ComplicatedServiceTypeMock, Point> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getPoint__from_tuple(`tuple`), products: products)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> GivenBuilder<ComplicatedServiceTypeMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_similarMethodThatDiffersOnType__value_1(`value`), products: products)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> GivenBuilder<ComplicatedServiceTypeMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_similarMethodThatDiffersOnType__value_2(`value`), products: products)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> GivenBuilder<ComplicatedServiceTypeMock, ClosureFabric> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithClosures__success_function_1(`function`), products: products)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> GivenBuilder<ComplicatedServiceTypeMock, (Int) -> Void> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithClosures__success_function_2(`function`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ComplicatedServiceTypeMock
+        
+        public func serviceName() -> PerformBuilder<ComplicatedServiceTypeMock, String> {
+            PerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_serviceName, performs: __cl0sur3__)
+			})
+        }
+        public func aNewWayToSayHooray() -> PerformBuilder<ComplicatedServiceTypeMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_aNewWayToSayHooray, performs: __cl0sur3__)
+			})
+        }
+        public func getPoint(from point: Parameter<Point>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, (Point) -> Void, Point> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Point).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getPoint__from_point(`point`), performs: __cl0sur3__)
+			})
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, ((Float,Float)) -> Void, Point> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Point).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getPoint__from_tuple(`tuple`), performs: __cl0sur3__)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, (Float) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_similarMethodThatDiffersOnType__value_1(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, (Point) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_similarMethodThatDiffersOnType__value_2(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithTypedef(_ scalar: Parameter<Scalar>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, (Scalar) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithTypedef__scalar(`scalar`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, (LinearFunction) -> Void, ClosureFabric> {
+            ParameterizedPerformBuilder(mock: mock, returning: (ClosureFabric).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithClosures__success_function_1(`function`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> ParameterizedPerformBuilder<ComplicatedServiceTypeMock, (((Scalar, Scalar) -> Scalar)?) -> Void, (Int) -> Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: ((Int) -> Void).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithClosures__success_function_2(`function`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ComplicatedServiceTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func serviceName() -> VerifyBuilder<ComplicatedServiceTypeMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_serviceName), returning: (String).self, file: file, line: line)
+        }
+        public func aNewWayToSayHooray() -> VerifyBuilder<ComplicatedServiceTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_aNewWayToSayHooray), returning: (Void).self, file: file, line: line)
+        }
+        public func getPoint(from point: Parameter<Point>) -> VerifyBuilder<ComplicatedServiceTypeMock, Point> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getPoint__from_point(`point`)), returning: (Point).self, file: file, line: line)
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> VerifyBuilder<ComplicatedServiceTypeMock, Point> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getPoint__from_tuple(`tuple`)), returning: (Point).self, file: file, line: line)
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> VerifyBuilder<ComplicatedServiceTypeMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_similarMethodThatDiffersOnType__value_1(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> VerifyBuilder<ComplicatedServiceTypeMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_similarMethodThatDiffersOnType__value_2(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func methodWithTypedef(_ scalar: Parameter<Scalar>) -> VerifyBuilder<ComplicatedServiceTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithTypedef__scalar(`scalar`)), returning: (Void).self, file: file, line: line)
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> VerifyBuilder<ComplicatedServiceTypeMock, ClosureFabric> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithClosures__success_function_1(`function`)), returning: (ClosureFabric).self, file: file, line: line)
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> VerifyBuilder<ComplicatedServiceTypeMock, (Int) -> Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithClosures__success_function_2(`function`)), returning: ((Int) -> Void).self, file: file, line: line)
+        }
+        public var youCouldOnlyGetThis: VerifyBuilder<ComplicatedServiceTypeMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_youCouldOnlyGetThis_get), returning: (String).self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -2641,6 +3270,19 @@ open class ComplicatedServiceTypeMock: ComplicatedServiceType, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -2928,7 +3570,7 @@ open class ComposedServiceMock: ComposedService, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -3053,6 +3695,130 @@ open class ComposedServiceMock: ComposedService, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ComposedServiceMock
+
+        public func youCouldOnlyGetThis(getter defaultValue: String...) -> GivenBuilder<ComposedServiceMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_youCouldOnlyGetThis_get, products: products)
+            })
+        }
+
+        public func serviceName() -> GivenBuilder<ComposedServiceMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_serviceName, products: products)
+			})
+        }
+        public func getPoint(from point: Parameter<Point>) -> GivenBuilder<ComposedServiceMock, Point> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getPoint__from_point(`point`), products: products)
+			})
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> GivenBuilder<ComposedServiceMock, Point> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getPoint__from_tuple(`tuple`), products: products)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> GivenBuilder<ComposedServiceMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_similarMethodThatDiffersOnType__value_1(`value`), products: products)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> GivenBuilder<ComposedServiceMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_similarMethodThatDiffersOnType__value_2(`value`), products: products)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> GivenBuilder<ComposedServiceMock, ClosureFabric> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithClosures__success_function_1(`function`), products: products)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> GivenBuilder<ComposedServiceMock, (Int) -> Void> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithClosures__success_function_2(`function`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ComposedServiceMock
+        
+        public func serviceName() -> PerformBuilder<ComposedServiceMock, String> {
+            PerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_serviceName, performs: __cl0sur3__)
+			})
+        }
+        public func getPoint(from point: Parameter<Point>) -> ParameterizedPerformBuilder<ComposedServiceMock, (Point) -> Void, Point> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Point).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getPoint__from_point(`point`), performs: __cl0sur3__)
+			})
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> ParameterizedPerformBuilder<ComposedServiceMock, ((Float,Float)) -> Void, Point> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Point).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getPoint__from_tuple(`tuple`), performs: __cl0sur3__)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> ParameterizedPerformBuilder<ComposedServiceMock, (Float) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_similarMethodThatDiffersOnType__value_1(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> ParameterizedPerformBuilder<ComposedServiceMock, (Point) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_similarMethodThatDiffersOnType__value_2(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithTypedef(_ scalar: Parameter<Scalar>) -> ParameterizedPerformBuilder<ComposedServiceMock, (Scalar) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithTypedef__scalar(`scalar`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> ParameterizedPerformBuilder<ComposedServiceMock, (LinearFunction) -> Void, ClosureFabric> {
+            ParameterizedPerformBuilder(mock: mock, returning: (ClosureFabric).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithClosures__success_function_1(`function`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> ParameterizedPerformBuilder<ComposedServiceMock, (((Scalar, Scalar) -> Scalar)?) -> Void, (Int) -> Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: ((Int) -> Void).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithClosures__success_function_2(`function`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ComposedServiceMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func serviceName() -> VerifyBuilder<ComposedServiceMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_serviceName), returning: (String).self, file: file, line: line)
+        }
+        public func getPoint(from point: Parameter<Point>) -> VerifyBuilder<ComposedServiceMock, Point> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getPoint__from_point(`point`)), returning: (Point).self, file: file, line: line)
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> VerifyBuilder<ComposedServiceMock, Point> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getPoint__from_tuple(`tuple`)), returning: (Point).self, file: file, line: line)
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> VerifyBuilder<ComposedServiceMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_similarMethodThatDiffersOnType__value_1(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> VerifyBuilder<ComposedServiceMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_similarMethodThatDiffersOnType__value_2(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func methodWithTypedef(_ scalar: Parameter<Scalar>) -> VerifyBuilder<ComposedServiceMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithTypedef__scalar(`scalar`)), returning: (Void).self, file: file, line: line)
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> VerifyBuilder<ComposedServiceMock, ClosureFabric> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithClosures__success_function_1(`function`)), returning: (ClosureFabric).self, file: file, line: line)
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> VerifyBuilder<ComposedServiceMock, (Int) -> Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithClosures__success_function_2(`function`)), returning: ((Int) -> Void).self, file: file, line: line)
+        }
+        public var youCouldOnlyGetThis: VerifyBuilder<ComposedServiceMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_youCouldOnlyGetThis_get), returning: (String).self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -3078,6 +3844,19 @@ open class ComposedServiceMock: ComposedService, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -3199,7 +3978,7 @@ open class DateSortableMock: DateSortable, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -3220,6 +3999,31 @@ open class DateSortableMock: DateSortable, Mock {
         fileprivate var method: MethodType
         var performs: Any
 
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: DateSortableMock
+
+        public func date(getter defaultValue: Date...) -> GivenBuilder<DateSortableMock, Date> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_date_get, products: products)
+            })
+        }
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: DateSortableMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: DateSortableMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public var date: VerifyBuilder<DateSortableMock, Date> { VerifyBuilder(mock: mock, method: Verify(method: .p_date_get), returning: (Date).self, file: file, line: line) }
     }
 
     public func given(_ method: Given) {
@@ -3247,6 +4051,19 @@ open class DateSortableMock: DateSortable, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -3396,7 +4213,7 @@ open class EdgeCasesGenericsProtocolMock: EdgeCasesGenericsProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -3433,6 +4250,46 @@ open class EdgeCasesGenericsProtocolMock: EdgeCasesGenericsProtocol, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: EdgeCasesGenericsProtocolMock
+
+
+        public func getter<K,V: Sequence,T: Equatable>(swapped key: Parameter<Mytest<K,V>>) -> GivenBuilder<EdgeCasesGenericsProtocolMock, T> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getter__swapped_key(`key`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: EdgeCasesGenericsProtocolMock
+        
+        public func sorted<Key,Value>(by key: Parameter<Mytest<Key, Value>>) -> ParameterizedPerformBuilder<EdgeCasesGenericsProtocolMock, (Mytest<Key, Value>) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_sorted__by_key(`key`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func getter<K,V,T>(swapped key: Parameter<Mytest<K,V>>) -> ParameterizedPerformBuilder<EdgeCasesGenericsProtocolMock, (Mytest<K,V>) -> Void, T> where V:Sequence {
+            ParameterizedPerformBuilder(mock: mock, returning: (T).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getter__swapped_key(`key`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: EdgeCasesGenericsProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func sorted<Key,Value>(by key: Parameter<Mytest<Key, Value>>) -> VerifyBuilder<EdgeCasesGenericsProtocolMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_sorted__by_key(`key`.wrapAsGeneric())), returning: (Void).self, file: file, line: line)
+        }
+        public func getter<K,V,T>(swapped key: Parameter<Mytest<K,V>>) -> VerifyBuilder<EdgeCasesGenericsProtocolMock, T> where V:Sequence {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getter__swapped_key(`key`.wrapAsGeneric())), returning: (T).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -3458,6 +4315,19 @@ open class EdgeCasesGenericsProtocolMock: EdgeCasesGenericsProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -3560,7 +4430,7 @@ open class EmptyProtocolMock: EmptyProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -3576,6 +4446,25 @@ open class EmptyProtocolMock: EmptyProtocol, Mock {
     public struct Perform {
         fileprivate var method: MethodType
         var performs: Any
+
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: EmptyProtocolMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: EmptyProtocolMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: EmptyProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
 
     }
 
@@ -3604,6 +4493,19 @@ open class EmptyProtocolMock: EmptyProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -3738,7 +4640,7 @@ open class FailsWithAutoClosureOnSwift5Mock: FailsWithAutoClosureOnSwift5, Mock 
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -3771,6 +4673,38 @@ open class FailsWithAutoClosureOnSwift5Mock: FailsWithAutoClosureOnSwift5, Mock 
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: FailsWithAutoClosureOnSwift5Mock
+
+
+        public func connect(_ token: Parameter<() -> String>) -> GivenBuilder<FailsWithAutoClosureOnSwift5Mock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_connect__token(`token`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: FailsWithAutoClosureOnSwift5Mock
+        
+        public func connect(_ token: Parameter<() -> String>) -> ParameterizedPerformBuilder<FailsWithAutoClosureOnSwift5Mock, (@autoclosure () -> String) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_connect__token(`token`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: FailsWithAutoClosureOnSwift5Mock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func connect(_ token: Parameter<() -> String>) -> VerifyBuilder<FailsWithAutoClosureOnSwift5Mock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_connect__token(`token`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -3796,6 +4730,19 @@ open class FailsWithAutoClosureOnSwift5Mock: FailsWithAutoClosureOnSwift5, Mock 
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -4010,7 +4957,7 @@ open class FailsWithKeywordArgumentsMock: FailsWithKeywordArguments, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -4071,6 +5018,77 @@ open class FailsWithKeywordArgumentsMock: FailsWithKeywordArguments, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: FailsWithKeywordArgumentsMock
+
+        public func `throw`(getter defaultValue: Error...) -> GivenBuilder<FailsWithKeywordArgumentsMock, Error> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_throw_get, products: products)
+            })
+        }
+
+        public func `throw`(while: Parameter<String>) -> GivenBuilder<FailsWithKeywordArgumentsMock, Error> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_throw__while_while(`while`), products: products)
+			})
+        }
+        public func `return`(do while: Parameter<String>) -> GivenBuilder<FailsWithKeywordArgumentsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_return__do_while(`while`), products: products)
+			})
+        }
+        public func `subscript`(_ return: Parameter<Int>) -> GivenBuilder<FailsWithKeywordArgumentsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_return(`return`), products: products)
+            })
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: FailsWithKeywordArgumentsMock
+        
+        public func foo(for: Parameter<String>) -> ParameterizedPerformBuilder<FailsWithKeywordArgumentsMock, (String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__for_for(`for`), performs: __cl0sur3__)
+			})
+        }
+        public func `throw`(while: Parameter<String>) -> ParameterizedPerformBuilder<FailsWithKeywordArgumentsMock, (String) -> Void, Error> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Error).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_throw__while_while(`while`), performs: __cl0sur3__)
+			})
+        }
+        public func `return`(do while: Parameter<String>) -> ParameterizedPerformBuilder<FailsWithKeywordArgumentsMock, (String) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_return__do_while(`while`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: FailsWithKeywordArgumentsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func foo(for: Parameter<String>) -> VerifyBuilder<FailsWithKeywordArgumentsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__for_for(`for`)), returning: (Void).self, file: file, line: line)
+        }
+        public func `throw`(while: Parameter<String>) -> VerifyBuilder<FailsWithKeywordArgumentsMock, Error> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_throw__while_while(`while`)), returning: (Error).self, file: file, line: line)
+        }
+        public func `return`(do while: Parameter<String>) -> VerifyBuilder<FailsWithKeywordArgumentsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_return__do_while(`while`)), returning: (Bool).self, file: file, line: line)
+        }
+        public var `throw`: VerifyBuilder<FailsWithKeywordArgumentsMock, Error> { VerifyBuilder(mock: mock, method: Verify(method: .p_throw_get), returning: (Error).self, file: file, line: line) }
+		public func `throw`(set newValue: Parameter<Error>) -> VerifyBuilder<FailsWithKeywordArgumentsMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_throw_set(newValue)), returning: Void.self, file: file, line: line) }
+        public func `subscript`(_ return: Parameter<Int>) -> VerifyBuilder<FailsWithKeywordArgumentsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_return(`return`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func `subscript`(_ return: Parameter<Int>, set newValue: Parameter<Bool>) -> VerifyBuilder<FailsWithKeywordArgumentsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_return(`return`, newValue)), returning: Void.self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -4096,6 +5114,19 @@ open class FailsWithKeywordArgumentsMock: FailsWithKeywordArguments, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -4319,7 +5350,7 @@ public final class FailsWithReturnedTypeBeingGenericOfSelfMock: FailsWithReturne
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -4408,6 +5439,90 @@ public final class FailsWithReturnedTypeBeingGenericOfSelfMock: FailsWithReturne
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: FailsWithReturnedTypeBeingGenericOfSelfMock
+
+
+        public func methodWillReturnSelfTypedArray() -> GivenBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Array<Self>> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWillReturnSelfTypedArray, products: products)
+			})
+        }
+        public func methodWillReturnSelfTypedArray2() -> GivenBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, [Self]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWillReturnSelfTypedArray2, products: products)
+			})
+        }
+        public func methodWillReturnSelfTypedCustom() -> GivenBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, CustomGeneric<Self>> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWillReturnSelfTypedCustom, products: products)
+			})
+        }
+        public func test(value: Parameter<FailsWithReturnedTypeBeingGenericOfSelfMock>) -> GivenBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_test__value_value(`value`), products: products)
+			})
+        }
+        public func insanetTest(value: Parameter<CustomGeneric<[FailsWithReturnedTypeBeingGenericOfSelfMock]>>) -> GivenBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_insanetTest__value_value(`value`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: FailsWithReturnedTypeBeingGenericOfSelfMock
+        
+        public func methodWillReturnSelfTypedArray() -> PerformBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Array<FailsWithReturnedTypeBeingGenericOfSelfMock>> {
+            PerformBuilder(mock: mock, returning: (Array<FailsWithReturnedTypeBeingGenericOfSelfMock>).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWillReturnSelfTypedArray, performs: __cl0sur3__)
+			})
+        }
+        public func methodWillReturnSelfTypedArray2() -> PerformBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, [FailsWithReturnedTypeBeingGenericOfSelfMock]> {
+            PerformBuilder(mock: mock, returning: ([FailsWithReturnedTypeBeingGenericOfSelfMock]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWillReturnSelfTypedArray2, performs: __cl0sur3__)
+			})
+        }
+        public func methodWillReturnSelfTypedCustom() -> PerformBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, CustomGeneric<FailsWithReturnedTypeBeingGenericOfSelfMock>> {
+            PerformBuilder(mock: mock, returning: (CustomGeneric<FailsWithReturnedTypeBeingGenericOfSelfMock>).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWillReturnSelfTypedCustom, performs: __cl0sur3__)
+			})
+        }
+        public func test(value: Parameter<FailsWithReturnedTypeBeingGenericOfSelfMock>) -> ParameterizedPerformBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, (FailsWithReturnedTypeBeingGenericOfSelfMock) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_test__value_value(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func insanetTest(value: Parameter<CustomGeneric<[FailsWithReturnedTypeBeingGenericOfSelfMock]>>) -> ParameterizedPerformBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, (CustomGeneric<[FailsWithReturnedTypeBeingGenericOfSelfMock]>) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_insanetTest__value_value(`value`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: FailsWithReturnedTypeBeingGenericOfSelfMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWillReturnSelfTypedArray() -> VerifyBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Array<Self>> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWillReturnSelfTypedArray), returning: (Array<Self>).self, file: file, line: line)
+        }
+        public func methodWillReturnSelfTypedArray2() -> VerifyBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, [Self]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWillReturnSelfTypedArray2), returning: ([Self]).self, file: file, line: line)
+        }
+        public func methodWillReturnSelfTypedCustom() -> VerifyBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, CustomGeneric<Self>> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWillReturnSelfTypedCustom), returning: (CustomGeneric<Self>).self, file: file, line: line)
+        }
+        public func test(value: Parameter<FailsWithReturnedTypeBeingGenericOfSelfMock>) -> VerifyBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_test__value_value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func insanetTest(value: Parameter<CustomGeneric<[FailsWithReturnedTypeBeingGenericOfSelfMock]>>) -> VerifyBuilder<FailsWithReturnedTypeBeingGenericOfSelfMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_insanetTest__value_value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -4433,6 +5548,19 @@ public final class FailsWithReturnedTypeBeingGenericOfSelfMock: FailsWithReturne
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -4561,7 +5689,7 @@ open class FailsWithUntaggedMock: FailsWithUntagged, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -4581,6 +5709,33 @@ open class FailsWithUntaggedMock: FailsWithUntagged, Mock {
 
         public static func foo(bar: Parameter<String>, perform: @escaping (String) -> Void) -> Perform {
             return Perform(method: .m_foo__bar_bar(`bar`), performs: perform)
+        }
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: FailsWithUntaggedMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: FailsWithUntaggedMock
+        
+        public func foo(bar: Parameter<String>) -> ParameterizedPerformBuilder<FailsWithUntaggedMock, (String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar(`bar`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: FailsWithUntaggedMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func foo(bar: Parameter<String>) -> VerifyBuilder<FailsWithUntaggedMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar(`bar`)), returning: (Void).self, file: file, line: line)
         }
     }
 
@@ -4609,6 +5764,19 @@ open class FailsWithUntaggedMock: FailsWithUntagged, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -4743,7 +5911,7 @@ open class FetcherMock: Fetcher, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -4776,6 +5944,38 @@ open class FetcherMock: Fetcher, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: FetcherMock
+
+
+        public func fetchProperty(with id: Parameter<String>) -> GivenBuilder<FetcherMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_fetchProperty__with_id(`id`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: FetcherMock
+        
+        public func fetchProperty(with id: Parameter<String>) -> ParameterizedPerformBuilder<FetcherMock, (String) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_fetchProperty__with_id(`id`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: FetcherMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func fetchProperty(with id: Parameter<String>) -> VerifyBuilder<FetcherMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_fetchProperty__with_id(`id`)), returning: (String).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -4801,6 +6001,19 @@ open class FetcherMock: Fetcher, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -4935,7 +6148,7 @@ open class GenericProtocolReturningIntMock: GenericProtocolReturningInt, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -4968,6 +6181,38 @@ open class GenericProtocolReturningIntMock: GenericProtocolReturningInt, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: GenericProtocolReturningIntMock
+
+
+        public func value<T>(for value: Parameter<T>) -> GivenBuilder<GenericProtocolReturningIntMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_value__for_value(`value`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: GenericProtocolReturningIntMock
+        
+        public func value<T>(for value: Parameter<T>) -> ParameterizedPerformBuilder<GenericProtocolReturningIntMock, (T) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_value__for_value(`value`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: GenericProtocolReturningIntMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func value<T>(for value: Parameter<T>) -> VerifyBuilder<GenericProtocolReturningIntMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_value__for_value(`value`.wrapAsGeneric())), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -4993,6 +6238,19 @@ open class GenericProtocolReturningIntMock: GenericProtocolReturningInt, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -5151,7 +6409,7 @@ open class GenericProtocolWithTypeConstraintMock: GenericProtocolWithTypeConstra
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -5198,6 +6456,51 @@ open class GenericProtocolWithTypeConstraintMock: GenericProtocolWithTypeConstra
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: GenericProtocolWithTypeConstraintMock
+
+
+        public func decode<T: Decodable>(_ type: Parameter<T.Type>, from data: Parameter<Data>) -> GivenBuilder<GenericProtocolWithTypeConstraintMock, T> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_decode__typefrom_data(`type`.wrapAsGeneric(), `data`), products: products)
+			})
+        }
+        public func test<FOO>(_ type: Parameter<FOO.Type>) -> GivenBuilder<GenericProtocolWithTypeConstraintMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_test__type(`type`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: GenericProtocolWithTypeConstraintMock
+        
+        public func decode<T>(_ type: Parameter<T.Type>, from data: Parameter<Data>) -> ParameterizedPerformBuilder<GenericProtocolWithTypeConstraintMock, (T.Type, Data) -> Void, T> where T:Decodable {
+            ParameterizedPerformBuilder(mock: mock, returning: (T).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_decode__typefrom_data(`type`.wrapAsGeneric(), `data`), performs: __cl0sur3__)
+			})
+        }
+        public func test<FOO>(_ type: Parameter<FOO.Type>) -> ParameterizedPerformBuilder<GenericProtocolWithTypeConstraintMock, (FOO.Type) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_test__type(`type`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: GenericProtocolWithTypeConstraintMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func decode<T>(_ type: Parameter<T.Type>, from data: Parameter<Data>) -> VerifyBuilder<GenericProtocolWithTypeConstraintMock, T> where T:Decodable {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_decode__typefrom_data(`type`.wrapAsGeneric(), `data`)), returning: (T).self, file: file, line: line)
+        }
+        public func test<FOO>(_ type: Parameter<FOO.Type>) -> VerifyBuilder<GenericProtocolWithTypeConstraintMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_test__type(`type`.wrapAsGeneric())), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -5223,6 +6526,19 @@ open class GenericProtocolWithTypeConstraintMock: GenericProtocolWithTypeConstra
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -5357,7 +6673,7 @@ open class HistorySectionMapperTypeMock: HistorySectionMapperType, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -5390,6 +6706,38 @@ open class HistorySectionMapperTypeMock: HistorySectionMapperType, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: HistorySectionMapperTypeMock
+
+
+        public func map<T: DateSortable>(_ items: Parameter<[T]>) -> GivenBuilder<HistorySectionMapperTypeMock, [(key: String, items: [T])]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_map__items(`items`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: HistorySectionMapperTypeMock
+        
+        public func map<T>(_ items: Parameter<[T]>) -> ParameterizedPerformBuilder<HistorySectionMapperTypeMock, ([T]) -> Void, [(key: String, items: [T])]> where T:DateSortable {
+            ParameterizedPerformBuilder(mock: mock, returning: ([(key: String, items: [T])]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_map__items(`items`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: HistorySectionMapperTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func map<T>(_ items: Parameter<[T]>) -> VerifyBuilder<HistorySectionMapperTypeMock, [(key: String, items: [T])]> where T:DateSortable {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_map__items(`items`.wrapAsGeneric())), returning: ([(key: String, items: [T])]).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -5415,6 +6763,19 @@ open class HistorySectionMapperTypeMock: HistorySectionMapperType, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -5578,7 +6939,7 @@ open class InoutProtocolMock: InoutProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -5619,6 +6980,54 @@ open class InoutProtocolMock: InoutProtocol, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: InoutProtocolMock
+
+
+        public func returnAndInOut(value: Parameter<Int>) -> GivenBuilder<InoutProtocolMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_returnAndInOut__value_value(`value`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: InoutProtocolMock
+        
+        public func passThisAsInOut(value: Parameter<URLRequest>) -> ParameterizedPerformBuilder<InoutProtocolMock, (inout URLRequest) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_passThisAsInOut__value_value(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func returnAndInOut(value: Parameter<Int>) -> ParameterizedPerformBuilder<InoutProtocolMock, (inout Int) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_returnAndInOut__value_value(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func genericInOutClosure<T>(closure: Parameter<(inout T) -> Void>) -> ParameterizedPerformBuilder<InoutProtocolMock, ((inout T) -> Void) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_genericInOutClosure__closure_closure(`closure`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: InoutProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func passThisAsInOut(value: Parameter<URLRequest>) -> VerifyBuilder<InoutProtocolMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_passThisAsInOut__value_value(`value`)), returning: (Void).self, file: file, line: line)
+        }
+        public func returnAndInOut(value: Parameter<Int>) -> VerifyBuilder<InoutProtocolMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_returnAndInOut__value_value(`value`)), returning: (String).self, file: file, line: line)
+        }
+        public func genericInOutClosure<T>(closure: Parameter<(inout T) -> Void>) -> VerifyBuilder<InoutProtocolMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_genericInOutClosure__closure_closure(`closure`.wrapAsGeneric())), returning: (Void).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -5644,6 +7053,19 @@ open class InoutProtocolMock: InoutProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -5781,7 +7203,7 @@ open class NonSwiftProtocolMock: NSObject, NonSwiftProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -5805,6 +7227,41 @@ open class NonSwiftProtocolMock: NSObject, NonSwiftProtocol, Mock {
         }
         public static func someMethod(perform: @escaping () -> Void) -> Perform {
             return Perform(method: .m_someMethod, performs: perform)
+        }
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: NonSwiftProtocolMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: NonSwiftProtocolMock
+        
+        public func returnNoting() -> PerformBuilder<NonSwiftProtocolMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_returnNoting, performs: __cl0sur3__)
+			})
+        }
+        public func someMethod() -> PerformBuilder<NonSwiftProtocolMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_someMethod, performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: NonSwiftProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func returnNoting() -> VerifyBuilder<NonSwiftProtocolMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_returnNoting), returning: (Void).self, file: file, line: line)
+        }
+        public func someMethod() -> VerifyBuilder<NonSwiftProtocolMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_someMethod), returning: (Void).self, file: file, line: line)
         }
     }
 
@@ -5833,6 +7290,19 @@ open class NonSwiftProtocolMock: NSObject, NonSwiftProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -6128,7 +7598,7 @@ open class ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock: ProtocolMethods
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -6245,6 +7715,116 @@ open class ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock: ProtocolMethods
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock
+
+
+        public func foo<T>(bar: Parameter<T>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_1(`bar`.wrapAsGeneric()), products: products)
+			})
+        }
+        public func foo<T>(bar: Parameter<T>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_2(`bar`.wrapAsGeneric()), products: products)
+			})
+        }
+        public func foo<T>(bar: Parameter<T>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Float> where T: A {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_4(`bar`.wrapAsGeneric()), products: products)
+			})
+        }
+        public func foo<T>(bar: Parameter<T>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Double> where T: B {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_5(`bar`.wrapAsGeneric()), products: products)
+			})
+        }
+        public func foo<T>(bar: Parameter<String>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Array<T>> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_6(`bar`), products: products)
+			})
+        }
+        public func foo<T>(bar: Parameter<String>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Set<T>> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_7(`bar`), products: products)
+			})
+        }
+        public func foo<T>(bar: Parameter<Bool>) -> GivenBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, T> where T: A {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_9(`bar`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock
+        
+        public func foo<T>(bar: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (T) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_1(`bar`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func foo<T>(bar: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (T) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_2(`bar`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func foo<T>(bar: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (T) -> Void, Float> where T: A {
+            ParameterizedPerformBuilder(mock: mock, returning: (Float).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_4(`bar`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func foo<T>(bar: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (T) -> Void, Double> where T: B {
+            ParameterizedPerformBuilder(mock: mock, returning: (Double).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_5(`bar`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func foo<T>(bar: Parameter<String>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (String) -> Void, Array<T>> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Array<T>).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_6(`bar`), performs: __cl0sur3__)
+			})
+        }
+        public func foo<T>(bar: Parameter<String>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (String) -> Void, Set<T>> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Set<T>).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_7(`bar`), performs: __cl0sur3__)
+			})
+        }
+        public func foo<T>(bar: Parameter<Bool>) -> ParameterizedPerformBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, (Bool) -> Void, T> where T: A {
+            ParameterizedPerformBuilder(mock: mock, returning: (T).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_9(`bar`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func foo<T>(bar: Parameter<T>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_1(`bar`.wrapAsGeneric())), returning: (String).self, file: file, line: line)
+        }
+        public func foo<T>(bar: Parameter<T>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_2(`bar`.wrapAsGeneric())), returning: (Int).self, file: file, line: line)
+        }
+        public func foo<T>(bar: Parameter<T>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Float> where T: A {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_4(`bar`.wrapAsGeneric())), returning: (Float).self, file: file, line: line)
+        }
+        public func foo<T>(bar: Parameter<T>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Double> where T: B {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_5(`bar`.wrapAsGeneric())), returning: (Double).self, file: file, line: line)
+        }
+        public func foo<T>(bar: Parameter<String>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Array<T>> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_6(`bar`)), returning: (Array<T>).self, file: file, line: line)
+        }
+        public func foo<T>(bar: Parameter<String>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, Set<T>> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_7(`bar`)), returning: (Set<T>).self, file: file, line: line)
+        }
+        public func foo<T>(bar: Parameter<Bool>) -> VerifyBuilder<ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock, T> where T: A {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_9(`bar`)), returning: (T).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -6270,6 +7850,19 @@ open class ProtocolMethodsGenericThatDifferOnlyInReturnTypeMock: ProtocolMethods
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -6427,7 +8020,7 @@ open class ProtocolMethodsThatDifferOnlyInReturnTypeMock: ProtocolMethodsThatDif
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -6474,6 +8067,51 @@ open class ProtocolMethodsThatDifferOnlyInReturnTypeMock: ProtocolMethodsThatDif
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolMethodsThatDifferOnlyInReturnTypeMock
+
+
+        public func foo(bar: Parameter<String>) -> GivenBuilder<ProtocolMethodsThatDifferOnlyInReturnTypeMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_1(`bar`), products: products)
+			})
+        }
+        public func foo(bar: Parameter<String>) -> GivenBuilder<ProtocolMethodsThatDifferOnlyInReturnTypeMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_foo__bar_bar_2(`bar`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolMethodsThatDifferOnlyInReturnTypeMock
+        
+        public func foo(bar: Parameter<String>) -> ParameterizedPerformBuilder<ProtocolMethodsThatDifferOnlyInReturnTypeMock, (String) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_1(`bar`), performs: __cl0sur3__)
+			})
+        }
+        public func foo(bar: Parameter<String>) -> ParameterizedPerformBuilder<ProtocolMethodsThatDifferOnlyInReturnTypeMock, (String) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_foo__bar_bar_2(`bar`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolMethodsThatDifferOnlyInReturnTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func foo(bar: Parameter<String>) -> VerifyBuilder<ProtocolMethodsThatDifferOnlyInReturnTypeMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_1(`bar`)), returning: (String).self, file: file, line: line)
+        }
+        public func foo(bar: Parameter<String>) -> VerifyBuilder<ProtocolMethodsThatDifferOnlyInReturnTypeMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_foo__bar_bar_2(`bar`)), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -6499,6 +8137,19 @@ open class ProtocolMethodsThatDifferOnlyInReturnTypeMock: ProtocolMethodsThatDif
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -6643,7 +8294,7 @@ open class ProtocolWithAssociatedTypeMock<T>: ProtocolWithAssociatedType, Mock w
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -6680,6 +8331,44 @@ open class ProtocolWithAssociatedTypeMock<T>: ProtocolWithAssociatedType, Mock w
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithAssociatedTypeMock<T>
+
+        public func sequence(getter defaultValue: T...) -> GivenBuilder<ProtocolWithAssociatedTypeMock<T>, T> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_sequence_get, products: products)
+            })
+        }
+
+        public func methodWithType(t: Parameter<T>) -> GivenBuilder<ProtocolWithAssociatedTypeMock<T>, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithType__t_t(`t`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithAssociatedTypeMock<T>
+        
+        public func methodWithType(t: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolWithAssociatedTypeMock<T>, (T) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithType__t_t(`t`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithAssociatedTypeMock<T>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWithType(t: Parameter<T>) -> VerifyBuilder<ProtocolWithAssociatedTypeMock<T>, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithType__t_t(`t`)), returning: (Bool).self, file: file, line: line)
+        }
+        public var sequence: VerifyBuilder<ProtocolWithAssociatedTypeMock<T>, T> { VerifyBuilder(mock: mock, method: Verify(method: .p_sequence_get), returning: (T).self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -6705,6 +8394,19 @@ open class ProtocolWithAssociatedTypeMock<T>: ProtocolWithAssociatedType, Mock w
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -6826,7 +8528,7 @@ open class ProtocolWithAssociatedType2Mock<ValueType>: ProtocolWithAssociatedTyp
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -6847,6 +8549,31 @@ open class ProtocolWithAssociatedType2Mock<ValueType>: ProtocolWithAssociatedTyp
         fileprivate var method: MethodType
         var performs: Any
 
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithAssociatedType2Mock<ValueType>
+
+        public func property(getter defaultValue: String...) -> GivenBuilder<ProtocolWithAssociatedType2Mock<ValueType>, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_property_get, products: products)
+            })
+        }
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithAssociatedType2Mock<ValueType>
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithAssociatedType2Mock<ValueType>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public var property: VerifyBuilder<ProtocolWithAssociatedType2Mock<ValueType>, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_get), returning: (String).self, file: file, line: line) }
     }
 
     public func given(_ method: Given) {
@@ -6874,6 +8601,19 @@ open class ProtocolWithAssociatedType2Mock<ValueType>: ProtocolWithAssociatedTyp
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -6997,7 +8737,7 @@ open class ProtocolWithAttributesMock: NSObject, ProtocolWithAttributes, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -7017,6 +8757,33 @@ open class ProtocolWithAttributesMock: NSObject, ProtocolWithAttributes, Mock {
 
         public static func funcA(perform: @escaping () -> Void) -> Perform {
             return Perform(method: .m_funcA, performs: perform)
+        }
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithAttributesMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithAttributesMock
+        
+        public func funcA() -> PerformBuilder<ProtocolWithAttributesMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_funcA, performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithAttributesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func funcA() -> VerifyBuilder<ProtocolWithAttributesMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_funcA), returning: (Void).self, file: file, line: line)
         }
     }
 
@@ -7045,6 +8812,19 @@ open class ProtocolWithAttributesMock: NSObject, ProtocolWithAttributes, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -7273,7 +9053,7 @@ open class ProtocolWithAttributesBMock: ProtocolWithAttributesB, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -7356,6 +9136,94 @@ open class ProtocolWithAttributesBMock: ProtocolWithAttributesB, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithAttributesBMock
+
+
+        @available(iOS 14, *)
+		public func funcC(_ dependency: Parameter<ProtocolWithAttributes>) -> GivenBuilder<ProtocolWithAttributesBMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_funcC__dependency(`dependency`.typeErasedAttribute()), products: products)
+			})
+        }
+        public func mutatingFunc(param: Parameter<Int>) -> GivenBuilder<ProtocolWithAttributesBMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_mutatingFunc__param_param(`param`), products: products)
+			})
+        }
+        @discardableResult
+		public func inlinableFunc(_ val: Parameter<Int>) -> GivenBuilder<ProtocolWithAttributesBMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_inlinableFunc__val(`val`), products: products)
+			})
+        }
+        @available(iOS 12, macOS 10.14, *)
+		public func `subscript`(x: Parameter<Int>, y: Parameter<Int>) -> GivenBuilder<ProtocolWithAttributesBMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_x_y(`x`.typeErasedAttribute(), `y`.typeErasedAttribute()), products: products)
+            })
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithAttributesBMock
+        
+        @available(iOS 14, *)
+		public func funcB(_ dependency: Parameter<ProtocolWithAttributes>) -> ParameterizedPerformBuilder<ProtocolWithAttributesBMock, (ProtocolWithAttributes) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_funcB__dependency(`dependency`.typeErasedAttribute()), performs: __cl0sur3__)
+			})
+        }
+        @available(iOS 14, *)
+		public func funcC(_ dependency: Parameter<ProtocolWithAttributes>) -> ParameterizedPerformBuilder<ProtocolWithAttributesBMock, (ProtocolWithAttributes) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_funcC__dependency(`dependency`.typeErasedAttribute()), performs: __cl0sur3__)
+			})
+        }
+        public func mutatingFunc(param: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithAttributesBMock, (Int) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_mutatingFunc__param_param(`param`), performs: __cl0sur3__)
+			})
+        }
+        @discardableResult
+		public func inlinableFunc(_ val: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithAttributesBMock, (Int) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_inlinableFunc__val(`val`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithAttributesBMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        @available(iOS 14, *)
+		public func funcB(_ dependency: Parameter<ProtocolWithAttributes>) -> VerifyBuilder<ProtocolWithAttributesBMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_funcB__dependency(`dependency`.typeErasedAttribute())), returning: (Void).self, file: file, line: line)
+        }
+        @available(iOS 14, *)
+		public func funcC(_ dependency: Parameter<ProtocolWithAttributes>) -> VerifyBuilder<ProtocolWithAttributesBMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_funcC__dependency(`dependency`.typeErasedAttribute())), returning: (Bool).self, file: file, line: line)
+        }
+        public func mutatingFunc(param: Parameter<Int>) -> VerifyBuilder<ProtocolWithAttributesBMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_mutatingFunc__param_param(`param`)), returning: (String).self, file: file, line: line)
+        }
+        @discardableResult
+		public func inlinableFunc(_ val: Parameter<Int>) -> VerifyBuilder<ProtocolWithAttributesBMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_inlinableFunc__val(`val`)), returning: (Int).self, file: file, line: line)
+        }
+        @available(iOS 12, macOS 10.14, *)
+		public func `subscript`(x: Parameter<Int>, y: Parameter<Int>) -> VerifyBuilder<ProtocolWithAttributesBMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_x_y(`x`.typeErasedAttribute(), `y`.typeErasedAttribute())), returning: (String).self, file: file, line: line)
+        }
+        @available(iOS 12, macOS 10.14, *)
+		public func `subscript`(x: Parameter<Int>, y: Parameter<Int>, set newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithAttributesBMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_x_y(`x`.typeErasedAttribute(), `y`.typeErasedAttribute(), newValue)), returning: Void.self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -7381,6 +9249,19 @@ open class ProtocolWithAttributesBMock: ProtocolWithAttributesB, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -7508,7 +9389,7 @@ open class ProtocolWithClosureAttributesMock: ProtocolWithClosureAttributes, Moc
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -7528,6 +9409,33 @@ open class ProtocolWithClosureAttributesMock: ProtocolWithClosureAttributes, Moc
 
         public static func open(_ url: Parameter<URL>, completionHandler completion: Parameter<(@MainActor @Sendable (Bool) -> Void)?>, perform: @escaping (URL, (@MainActor @Sendable (Bool) -> Void)?) -> Void) -> Perform {
             return Perform(method: .m_open__urlcompletionHandler_completion(`url`, `completion`), performs: perform)
+        }
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithClosureAttributesMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithClosureAttributesMock
+        
+        public func open(_ url: Parameter<URL>, completionHandler completion: Parameter<(@MainActor @Sendable (Bool) -> Void)?>) -> ParameterizedPerformBuilder<ProtocolWithClosureAttributesMock, (URL, (@MainActor @Sendable (Bool) -> Void)?) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_open__urlcompletionHandler_completion(`url`, `completion`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithClosureAttributesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func open(_ url: Parameter<URL>, completionHandler completion: Parameter<(@MainActor @Sendable (Bool) -> Void)?>) -> VerifyBuilder<ProtocolWithClosureAttributesMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_open__urlcompletionHandler_completion(`url`, `completion`)), returning: (Void).self, file: file, line: line)
         }
     }
 
@@ -7556,6 +9464,19 @@ open class ProtocolWithClosureAttributesMock: ProtocolWithClosureAttributes, Moc
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -7711,7 +9632,7 @@ open class ProtocolWithClosuresMock: ProtocolWithClosures, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -7742,6 +9663,49 @@ open class ProtocolWithClosuresMock: ProtocolWithClosures, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithClosuresMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithClosuresMock
+        
+        public func methodThatTakes(closure: Parameter<(Int) -> Int>) -> ParameterizedPerformBuilder<ProtocolWithClosuresMock, ((Int) -> Int) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakes__closure_closure(`closure`), performs: __cl0sur3__)
+			})
+        }
+        public func methodThatTakesEscaping(closure: Parameter<(Int) -> Int>) -> ParameterizedPerformBuilder<ProtocolWithClosuresMock, (@escaping (Int) -> Int) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesEscaping__closure_closure(`closure`), performs: __cl0sur3__)
+			})
+        }
+        public func methodThatTakesCompletionBlock(completion: Parameter<(Bool, Error?) -> Void>) -> ParameterizedPerformBuilder<ProtocolWithClosuresMock, ((Bool, Error?) -> Void) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesCompletionBlock__completion_completion(`completion`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithClosuresMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodThatTakes(closure: Parameter<(Int) -> Int>) -> VerifyBuilder<ProtocolWithClosuresMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakes__closure_closure(`closure`)), returning: (Void).self, file: file, line: line)
+        }
+        public func methodThatTakesEscaping(closure: Parameter<(Int) -> Int>) -> VerifyBuilder<ProtocolWithClosuresMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesEscaping__closure_closure(`closure`)), returning: (Void).self, file: file, line: line)
+        }
+        public func methodThatTakesCompletionBlock(completion: Parameter<(Bool, Error?) -> Void>) -> VerifyBuilder<ProtocolWithClosuresMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesCompletionBlock__completion_completion(`completion`)), returning: (Void).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -7767,6 +9731,19 @@ open class ProtocolWithClosuresMock: ProtocolWithClosures, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -7946,7 +9923,7 @@ open class ProtocolWithConflictingMembersMock: ProtocolWithConflictingMembers, M
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -8007,6 +9984,64 @@ open class ProtocolWithConflictingMembersMock: ProtocolWithConflictingMembers, M
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithConflictingMembersMock
+
+
+        public func method(withLabel value: Parameter<Int>) -> GivenBuilder<ProtocolWithConflictingMembersMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_method__withLabel_value(`value`), products: products)
+			})
+        }
+        public func method(_ value: Parameter<Int>) -> GivenBuilder<ProtocolWithConflictingMembersMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_method__value(`value`), products: products)
+			})
+        }
+        public func method(value: Parameter<Int>) -> GivenBuilder<ProtocolWithConflictingMembersMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_method__value_value(`value`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithConflictingMembersMock
+        
+        public func method(withLabel value: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithConflictingMembersMock, (Int) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_method__withLabel_value(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func method(_ value: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithConflictingMembersMock, (Int) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_method__value(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func method(value: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithConflictingMembersMock, (Int) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_method__value_value(`value`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithConflictingMembersMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func method(withLabel value: Parameter<Int>) -> VerifyBuilder<ProtocolWithConflictingMembersMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_method__withLabel_value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func method(_ value: Parameter<Int>) -> VerifyBuilder<ProtocolWithConflictingMembersMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_method__value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func method(value: Parameter<Int>) -> VerifyBuilder<ProtocolWithConflictingMembersMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_method__value_value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -8032,6 +10067,19 @@ open class ProtocolWithConflictingMembersMock: ProtocolWithConflictingMembers, M
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -8188,7 +10236,7 @@ open class ProtocolWithCustomAttributesMock: ProtocolWithCustomAttributes, Mock 
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -8235,6 +10283,51 @@ open class ProtocolWithCustomAttributesMock: ProtocolWithCustomAttributes, Mock 
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithCustomAttributesMock
+
+
+        public func methodThatTakesUser(user: Parameter<UserObject>) -> ThrowingGivenBuilder<ProtocolWithCustomAttributesMock, Void> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatTakesUser__user_user(`user`), products: products)
+			})
+        }
+        public func methodThatTakesArrayOfUsers(array: Parameter<[UserObject]>) -> GivenBuilder<ProtocolWithCustomAttributesMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatTakesArrayOfUsers__array_array(`array`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithCustomAttributesMock
+        
+        public func methodThatTakesUser(user: Parameter<UserObject>) -> ParameterizedPerformBuilder<ProtocolWithCustomAttributesMock, (UserObject) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesUser__user_user(`user`), performs: __cl0sur3__)
+			})
+        }
+        public func methodThatTakesArrayOfUsers(array: Parameter<[UserObject]>) -> ParameterizedPerformBuilder<ProtocolWithCustomAttributesMock, ([UserObject]) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesArrayOfUsers__array_array(`array`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithCustomAttributesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodThatTakesUser(user: Parameter<UserObject>) -> VerifyBuilder<ProtocolWithCustomAttributesMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesUser__user_user(`user`)), returning: (Void).self, file: file, line: line)
+        }
+        public func methodThatTakesArrayOfUsers(array: Parameter<[UserObject]>) -> VerifyBuilder<ProtocolWithCustomAttributesMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesArrayOfUsers__array_array(`array`)), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -8260,6 +10353,19 @@ open class ProtocolWithCustomAttributesMock: ProtocolWithCustomAttributes, Mock 
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -8394,7 +10500,7 @@ open class ProtocolWithDeprecatedMembersMock: ProtocolWithDeprecatedMembers, Moc
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -8427,6 +10533,38 @@ open class ProtocolWithDeprecatedMembersMock: ProtocolWithDeprecatedMembers, Moc
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithDeprecatedMembersMock
+
+
+        public func method(_ value: Parameter<Int>) -> GivenBuilder<ProtocolWithDeprecatedMembersMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_method__value(`value`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithDeprecatedMembersMock
+        
+        public func method(_ value: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithDeprecatedMembersMock, (Int) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_method__value(`value`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithDeprecatedMembersMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func method(_ value: Parameter<Int>) -> VerifyBuilder<ProtocolWithDeprecatedMembersMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_method__value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -8452,6 +10590,19 @@ open class ProtocolWithDeprecatedMembersMock: ProtocolWithDeprecatedMembers, Moc
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -8592,7 +10743,7 @@ open class ProtocolWithGenericConstraintsMock<ContainedType>: ProtocolWithGeneri
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -8629,6 +10780,44 @@ open class ProtocolWithGenericConstraintsMock<ContainedType>: ProtocolWithGeneri
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericConstraintsMock<ContainedType>
+
+        public func value(getter defaultValue: ContainedType...) -> GivenBuilder<ProtocolWithGenericConstraintsMock<ContainedType>, ContainedType> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_value_get, products: products)
+            })
+        }
+
+        public func extractString<U: CustomStringConvertible>() -> GivenBuilder<ProtocolWithGenericConstraintsMock<ContainedType>, String?> where ContainedType == Optional<U> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_extractString, products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericConstraintsMock<ContainedType>
+        
+        public func extractString() -> PerformBuilder<ProtocolWithGenericConstraintsMock<ContainedType>, String?> {
+            PerformBuilder(mock: mock, returning: (String?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_extractString, performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericConstraintsMock<ContainedType>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func extractString() -> VerifyBuilder<ProtocolWithGenericConstraintsMock<ContainedType>, String?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_extractString), returning: (String?).self, file: file, line: line)
+        }
+        public var value: VerifyBuilder<ProtocolWithGenericConstraintsMock<ContainedType>, ContainedType> { VerifyBuilder(mock: mock, method: Verify(method: .p_value_get), returning: (ContainedType).self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -8654,6 +10843,19 @@ open class ProtocolWithGenericConstraintsMock<ContainedType>: ProtocolWithGeneri
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -8812,7 +11014,7 @@ open class ProtocolWithGenericMethodsMock: ProtocolWithGenericMethods, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -8859,6 +11061,51 @@ open class ProtocolWithGenericMethodsMock: ProtocolWithGenericMethods, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericMethodsMock
+
+
+        public func methodWithGeneric<T>(lhs: Parameter<T>, rhs: Parameter<T>) -> GivenBuilder<ProtocolWithGenericMethodsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithGeneric__lhs_lhsrhs_rhs(`lhs`.wrapAsGeneric(), `rhs`.wrapAsGeneric()), products: products)
+			})
+        }
+        public func methodWithGenericConstraint<U>(param: Parameter<[U]>) -> GivenBuilder<ProtocolWithGenericMethodsMock, U> where U: Equatable {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithGenericConstraint__param_param(`param`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericMethodsMock
+        
+        public func methodWithGeneric<T>(lhs: Parameter<T>, rhs: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolWithGenericMethodsMock, (T, T) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithGeneric__lhs_lhsrhs_rhs(`lhs`.wrapAsGeneric(), `rhs`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithGenericConstraint<U>(param: Parameter<[U]>) -> ParameterizedPerformBuilder<ProtocolWithGenericMethodsMock, ([U]) -> Void, U> {
+            ParameterizedPerformBuilder(mock: mock, returning: (U).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithGenericConstraint__param_param(`param`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericMethodsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWithGeneric<T>(lhs: Parameter<T>, rhs: Parameter<T>) -> VerifyBuilder<ProtocolWithGenericMethodsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithGeneric__lhs_lhsrhs_rhs(`lhs`.wrapAsGeneric(), `rhs`.wrapAsGeneric())), returning: (Bool).self, file: file, line: line)
+        }
+        public func methodWithGenericConstraint<U>(param: Parameter<[U]>) -> VerifyBuilder<ProtocolWithGenericMethodsMock, U> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithGenericConstraint__param_param(`param`.wrapAsGeneric())), returning: (U).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -8884,6 +11131,19 @@ open class ProtocolWithGenericMethodsMock: ProtocolWithGenericMethods, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -9018,7 +11278,7 @@ open class ProtocolWithGenericMethodsNestedMock: ProtocolWithGenericMethodsNeste
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -9051,6 +11311,38 @@ open class ProtocolWithGenericMethodsNestedMock: ProtocolWithGenericMethodsNeste
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericMethodsNestedMock
+
+
+        public func methodWithGeneric<T>(resource: Parameter<Resource<T>>) -> GivenBuilder<ProtocolWithGenericMethodsNestedMock, Observable<Response<T>>> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithGeneric__resource_resource(`resource`.wrapAsGeneric()), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericMethodsNestedMock
+        
+        public func methodWithGeneric<T>(resource: Parameter<Resource<T>>) -> ParameterizedPerformBuilder<ProtocolWithGenericMethodsNestedMock, (Resource<T>) -> Void, Observable<Response<T>>> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Observable<Response<T>>).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithGeneric__resource_resource(`resource`.wrapAsGeneric()), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithGenericMethodsNestedMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWithGeneric<T>(resource: Parameter<Resource<T>>) -> VerifyBuilder<ProtocolWithGenericMethodsNestedMock, Observable<Response<T>>> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithGeneric__resource_resource(`resource`.wrapAsGeneric())), returning: (Observable<Response<T>>).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -9076,6 +11368,19 @@ open class ProtocolWithGenericMethodsNestedMock: ProtocolWithGenericMethodsNeste
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -9211,7 +11516,7 @@ open class ProtocolWithInitializersMock: ProtocolWithInitializers, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -9236,6 +11541,37 @@ open class ProtocolWithInitializersMock: ProtocolWithInitializers, Mock {
         fileprivate var method: MethodType
         var performs: Any
 
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithInitializersMock
+
+        public func param(getter defaultValue: Int...) -> GivenBuilder<ProtocolWithInitializersMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_param_get, products: products)
+            })
+        }
+        public func other(getter defaultValue: String...) -> GivenBuilder<ProtocolWithInitializersMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_other_get, products: products)
+            })
+        }
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithInitializersMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithInitializersMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public var param: VerifyBuilder<ProtocolWithInitializersMock, Int> { VerifyBuilder(mock: mock, method: Verify(method: .p_param_get), returning: (Int).self, file: file, line: line) }
+        public var other: VerifyBuilder<ProtocolWithInitializersMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_other_get), returning: (String).self, file: file, line: line) }
     }
 
     public func given(_ method: Given) {
@@ -9263,6 +11599,19 @@ open class ProtocolWithInitializersMock: ProtocolWithInitializers, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -9401,7 +11750,7 @@ open class ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock: ProtocolWithM
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -9437,6 +11786,38 @@ open class ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock: ProtocolWithM
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock
+
+
+        public func max<Type: Comparable>(for attribute: Parameter<Int>, over samples: Parameter<[Int]>, per aggregationUnit: Parameter<String?>) -> ThrowingGivenBuilder<ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock, [(date: String?, value: Type)]> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_max__for_attributeover_samplesper_aggregationUnit(`attribute`, `samples`, `aggregationUnit`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock
+        
+        public func max<Type>(for attribute: Parameter<Int>, over samples: Parameter<[Int]>, per aggregationUnit: Parameter<String?>) -> ParameterizedPerformBuilder<ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock, (Int, [Int], String?) -> Void, [(date: String?, value: Type)]> {
+            ParameterizedPerformBuilder(mock: mock, returning: ([(date: String?, value: Type)]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_max__for_attributeover_samplesper_aggregationUnit(`attribute`, `samples`, `aggregationUnit`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func max<Type>(for attribute: Parameter<Int>, over samples: Parameter<[Int]>, per aggregationUnit: Parameter<String?>) -> VerifyBuilder<ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock, [(date: String?, value: Type)]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_max__for_attributeover_samplesper_aggregationUnit(`attribute`, `samples`, `aggregationUnit`)), returning: ([(date: String?, value: Type)]).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -9462,6 +11843,19 @@ open class ProtocolWithMethodsWithGenericReturnTypeThatThrowsMock: ProtocolWithM
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -9592,7 +11986,7 @@ open class ProtocolWithMethodWithManyParametersMock: ProtocolWithMethodWithManyP
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -9612,6 +12006,33 @@ open class ProtocolWithMethodWithManyParametersMock: ProtocolWithMethodWithManyP
 
         public static func method(param1: Parameter<Int>, value: Parameter<String>, flagA: Parameter<Bool>, flagB: Parameter<Bool>, closure: Parameter<() -> Void>, perform: @escaping (Int, String, Bool, Bool, () -> Void) -> Void) -> Perform {
             return Perform(method: .m_method__param1_param1value_valueflagA_flagAflagB_flagBclosure_closure(`param1`, `value`, `flagA`, `flagB`, `closure`), performs: perform)
+        }
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithMethodWithManyParametersMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithMethodWithManyParametersMock
+        
+        public func method(param1: Parameter<Int>, value: Parameter<String>, flagA: Parameter<Bool>, flagB: Parameter<Bool>, closure: Parameter<() -> Void>) -> ParameterizedPerformBuilder<ProtocolWithMethodWithManyParametersMock, (Int, String, Bool, Bool, () -> Void) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_method__param1_param1value_valueflagA_flagAflagB_flagBclosure_closure(`param1`, `value`, `flagA`, `flagB`, `closure`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithMethodWithManyParametersMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func method(param1: Parameter<Int>, value: Parameter<String>, flagA: Parameter<Bool>, flagB: Parameter<Bool>, closure: Parameter<() -> Void>) -> VerifyBuilder<ProtocolWithMethodWithManyParametersMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_method__param1_param1value_valueflagA_flagAflagB_flagBclosure_closure(`param1`, `value`, `flagA`, `flagB`, `closure`)), returning: (Void).self, file: file, line: line)
         }
     }
 
@@ -9640,6 +12061,19 @@ open class ProtocolWithMethodWithManyParametersMock: ProtocolWithMethodWithManyP
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -9792,7 +12226,7 @@ open class ProtocolWithObjcMock: NSObject, ProtocolWithObjc, Mock, StaticMock {
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -9844,7 +12278,7 @@ open class ProtocolWithObjcMock: NSObject, ProtocolWithObjc, Mock, StaticMock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -9864,6 +12298,33 @@ open class ProtocolWithObjcMock: NSObject, ProtocolWithObjc, Mock, StaticMock {
 
         public static func doStuff(parameter1: Parameter<String>, parameter2: Parameter<String>, perform: @escaping (String, String) -> Void) -> Perform {
             return Perform(method: .m_doStuff__parameter1_parameter1parameter2_parameter2(`parameter1`, `parameter2`), performs: perform)
+        }
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithObjcMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithObjcMock
+        
+        public func doStuff(parameter1: Parameter<String>, parameter2: Parameter<String>) -> ParameterizedPerformBuilder<ProtocolWithObjcMock, (String, String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_doStuff__parameter1_parameter1parameter2_parameter2(`parameter1`, `parameter2`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithObjcMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func doStuff(parameter1: Parameter<String>, parameter2: Parameter<String>) -> VerifyBuilder<ProtocolWithObjcMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_doStuff__parameter1_parameter1parameter2_parameter2(`parameter1`, `parameter2`)), returning: (Void).self, file: file, line: line)
         }
     }
 
@@ -9892,6 +12353,19 @@ open class ProtocolWithObjcMock: NSObject, ProtocolWithObjc, Mock, StaticMock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -10157,7 +12631,7 @@ open class ProtocolWithPropertiesMock: ProtocolWithProperties, Mock, StaticMock 
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -10251,7 +12725,7 @@ open class ProtocolWithPropertiesMock: ProtocolWithProperties, Mock, StaticMock 
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -10293,6 +12767,62 @@ open class ProtocolWithPropertiesMock: ProtocolWithProperties, Mock, StaticMock 
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithPropertiesMock
+
+        public func name(getter defaultValue: String...) -> GivenBuilder<ProtocolWithPropertiesMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_name_get, products: products)
+            })
+        }
+        public func email(getter defaultValue: String?...) -> GivenBuilder<ProtocolWithPropertiesMock, String?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_email_get, products: products)
+            })
+        }
+        public func internalProperty(getter defaultValue: InternalType...) -> GivenBuilder<ProtocolWithPropertiesMock, InternalType> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_internalProperty_get, products: products)
+            })
+        }
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithPropertiesMock
+        
+        public func name(_ newValue: Parameter<String>) -> ParameterizedPerformBuilder<ProtocolWithPropertiesMock, (String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_name__newValue(`newValue`), performs: __cl0sur3__)
+			})
+        }
+        public func email(_ newValue: Parameter<String?>) -> ParameterizedPerformBuilder<ProtocolWithPropertiesMock, (String?) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_email__newValue(`newValue`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithPropertiesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func name(_ newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithPropertiesMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_name__newValue(`newValue`)), returning: (Void).self, file: file, line: line)
+        }
+        public func email(_ newValue: Parameter<String?>) -> VerifyBuilder<ProtocolWithPropertiesMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_email__newValue(`newValue`)), returning: (Void).self, file: file, line: line)
+        }
+        public var name: VerifyBuilder<ProtocolWithPropertiesMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_name_get), returning: (String).self, file: file, line: line) }
+		public func name(set newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_name_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var email: VerifyBuilder<ProtocolWithPropertiesMock, String?> { VerifyBuilder(mock: mock, method: Verify(method: .p_email_get), returning: (String?).self, file: file, line: line) }
+		public func email(set newValue: Parameter<String?>) -> VerifyBuilder<ProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_email_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var internalProperty: VerifyBuilder<ProtocolWithPropertiesMock, InternalType> { VerifyBuilder(mock: mock, method: Verify(method: .p_internalProperty_get), returning: (InternalType).self, file: file, line: line) }
+		public func internalProperty(set newValue: Parameter<InternalType>) -> VerifyBuilder<ProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_internalProperty_set(newValue)), returning: Void.self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -10318,6 +12848,19 @@ open class ProtocolWithPropertiesMock: ProtocolWithProperties, Mock, StaticMock 
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -10543,7 +13086,7 @@ open class ProtocolWithStaticMembersMock: ProtocolWithStaticMembers, Mock, Stati
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -10593,7 +13136,7 @@ open class ProtocolWithStaticMembersMock: ProtocolWithStaticMembers, Mock, Stati
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -10609,6 +13152,25 @@ open class ProtocolWithStaticMembersMock: ProtocolWithStaticMembers, Mock, Stati
     public struct Perform {
         fileprivate var method: MethodType
         var performs: Any
+
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithStaticMembersMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithStaticMembersMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithStaticMembersMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
 
     }
 
@@ -10637,6 +13199,19 @@ open class ProtocolWithStaticMembersMock: ProtocolWithStaticMembers, Mock, Stati
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -11161,7 +13736,7 @@ open class ProtocolWithSubscriptsMock: ProtocolWithSubscripts, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -11253,6 +13828,163 @@ open class ProtocolWithSubscriptsMock: ProtocolWithSubscripts, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithSubscriptsMock
+
+        public func something(getter defaultValue: Any...) -> GivenBuilder<ProtocolWithSubscriptsMock, Any> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_something_get, products: products)
+            })
+        }
+
+        public func aaa(_ value: Parameter<Int>) -> GivenBuilder<ProtocolWithSubscriptsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_aaa__value(`value`), products: products)
+			})
+        }
+        public func `subscript`(_ index: Parameter<Int>) -> GivenBuilder<ProtocolWithSubscriptsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_index_1(`index`), products: products)
+            })
+        }
+        public func `subscript`(labeled index: Parameter<Int>) -> GivenBuilder<ProtocolWithSubscriptsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_labeled_index(`index`), products: products)
+            })
+        }
+        public func `subscript`(x: Parameter<Int>, y: Parameter<Int>) -> GivenBuilder<ProtocolWithSubscriptsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_x_y(`x`, `y`), products: products)
+            })
+        }
+        public func `subscript`(_ index: Parameter<String>) -> GivenBuilder<ProtocolWithSubscriptsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_index_2(`index`), products: products)
+            })
+        }
+        public func `subscript`(label name: Parameter<String>) -> GivenBuilder<ProtocolWithSubscriptsMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_label_name(`name`), products: products)
+            })
+        }
+        public func `subscript`<T: Sequence>(with generic: Parameter<T>) -> GivenBuilder<ProtocolWithSubscriptsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_with_generic_1(`generic`.wrapAsGeneric()), products: products)
+            })
+        }
+        public func `subscript`<T>(with generic: Parameter<T>) -> GivenBuilder<ProtocolWithSubscriptsMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_with_generic_2(`generic`.wrapAsGeneric()), products: products)
+            })
+        }
+        public func `subscript`<T>(_ i: Parameter<Int>, type: Parameter<T.Type>) -> GivenBuilder<ProtocolWithSubscriptsMock, T> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_i_type(`i`, `type`.wrapAsGeneric()), products: products)
+            })
+        }
+        public func `subscript`(closure c: Parameter<(Int) -> Void>) -> GivenBuilder<ProtocolWithSubscriptsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_closure_c(`c`), products: products)
+            })
+        }
+        public func `subscript`(same: Parameter<Int>) -> GivenBuilder<ProtocolWithSubscriptsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_same_1(`same`), products: products)
+            })
+        }
+        public func `subscript`(same: Parameter<Int>) -> GivenBuilder<ProtocolWithSubscriptsMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_same_2(`same`), products: products)
+            })
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithSubscriptsMock
+        
+        public func aaa(_ value: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithSubscriptsMock, (Int) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_aaa__value(`value`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithSubscriptsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func aaa(_ value: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_aaa__value(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public var something: VerifyBuilder<ProtocolWithSubscriptsMock, Any> { VerifyBuilder(mock: mock, method: Verify(method: .p_something_get), returning: (Any).self, file: file, line: line) }
+		public func something(set newValue: Parameter<Any>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_something_set(newValue)), returning: Void.self, file: file, line: line) }
+        public func `subscript`(_ index: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_index_1(`index`)), returning: (String).self, file: file, line: line)
+        }
+        public func `subscript`(_ index: Parameter<Int>, set newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_index_1(`index`, newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(labeled index: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_labeled_index(`index`)), returning: (String).self, file: file, line: line)
+        }
+        public func `subscript`(labeled index: Parameter<Int>, set newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_labeled_index(`index`, newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(x: Parameter<Int>, y: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_x_y(`x`, `y`)), returning: (String).self, file: file, line: line)
+        }
+        public func `subscript`(x: Parameter<Int>, y: Parameter<Int>, set newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_x_y(`x`, `y`, newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(_ index: Parameter<String>) -> VerifyBuilder<ProtocolWithSubscriptsMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_index_2(`index`)), returning: (String).self, file: file, line: line)
+        }
+        public func `subscript`(_ index: Parameter<String>, set newValue: Parameter<String>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_index_2(`index`, newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(label name: Parameter<String>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_label_name(`name`)), returning: (Int).self, file: file, line: line)
+        }
+        public func `subscript`<T: Sequence>(with generic: Parameter<T>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_with_generic_1(`generic`.wrapAsGeneric())), returning: (Bool).self, file: file, line: line)
+        }
+        public func `subscript`<T: Sequence>(with generic: Parameter<T>, set newValue: Parameter<Bool>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_with_generic_1(`generic`.wrapAsGeneric(), newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`<T>(with generic: Parameter<T>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_with_generic_2(`generic`.wrapAsGeneric())), returning: (Int).self, file: file, line: line)
+        }
+        public func `subscript`<T>(with generic: Parameter<T>, set newValue: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_with_generic_2(`generic`.wrapAsGeneric(), newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`<T>(_ i: Parameter<Int>, type: Parameter<T.Type>) -> VerifyBuilder<ProtocolWithSubscriptsMock, T> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_i_type(`i`, `type`.wrapAsGeneric())), returning: (T).self, file: file, line: line)
+        }
+        public func `subscript`<T>(_ i: Parameter<Int>, type: Parameter<T.Type>, set newValue: Parameter<T>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_i_type(`i`, `type`.wrapAsGeneric(), newValue.wrapAsGeneric())), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(closure c: Parameter<(Int) -> Void>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_closure_c(`c`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func `subscript`(closure c: Parameter<(Int) -> Void>, set newValue: Parameter<Bool>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_closure_c(`c`, newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(same: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_same_1(`same`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func `subscript`(same: Parameter<Int>, set newValue: Parameter<Bool>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_same_1(`same`, newValue)), returning: Void.self, file: file, line: line)
+        }
+        public func `subscript`(same: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_same_2(`same`)), returning: (Int).self, file: file, line: line)
+        }
+        public func `subscript`(same: Parameter<Int>, set newValue: Parameter<Int>) -> VerifyBuilder<ProtocolWithSubscriptsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_set_same_2(`same`, newValue)), returning: Void.self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -11278,6 +14010,19 @@ open class ProtocolWithSubscriptsMock: ProtocolWithSubscripts, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -11433,7 +14178,7 @@ open class ProtocolWithThrowingMethodsMock: ProtocolWithThrowingMethods, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -11483,6 +14228,51 @@ open class ProtocolWithThrowingMethodsMock: ProtocolWithThrowingMethods, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithThrowingMethodsMock
+
+
+        public func methodThatThrows() -> ThrowingGivenBuilder<ProtocolWithThrowingMethodsMock, Void> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatThrows, products: products)
+			})
+        }
+        public func methodThatReturnsAndThrows(param: Parameter<Int>) -> ThrowingGivenBuilder<ProtocolWithThrowingMethodsMock, Bool> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatReturnsAndThrows__param_param(`param`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithThrowingMethodsMock
+        
+        public func methodThatThrows() -> PerformBuilder<ProtocolWithThrowingMethodsMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatThrows, performs: __cl0sur3__)
+			})
+        }
+        public func methodThatReturnsAndThrows(param: Parameter<Int>) -> ParameterizedPerformBuilder<ProtocolWithThrowingMethodsMock, (Int) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatReturnsAndThrows__param_param(`param`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithThrowingMethodsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodThatThrows() -> VerifyBuilder<ProtocolWithThrowingMethodsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatThrows), returning: (Void).self, file: file, line: line)
+        }
+        public func methodThatReturnsAndThrows(param: Parameter<Int>) -> VerifyBuilder<ProtocolWithThrowingMethodsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatReturnsAndThrows__param_param(`param`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -11508,6 +14298,19 @@ open class ProtocolWithThrowingMethodsMock: ProtocolWithThrowingMethods, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -11642,7 +14445,7 @@ open class ProtocolWithTuplesMock: ProtocolWithTuples, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -11675,6 +14478,38 @@ open class ProtocolWithTuplesMock: ProtocolWithTuples, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithTuplesMock
+
+
+        public func methodThatTakesTuple(tuple: Parameter<(String,Int)>) -> GivenBuilder<ProtocolWithTuplesMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatTakesTuple__tuple_tuple(`tuple`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithTuplesMock
+        
+        public func methodThatTakesTuple(tuple: Parameter<(String,Int)>) -> ParameterizedPerformBuilder<ProtocolWithTuplesMock, ((String,Int)) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesTuple__tuple_tuple(`tuple`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithTuplesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodThatTakesTuple(tuple: Parameter<(String,Int)>) -> VerifyBuilder<ProtocolWithTuplesMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesTuple__tuple_tuple(`tuple`)), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -11700,6 +14535,19 @@ open class ProtocolWithTuplesMock: ProtocolWithTuples, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -11844,7 +14692,7 @@ open class ProtocolWithWhereAfterDefinitionMock<T>: ProtocolWithWhereAfterDefini
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -11881,6 +14729,44 @@ open class ProtocolWithWhereAfterDefinitionMock<T>: ProtocolWithWhereAfterDefini
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ProtocolWithWhereAfterDefinitionMock<T>
+
+        public func sequence(getter defaultValue: T...) -> GivenBuilder<ProtocolWithWhereAfterDefinitionMock<T>, T> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_sequence_get, products: products)
+            })
+        }
+
+        public func methodWithType(t: Parameter<T>) -> GivenBuilder<ProtocolWithWhereAfterDefinitionMock<T>, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithType__t_t(`t`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ProtocolWithWhereAfterDefinitionMock<T>
+        
+        public func methodWithType(t: Parameter<T>) -> ParameterizedPerformBuilder<ProtocolWithWhereAfterDefinitionMock<T>, (T) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithType__t_t(`t`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ProtocolWithWhereAfterDefinitionMock<T>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWithType(t: Parameter<T>) -> VerifyBuilder<ProtocolWithWhereAfterDefinitionMock<T>, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithType__t_t(`t`)), returning: (Bool).self, file: file, line: line)
+        }
+        public var sequence: VerifyBuilder<ProtocolWithWhereAfterDefinitionMock<T>, T> { VerifyBuilder(mock: mock, method: Verify(method: .p_sequence_get), returning: (T).self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -11906,6 +14792,19 @@ open class ProtocolWithWhereAfterDefinitionMock<T>: ProtocolWithWhereAfterDefini
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -12184,7 +15083,7 @@ open class SampleServiceTypeMock: SampleServiceType, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -12305,6 +15204,124 @@ open class SampleServiceTypeMock: SampleServiceType, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SampleServiceTypeMock
+
+
+        public func serviceName() -> GivenBuilder<SampleServiceTypeMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_serviceName, products: products)
+			})
+        }
+        public func getPoint(from point: Parameter<Point>) -> GivenBuilder<SampleServiceTypeMock, Point> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getPoint__from_point(`point`), products: products)
+			})
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> GivenBuilder<SampleServiceTypeMock, Point> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getPoint__from_tuple(`tuple`), products: products)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> GivenBuilder<SampleServiceTypeMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_similarMethodThatDiffersOnType__value_1(`value`), products: products)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> GivenBuilder<SampleServiceTypeMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_similarMethodThatDiffersOnType__value_2(`value`), products: products)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> GivenBuilder<SampleServiceTypeMock, ClosureFabric> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithClosures__success_function_1(`function`), products: products)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> GivenBuilder<SampleServiceTypeMock, (Int) -> Void> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithClosures__success_function_2(`function`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SampleServiceTypeMock
+        
+        public func serviceName() -> PerformBuilder<SampleServiceTypeMock, String> {
+            PerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_serviceName, performs: __cl0sur3__)
+			})
+        }
+        public func getPoint(from point: Parameter<Point>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, (Point) -> Void, Point> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Point).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getPoint__from_point(`point`), performs: __cl0sur3__)
+			})
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, ((Float,Float)) -> Void, Point> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Point).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getPoint__from_tuple(`tuple`), performs: __cl0sur3__)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, (Float) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_similarMethodThatDiffersOnType__value_1(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, (Point) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_similarMethodThatDiffersOnType__value_2(`value`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithTypedef(_ scalar: Parameter<Scalar>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, (Scalar) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithTypedef__scalar(`scalar`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, (LinearFunction) -> Void, ClosureFabric> {
+            ParameterizedPerformBuilder(mock: mock, returning: (ClosureFabric).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithClosures__success_function_1(`function`), performs: __cl0sur3__)
+			})
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> ParameterizedPerformBuilder<SampleServiceTypeMock, (((Scalar, Scalar) -> Scalar)?) -> Void, (Int) -> Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: ((Int) -> Void).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithClosures__success_function_2(`function`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SampleServiceTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func serviceName() -> VerifyBuilder<SampleServiceTypeMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_serviceName), returning: (String).self, file: file, line: line)
+        }
+        public func getPoint(from point: Parameter<Point>) -> VerifyBuilder<SampleServiceTypeMock, Point> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getPoint__from_point(`point`)), returning: (Point).self, file: file, line: line)
+        }
+        public func getPoint(from tuple: Parameter<(Float,Float)>) -> VerifyBuilder<SampleServiceTypeMock, Point> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getPoint__from_tuple(`tuple`)), returning: (Point).self, file: file, line: line)
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Float>) -> VerifyBuilder<SampleServiceTypeMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_similarMethodThatDiffersOnType__value_1(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func similarMethodThatDiffersOnType(_ value: Parameter<Point>) -> VerifyBuilder<SampleServiceTypeMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_similarMethodThatDiffersOnType__value_2(`value`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func methodWithTypedef(_ scalar: Parameter<Scalar>) -> VerifyBuilder<SampleServiceTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithTypedef__scalar(`scalar`)), returning: (Void).self, file: file, line: line)
+        }
+        public func methodWithClosures(success function: Parameter<LinearFunction>) -> VerifyBuilder<SampleServiceTypeMock, ClosureFabric> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithClosures__success_function_1(`function`)), returning: (ClosureFabric).self, file: file, line: line)
+        }
+        public func methodWithClosures(success function: Parameter<((Scalar, Scalar) -> Scalar)?>) -> VerifyBuilder<SampleServiceTypeMock, (Int) -> Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithClosures__success_function_2(`function`)), returning: ((Int) -> Void).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -12330,6 +15347,19 @@ open class SampleServiceTypeMock: SampleServiceType, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -12550,7 +15580,7 @@ public final class SelfConstrainedProtocolMock: SelfConstrainedProtocol, Mock, S
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -12635,7 +15665,7 @@ public final class SelfConstrainedProtocolMock: SelfConstrainedProtocol, Mock, S
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -12713,6 +15743,77 @@ public final class SelfConstrainedProtocolMock: SelfConstrainedProtocol, Mock, S
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SelfConstrainedProtocolMock
+
+
+        public func methodReturningSelf() -> GivenBuilder<SelfConstrainedProtocolMock, Self> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodReturningSelf, products: products)
+			})
+        }
+        public func compare(with other: Parameter<SelfConstrainedProtocolMock>) -> GivenBuilder<SelfConstrainedProtocolMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_compare__with_other(`other`), products: products)
+			})
+        }
+        public func genericMethodWithNestedSelf<T>(param: Parameter<Int>, second: Parameter<T>, other: Parameter<(SelfConstrainedProtocolMock,SelfConstrainedProtocolMock)>) -> GivenBuilder<SelfConstrainedProtocolMock, Self> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_genericMethodWithNestedSelf__param_paramsecond_secondother_other(`param`, `second`.wrapAsGeneric(), `other`), products: products)
+			})
+        }
+        public func configure(with secret: Parameter<String>) -> ThrowingGivenBuilder<SelfConstrainedProtocolMock, Self> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_configure__with_secret(`secret`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SelfConstrainedProtocolMock
+        
+        public func methodReturningSelf() -> PerformBuilder<SelfConstrainedProtocolMock, SelfConstrainedProtocolMock> {
+            PerformBuilder(mock: mock, returning: (SelfConstrainedProtocolMock).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodReturningSelf, performs: __cl0sur3__)
+			})
+        }
+        public func compare(with other: Parameter<SelfConstrainedProtocolMock>) -> ParameterizedPerformBuilder<SelfConstrainedProtocolMock, (SelfConstrainedProtocolMock) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_compare__with_other(`other`), performs: __cl0sur3__)
+			})
+        }
+        public func genericMethodWithNestedSelf<T>(param: Parameter<Int>, second: Parameter<T>, other: Parameter<(SelfConstrainedProtocolMock,SelfConstrainedProtocolMock)>) -> ParameterizedPerformBuilder<SelfConstrainedProtocolMock, (Int, T, (SelfConstrainedProtocolMock,SelfConstrainedProtocolMock)) -> Void, SelfConstrainedProtocolMock> {
+            ParameterizedPerformBuilder(mock: mock, returning: (SelfConstrainedProtocolMock).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_genericMethodWithNestedSelf__param_paramsecond_secondother_other(`param`, `second`.wrapAsGeneric(), `other`), performs: __cl0sur3__)
+			})
+        }
+        public func configure(with secret: Parameter<String>) -> ParameterizedPerformBuilder<SelfConstrainedProtocolMock, (String) -> Void, SelfConstrainedProtocolMock> {
+            ParameterizedPerformBuilder(mock: mock, returning: (SelfConstrainedProtocolMock).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_configure__with_secret(`secret`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SelfConstrainedProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodReturningSelf() -> VerifyBuilder<SelfConstrainedProtocolMock, Self> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodReturningSelf), returning: (Self).self, file: file, line: line)
+        }
+        public func compare(with other: Parameter<SelfConstrainedProtocolMock>) -> VerifyBuilder<SelfConstrainedProtocolMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_compare__with_other(`other`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func genericMethodWithNestedSelf<T>(param: Parameter<Int>, second: Parameter<T>, other: Parameter<(SelfConstrainedProtocolMock,SelfConstrainedProtocolMock)>) -> VerifyBuilder<SelfConstrainedProtocolMock, Self> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_genericMethodWithNestedSelf__param_paramsecond_secondother_other(`param`, `second`.wrapAsGeneric(), `other`)), returning: (Self).self, file: file, line: line)
+        }
+        public func configure(with secret: Parameter<String>) -> VerifyBuilder<SelfConstrainedProtocolMock, Self> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_configure__with_secret(`secret`)), returning: (Self).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -12738,6 +15839,19 @@ public final class SelfConstrainedProtocolMock: SelfConstrainedProtocol, Mock, S
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -13078,7 +16192,7 @@ open class ShouldAllowNoStubDefinedMock: ShouldAllowNoStubDefined, Mock, StaticM
     open class StaticGiven: StubbedMethod {
         fileprivate var method: StaticMethodType
 
-        private init(method: StaticMethodType, products: [StubProduct]) {
+        fileprivate init(method: StaticMethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -13211,7 +16325,7 @@ open class ShouldAllowNoStubDefinedMock: ShouldAllowNoStubDefined, Mock, StaticM
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -13284,6 +16398,86 @@ open class ShouldAllowNoStubDefinedMock: ShouldAllowNoStubDefined, Mock, StaticM
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ShouldAllowNoStubDefinedMock
+
+        public func property(getter defaultValue: Int?...) -> GivenBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_property_get, products: products)
+            })
+        }
+
+        public func throwingVoidMethod(_ key: Parameter<String>) -> ThrowingGivenBuilder<ShouldAllowNoStubDefinedMock, Void> {
+            ThrowingGivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_throwingVoidMethod__key(`key`), products: products)
+			})
+        }
+        public func optionalMethod(_ key: Parameter<String>) -> GivenBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_optionalMethod__key(`key`), products: products)
+			})
+        }
+        public func optionalThrowingMethod(_ key: Parameter<String>) -> GivenBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_optionalThrowingMethod__key(`key`), products: products)
+			})
+        }
+        public func `subscript`(_ x: Parameter<Int>) -> GivenBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .subscript_get_x(`x`), products: products)
+            })
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ShouldAllowNoStubDefinedMock
+        
+        public func voidMethod(_ key: Parameter<String>) -> ParameterizedPerformBuilder<ShouldAllowNoStubDefinedMock, (String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_voidMethod__key(`key`), performs: __cl0sur3__)
+			})
+        }
+        public func throwingVoidMethod(_ key: Parameter<String>) -> ParameterizedPerformBuilder<ShouldAllowNoStubDefinedMock, (String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_throwingVoidMethod__key(`key`), performs: __cl0sur3__)
+			})
+        }
+        public func optionalMethod(_ key: Parameter<String>) -> ParameterizedPerformBuilder<ShouldAllowNoStubDefinedMock, (String) -> Void, Int?> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_optionalMethod__key(`key`), performs: __cl0sur3__)
+			})
+        }
+        public func optionalThrowingMethod(_ key: Parameter<String>) -> ParameterizedPerformBuilder<ShouldAllowNoStubDefinedMock, (String) -> Void, Int?> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_optionalThrowingMethod__key(`key`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ShouldAllowNoStubDefinedMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func voidMethod(_ key: Parameter<String>) -> VerifyBuilder<ShouldAllowNoStubDefinedMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_voidMethod__key(`key`)), returning: (Void).self, file: file, line: line)
+        }
+        public func throwingVoidMethod(_ key: Parameter<String>) -> VerifyBuilder<ShouldAllowNoStubDefinedMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_throwingVoidMethod__key(`key`)), returning: (Void).self, file: file, line: line)
+        }
+        public func optionalMethod(_ key: Parameter<String>) -> VerifyBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_optionalMethod__key(`key`)), returning: (Int?).self, file: file, line: line)
+        }
+        public func optionalThrowingMethod(_ key: Parameter<String>) -> VerifyBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_optionalThrowingMethod__key(`key`)), returning: (Int?).self, file: file, line: line)
+        }
+        public var property: VerifyBuilder<ShouldAllowNoStubDefinedMock, Int?> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_get), returning: (Int?).self, file: file, line: line) }
+        public func `subscript`(_ x: Parameter<Int>) -> VerifyBuilder<ShouldAllowNoStubDefinedMock, Int?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .subscript_get_x(`x`)), returning: (Int?).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -13309,6 +16503,19 @@ open class ShouldAllowNoStubDefinedMock: ShouldAllowNoStubDefined, Mock, StaticM
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -13623,7 +16830,7 @@ open class SimpleProtocolThatInheritsOtherProtocolsMock: SimpleProtocolThatInher
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -13712,6 +16919,106 @@ open class SimpleProtocolThatInheritsOtherProtocolsMock: SimpleProtocolThatInher
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SimpleProtocolThatInheritsOtherProtocolsMock
+
+        public func property(getter defaultValue: String...) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_property_get, products: products)
+            })
+        }
+        public func weakProperty(getter defaultValue: AnyObject?...) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, AnyObject?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_weakProperty_get, products: products)
+            })
+        }
+        public func propertyGetOnly(getter defaultValue: String...) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_propertyGetOnly_get, products: products)
+            })
+        }
+        public func propertyOptional(getter defaultValue: Int?...) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_propertyOptional_get, products: products)
+            })
+        }
+        public func propertyImplicit(getter defaultValue: Int?...) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_propertyImplicit_get, products: products)
+            })
+        }
+
+        public func simpleMehtodThatReturns() -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMehtodThatReturns, products: products)
+			})
+        }
+        public func simpleMehtodThatReturns(param: Parameter<String>) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMehtodThatReturns__param_param(`param`), products: products)
+			})
+        }
+        public func simpleMehtodThatReturns(optionalParam: Parameter<String?>) -> GivenBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMehtodThatReturns__optionalParam_optionalParam(`optionalParam`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SimpleProtocolThatInheritsOtherProtocolsMock
+        
+        public func simpleMethod() -> PerformBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMethod, performs: __cl0sur3__)
+			})
+        }
+        public func simpleMehtodThatReturns() -> PerformBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int> {
+            PerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMehtodThatReturns, performs: __cl0sur3__)
+			})
+        }
+        public func simpleMehtodThatReturns(param: Parameter<String>) -> ParameterizedPerformBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, (String) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMehtodThatReturns__param_param(`param`), performs: __cl0sur3__)
+			})
+        }
+        public func simpleMehtodThatReturns(optionalParam: Parameter<String?>) -> ParameterizedPerformBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, (String?) -> Void, String?> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMehtodThatReturns__optionalParam_optionalParam(`optionalParam`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SimpleProtocolThatInheritsOtherProtocolsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func simpleMethod() -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMethod), returning: (Void).self, file: file, line: line)
+        }
+        public func simpleMehtodThatReturns() -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMehtodThatReturns), returning: (Int).self, file: file, line: line)
+        }
+        public func simpleMehtodThatReturns(param: Parameter<String>) -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMehtodThatReturns__param_param(`param`)), returning: (String).self, file: file, line: line)
+        }
+        public func simpleMehtodThatReturns(optionalParam: Parameter<String?>) -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMehtodThatReturns__optionalParam_optionalParam(`optionalParam`)), returning: (String?).self, file: file, line: line)
+        }
+        public var property: VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_get), returning: (String).self, file: file, line: line) }
+		public func property(set newValue: Parameter<String>) -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var weakProperty: VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, AnyObject?> { VerifyBuilder(mock: mock, method: Verify(method: .p_weakProperty_get), returning: (AnyObject?).self, file: file, line: line) }
+		public func weakProperty(set newValue: Parameter<AnyObject?>) -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_weakProperty_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var propertyGetOnly: VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyGetOnly_get), returning: (String).self, file: file, line: line) }
+        public var propertyOptional: VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int?> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyOptional_get), returning: (Int?).self, file: file, line: line) }
+		public func propertyOptional(set newValue: Parameter<Int?>) -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyOptional_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var propertyImplicit: VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Int?> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyImplicit_get), returning: (Int?).self, file: file, line: line) }
+		public func propertyImplicit(set newValue: Parameter<Int?>) -> VerifyBuilder<SimpleProtocolThatInheritsOtherProtocolsMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyImplicit_set(newValue)), returning: Void.self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -13737,6 +17044,19 @@ open class SimpleProtocolThatInheritsOtherProtocolsMock: SimpleProtocolThatInher
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -13936,7 +17256,7 @@ open class SimpleProtocolUsingCollectionsMock: SimpleProtocolUsingCollections, M
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -14011,6 +17331,77 @@ open class SimpleProtocolUsingCollectionsMock: SimpleProtocolUsingCollections, M
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SimpleProtocolUsingCollectionsMock
+
+
+        public func getArray() -> GivenBuilder<SimpleProtocolUsingCollectionsMock, [Int]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_getArray, products: products)
+			})
+        }
+        public func map(array: Parameter<[String]>, param: Parameter<Int>) -> GivenBuilder<SimpleProtocolUsingCollectionsMock, [Int: String]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_map__array_arrayparam_param(`array`, `param`), products: products)
+			})
+        }
+        public func use(dictionary: Parameter<[Int: String]>) -> GivenBuilder<SimpleProtocolUsingCollectionsMock, [Int: String]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_use__dictionary_dictionary(`dictionary`), products: products)
+			})
+        }
+        public func verify(set: Parameter<Set<Int>>) -> GivenBuilder<SimpleProtocolUsingCollectionsMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_verify__set_set(`set`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SimpleProtocolUsingCollectionsMock
+        
+        public func getArray() -> PerformBuilder<SimpleProtocolUsingCollectionsMock, [Int]> {
+            PerformBuilder(mock: mock, returning: ([Int]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getArray, performs: __cl0sur3__)
+			})
+        }
+        public func map(array: Parameter<[String]>, param: Parameter<Int>) -> ParameterizedPerformBuilder<SimpleProtocolUsingCollectionsMock, ([String], Int) -> Void, [Int: String]> {
+            ParameterizedPerformBuilder(mock: mock, returning: ([Int: String]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_map__array_arrayparam_param(`array`, `param`), performs: __cl0sur3__)
+			})
+        }
+        public func use(dictionary: Parameter<[Int: String]>) -> ParameterizedPerformBuilder<SimpleProtocolUsingCollectionsMock, ([Int: String]) -> Void, [Int: String]> {
+            ParameterizedPerformBuilder(mock: mock, returning: ([Int: String]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_use__dictionary_dictionary(`dictionary`), performs: __cl0sur3__)
+			})
+        }
+        public func verify(set: Parameter<Set<Int>>) -> ParameterizedPerformBuilder<SimpleProtocolUsingCollectionsMock, (Set<Int>) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_verify__set_set(`set`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SimpleProtocolUsingCollectionsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func getArray() -> VerifyBuilder<SimpleProtocolUsingCollectionsMock, [Int]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getArray), returning: ([Int]).self, file: file, line: line)
+        }
+        public func map(array: Parameter<[String]>, param: Parameter<Int>) -> VerifyBuilder<SimpleProtocolUsingCollectionsMock, [Int: String]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_map__array_arrayparam_param(`array`, `param`)), returning: ([Int: String]).self, file: file, line: line)
+        }
+        public func use(dictionary: Parameter<[Int: String]>) -> VerifyBuilder<SimpleProtocolUsingCollectionsMock, [Int: String]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_use__dictionary_dictionary(`dictionary`)), returning: ([Int: String]).self, file: file, line: line)
+        }
+        public func verify(set: Parameter<Set<Int>>) -> VerifyBuilder<SimpleProtocolUsingCollectionsMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_verify__set_set(`set`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -14036,6 +17427,19 @@ open class SimpleProtocolUsingCollectionsMock: SimpleProtocolUsingCollections, M
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -14177,7 +17581,7 @@ open class SimpleProtocolWithBothMethodsAndPropertiesMock: SimpleProtocolWithBot
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -14214,6 +17618,44 @@ open class SimpleProtocolWithBothMethodsAndPropertiesMock: SimpleProtocolWithBot
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithBothMethodsAndPropertiesMock
+
+        public func property(getter defaultValue: String...) -> GivenBuilder<SimpleProtocolWithBothMethodsAndPropertiesMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_property_get, products: products)
+            })
+        }
+
+        public func simpleMethod() -> GivenBuilder<SimpleProtocolWithBothMethodsAndPropertiesMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMethod, products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithBothMethodsAndPropertiesMock
+        
+        public func simpleMethod() -> PerformBuilder<SimpleProtocolWithBothMethodsAndPropertiesMock, String> {
+            PerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMethod, performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithBothMethodsAndPropertiesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func simpleMethod() -> VerifyBuilder<SimpleProtocolWithBothMethodsAndPropertiesMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMethod), returning: (String).self, file: file, line: line)
+        }
+        public var property: VerifyBuilder<SimpleProtocolWithBothMethodsAndPropertiesMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_get), returning: (String).self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -14239,6 +17681,19 @@ open class SimpleProtocolWithBothMethodsAndPropertiesMock: SimpleProtocolWithBot
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -14425,7 +17880,7 @@ open class SimpleProtocolWithMethodsMock: SimpleProtocolWithMethods, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -14490,6 +17945,72 @@ open class SimpleProtocolWithMethodsMock: SimpleProtocolWithMethods, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithMethodsMock
+
+
+        public func simpleMehtodThatReturns() -> GivenBuilder<SimpleProtocolWithMethodsMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMehtodThatReturns, products: products)
+			})
+        }
+        public func simpleMehtodThatReturns(param: Parameter<String>) -> GivenBuilder<SimpleProtocolWithMethodsMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMehtodThatReturns__param_param(`param`), products: products)
+			})
+        }
+        public func simpleMehtodThatReturns(optionalParam: Parameter<String?>) -> GivenBuilder<SimpleProtocolWithMethodsMock, String?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_simpleMehtodThatReturns__optionalParam_optionalParam(`optionalParam`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithMethodsMock
+        
+        public func simpleMethod() -> PerformBuilder<SimpleProtocolWithMethodsMock, Void> {
+            PerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMethod, performs: __cl0sur3__)
+			})
+        }
+        public func simpleMehtodThatReturns() -> PerformBuilder<SimpleProtocolWithMethodsMock, Int> {
+            PerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMehtodThatReturns, performs: __cl0sur3__)
+			})
+        }
+        public func simpleMehtodThatReturns(param: Parameter<String>) -> ParameterizedPerformBuilder<SimpleProtocolWithMethodsMock, (String) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMehtodThatReturns__param_param(`param`), performs: __cl0sur3__)
+			})
+        }
+        public func simpleMehtodThatReturns(optionalParam: Parameter<String?>) -> ParameterizedPerformBuilder<SimpleProtocolWithMethodsMock, (String?) -> Void, String?> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String?).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_simpleMehtodThatReturns__optionalParam_optionalParam(`optionalParam`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithMethodsMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func simpleMethod() -> VerifyBuilder<SimpleProtocolWithMethodsMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMethod), returning: (Void).self, file: file, line: line)
+        }
+        public func simpleMehtodThatReturns() -> VerifyBuilder<SimpleProtocolWithMethodsMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMehtodThatReturns), returning: (Int).self, file: file, line: line)
+        }
+        public func simpleMehtodThatReturns(param: Parameter<String>) -> VerifyBuilder<SimpleProtocolWithMethodsMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMehtodThatReturns__param_param(`param`)), returning: (String).self, file: file, line: line)
+        }
+        public func simpleMehtodThatReturns(optionalParam: Parameter<String?>) -> VerifyBuilder<SimpleProtocolWithMethodsMock, String?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_simpleMehtodThatReturns__optionalParam_optionalParam(`optionalParam`)), returning: (String?).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -14515,6 +18036,19 @@ open class SimpleProtocolWithMethodsMock: SimpleProtocolWithMethods, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -14693,7 +18227,7 @@ open class SimpleProtocolWithPropertiesMock: SimpleProtocolWithProperties, Mock 
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -14736,6 +18270,59 @@ open class SimpleProtocolWithPropertiesMock: SimpleProtocolWithProperties, Mock 
 
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithPropertiesMock
+
+        public func property(getter defaultValue: String...) -> GivenBuilder<SimpleProtocolWithPropertiesMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_property_get, products: products)
+            })
+        }
+        public func weakProperty(getter defaultValue: AnyObject?...) -> GivenBuilder<SimpleProtocolWithPropertiesMock, AnyObject?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_weakProperty_get, products: products)
+            })
+        }
+        public func propertyGetOnly(getter defaultValue: String...) -> GivenBuilder<SimpleProtocolWithPropertiesMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_propertyGetOnly_get, products: products)
+            })
+        }
+        public func propertyOptional(getter defaultValue: Int?...) -> GivenBuilder<SimpleProtocolWithPropertiesMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_propertyOptional_get, products: products)
+            })
+        }
+        public func propertyImplicit(getter defaultValue: Int?...) -> GivenBuilder<SimpleProtocolWithPropertiesMock, Int?> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_propertyImplicit_get, products: products)
+            })
+        }
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithPropertiesMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SimpleProtocolWithPropertiesMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public var property: VerifyBuilder<SimpleProtocolWithPropertiesMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_get), returning: (String).self, file: file, line: line) }
+		public func property(set newValue: Parameter<String>) -> VerifyBuilder<SimpleProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_property_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var weakProperty: VerifyBuilder<SimpleProtocolWithPropertiesMock, AnyObject?> { VerifyBuilder(mock: mock, method: Verify(method: .p_weakProperty_get), returning: (AnyObject?).self, file: file, line: line) }
+		public func weakProperty(set newValue: Parameter<AnyObject?>) -> VerifyBuilder<SimpleProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_weakProperty_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var propertyGetOnly: VerifyBuilder<SimpleProtocolWithPropertiesMock, String> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyGetOnly_get), returning: (String).self, file: file, line: line) }
+        public var propertyOptional: VerifyBuilder<SimpleProtocolWithPropertiesMock, Int?> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyOptional_get), returning: (Int?).self, file: file, line: line) }
+		public func propertyOptional(set newValue: Parameter<Int?>) -> VerifyBuilder<SimpleProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyOptional_set(newValue)), returning: Void.self, file: file, line: line) }
+        public var propertyImplicit: VerifyBuilder<SimpleProtocolWithPropertiesMock, Int?> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyImplicit_get), returning: (Int?).self, file: file, line: line) }
+		public func propertyImplicit(set newValue: Parameter<Int?>) -> VerifyBuilder<SimpleProtocolWithPropertiesMock, Void> { VerifyBuilder(mock: mock, method: Verify(method: .p_propertyImplicit_set(newValue)), returning: Void.self, file: file, line: line) }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -14761,6 +18348,19 @@ open class SimpleProtocolWithPropertiesMock: SimpleProtocolWithProperties, Mock 
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -14863,7 +18463,7 @@ open class SuggestionProtocolMock: SuggestionProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -14879,6 +18479,25 @@ open class SuggestionProtocolMock: SuggestionProtocol, Mock {
     public struct Perform {
         fileprivate var method: MethodType
         var performs: Any
+
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SuggestionProtocolMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SuggestionProtocolMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SuggestionProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
 
     }
 
@@ -14907,6 +18526,19 @@ open class SuggestionProtocolMock: SuggestionProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -15154,7 +18786,7 @@ open class SuggestionRepositoryMock: SuggestionRepository, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -15257,6 +18889,103 @@ open class SuggestionRepositoryMock: SuggestionRepository, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SuggestionRepositoryMock
+
+
+        public func save(entity: Parameter<Entity>) -> GivenBuilder<SuggestionRepositoryMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_save__entity_entity(`entity`), products: products)
+			})
+        }
+        public func save(entities: Parameter<[Entity]>) -> GivenBuilder<SuggestionRepositoryMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_save__entities_entities(`entities`), products: products)
+			})
+        }
+        public func find(where predicate: Parameter<NSPredicate>, sortedBy sortDescriptors: Parameter<[NSSortDescriptor]>) -> GivenBuilder<SuggestionRepositoryMock, [Entity]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_find__where_predicatesortedBy_sortDescriptors(`predicate`, `sortDescriptors`), products: products)
+			})
+        }
+        public func findOne(where predicate: Parameter<NSPredicate>) -> GivenBuilder<SuggestionRepositoryMock, Entity> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_findOne__where_predicate(`predicate`), products: products)
+			})
+        }
+        public func delete(entity: Parameter<Entity>) -> GivenBuilder<SuggestionRepositoryMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_delete__entity_entity(`entity`), products: products)
+			})
+        }
+        public func delete(entities: Parameter<[Entity]>) -> GivenBuilder<SuggestionRepositoryMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_delete__entities_entities(`entities`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SuggestionRepositoryMock
+        
+        public func save(entity: Parameter<Entity>) -> ParameterizedPerformBuilder<SuggestionRepositoryMock, (Entity) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_save__entity_entity(`entity`), performs: __cl0sur3__)
+			})
+        }
+        public func save(entities: Parameter<[Entity]>) -> ParameterizedPerformBuilder<SuggestionRepositoryMock, ([Entity]) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_save__entities_entities(`entities`), performs: __cl0sur3__)
+			})
+        }
+        public func find(where predicate: Parameter<NSPredicate>, sortedBy sortDescriptors: Parameter<[NSSortDescriptor]>) -> ParameterizedPerformBuilder<SuggestionRepositoryMock, (NSPredicate, [NSSortDescriptor]) -> Void, [Entity]> {
+            ParameterizedPerformBuilder(mock: mock, returning: ([Entity]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_find__where_predicatesortedBy_sortDescriptors(`predicate`, `sortDescriptors`), performs: __cl0sur3__)
+			})
+        }
+        public func findOne(where predicate: Parameter<NSPredicate>) -> ParameterizedPerformBuilder<SuggestionRepositoryMock, (NSPredicate) -> Void, Entity> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Entity).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_findOne__where_predicate(`predicate`), performs: __cl0sur3__)
+			})
+        }
+        public func delete(entity: Parameter<Entity>) -> ParameterizedPerformBuilder<SuggestionRepositoryMock, (Entity) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_delete__entity_entity(`entity`), performs: __cl0sur3__)
+			})
+        }
+        public func delete(entities: Parameter<[Entity]>) -> ParameterizedPerformBuilder<SuggestionRepositoryMock, ([Entity]) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_delete__entities_entities(`entities`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SuggestionRepositoryMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func save(entity: Parameter<Entity>) -> VerifyBuilder<SuggestionRepositoryMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_save__entity_entity(`entity`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func save(entities: Parameter<[Entity]>) -> VerifyBuilder<SuggestionRepositoryMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_save__entities_entities(`entities`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func find(where predicate: Parameter<NSPredicate>, sortedBy sortDescriptors: Parameter<[NSSortDescriptor]>) -> VerifyBuilder<SuggestionRepositoryMock, [Entity]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_find__where_predicatesortedBy_sortDescriptors(`predicate`, `sortDescriptors`)), returning: ([Entity]).self, file: file, line: line)
+        }
+        public func findOne(where predicate: Parameter<NSPredicate>) -> VerifyBuilder<SuggestionRepositoryMock, Entity> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_findOne__where_predicate(`predicate`)), returning: (Entity).self, file: file, line: line)
+        }
+        public func delete(entity: Parameter<Entity>) -> VerifyBuilder<SuggestionRepositoryMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_delete__entity_entity(`entity`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func delete(entities: Parameter<[Entity]>) -> VerifyBuilder<SuggestionRepositoryMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_delete__entities_entities(`entities`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -15282,6 +19011,19 @@ open class SuggestionRepositoryMock: SuggestionRepository, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -15528,7 +19270,7 @@ open class SuggestionRepositoryConstrainedToProtocolMock<Entity>: SuggestionRepo
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -15631,6 +19373,103 @@ open class SuggestionRepositoryConstrainedToProtocolMock<Entity>: SuggestionRepo
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: SuggestionRepositoryConstrainedToProtocolMock<Entity>
+
+
+        public func save(entity: Parameter<Entity>) -> GivenBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_save__entity_entity(`entity`), products: products)
+			})
+        }
+        public func save(entities: Parameter<[Entity]>) -> GivenBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_save__entities_entities(`entities`), products: products)
+			})
+        }
+        public func find(where predicate: Parameter<NSPredicate>, sortedBy sortDescriptors: Parameter<[NSSortDescriptor]>) -> GivenBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, [Entity]> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_find__where_predicatesortedBy_sortDescriptors(`predicate`, `sortDescriptors`), products: products)
+			})
+        }
+        public func findOne(where predicate: Parameter<NSPredicate>) -> GivenBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Entity> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_findOne__where_predicate(`predicate`), products: products)
+			})
+        }
+        public func delete(entity: Parameter<Entity>) -> GivenBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_delete__entity_entity(`entity`), products: products)
+			})
+        }
+        public func delete(entities: Parameter<[Entity]>) -> GivenBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_delete__entities_entities(`entities`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: SuggestionRepositoryConstrainedToProtocolMock<Entity>
+        
+        public func save(entity: Parameter<Entity>) -> ParameterizedPerformBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, (Entity) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_save__entity_entity(`entity`), performs: __cl0sur3__)
+			})
+        }
+        public func save(entities: Parameter<[Entity]>) -> ParameterizedPerformBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, ([Entity]) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_save__entities_entities(`entities`), performs: __cl0sur3__)
+			})
+        }
+        public func find(where predicate: Parameter<NSPredicate>, sortedBy sortDescriptors: Parameter<[NSSortDescriptor]>) -> ParameterizedPerformBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, (NSPredicate, [NSSortDescriptor]) -> Void, [Entity]> {
+            ParameterizedPerformBuilder(mock: mock, returning: ([Entity]).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_find__where_predicatesortedBy_sortDescriptors(`predicate`, `sortDescriptors`), performs: __cl0sur3__)
+			})
+        }
+        public func findOne(where predicate: Parameter<NSPredicate>) -> ParameterizedPerformBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, (NSPredicate) -> Void, Entity> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Entity).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_findOne__where_predicate(`predicate`), performs: __cl0sur3__)
+			})
+        }
+        public func delete(entity: Parameter<Entity>) -> ParameterizedPerformBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, (Entity) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_delete__entity_entity(`entity`), performs: __cl0sur3__)
+			})
+        }
+        public func delete(entities: Parameter<[Entity]>) -> ParameterizedPerformBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, ([Entity]) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_delete__entities_entities(`entities`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: SuggestionRepositoryConstrainedToProtocolMock<Entity>
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func save(entity: Parameter<Entity>) -> VerifyBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_save__entity_entity(`entity`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func save(entities: Parameter<[Entity]>) -> VerifyBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_save__entities_entities(`entities`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func find(where predicate: Parameter<NSPredicate>, sortedBy sortDescriptors: Parameter<[NSSortDescriptor]>) -> VerifyBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, [Entity]> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_find__where_predicatesortedBy_sortDescriptors(`predicate`, `sortDescriptors`)), returning: ([Entity]).self, file: file, line: line)
+        }
+        public func findOne(where predicate: Parameter<NSPredicate>) -> VerifyBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Entity> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_findOne__where_predicate(`predicate`)), returning: (Entity).self, file: file, line: line)
+        }
+        public func delete(entity: Parameter<Entity>) -> VerifyBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_delete__entity_entity(`entity`)), returning: (Bool).self, file: file, line: line)
+        }
+        public func delete(entities: Parameter<[Entity]>) -> VerifyBuilder<SuggestionRepositoryConstrainedToProtocolMock<Entity>, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_delete__entities_entities(`entities`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -15656,6 +19495,19 @@ open class SuggestionRepositoryConstrainedToProtocolMock<Entity>: SuggestionRepo
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -15758,7 +19610,7 @@ open class TestAutoImportMock: TestAutoImport, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -15774,6 +19626,25 @@ open class TestAutoImportMock: TestAutoImport, Mock {
     public struct Perform {
         fileprivate var method: MethodType
         var performs: Any
+
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: TestAutoImportMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: TestAutoImportMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: TestAutoImportMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
 
     }
 
@@ -15802,6 +19673,19 @@ open class TestAutoImportMock: TestAutoImport, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -15924,7 +19808,7 @@ open class ThrowingVarProtocolMock: ThrowingVarProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -15946,6 +19830,32 @@ open class ThrowingVarProtocolMock: ThrowingVarProtocol, Mock {
         fileprivate var method: MethodType
         var performs: Any
 
+    }
+
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: ThrowingVarProtocolMock
+
+        @available(iOS 15.0.0, macOS 12.0.0, tvOS 15.0.0, *)
+		public func testVariableThatThrow(getter defaultValue: Bool...) -> GivenBuilder<ThrowingVarProtocolMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+                Given(method: .p_testVariableThatThrow_get, products: products)
+            })
+        }
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: ThrowingVarProtocolMock
+        
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: ThrowingVarProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public var testVariableThatThrow: VerifyBuilder<ThrowingVarProtocolMock, Bool> { VerifyBuilder(mock: mock, method: Verify(method: .p_testVariableThatThrow_get), returning: (Bool).self, file: file, line: line) }
     }
 
     public func given(_ method: Given) {
@@ -15973,6 +19883,19 @@ open class ThrowingVarProtocolMock: ThrowingVarProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -16127,7 +20050,7 @@ open class UnnamedAttributesProtocolMock: UnnamedAttributesProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -16174,6 +20097,51 @@ open class UnnamedAttributesProtocolMock: UnnamedAttributesProtocol, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: UnnamedAttributesProtocolMock
+
+
+        public func methodWithUnnamedAttributes() -> GivenBuilder<UnnamedAttributesProtocolMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithUnnamedAttributes, products: products)
+			})
+        }
+        public func methodWithUnnamedAndNamedAttributes(at int: Parameter<Int>) -> GivenBuilder<UnnamedAttributesProtocolMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodWithUnnamedAndNamedAttributes__at_int(`int`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: UnnamedAttributesProtocolMock
+        
+        public func methodWithUnnamedAttributes() -> PerformBuilder<UnnamedAttributesProtocolMock, String> {
+            PerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithUnnamedAttributes, performs: __cl0sur3__)
+			})
+        }
+        public func methodWithUnnamedAndNamedAttributes(at int: Parameter<Int>) -> ParameterizedPerformBuilder<UnnamedAttributesProtocolMock, (Int) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodWithUnnamedAndNamedAttributes__at_int(`int`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: UnnamedAttributesProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodWithUnnamedAttributes() -> VerifyBuilder<UnnamedAttributesProtocolMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithUnnamedAttributes), returning: (String).self, file: file, line: line)
+        }
+        public func methodWithUnnamedAndNamedAttributes(at int: Parameter<Int>) -> VerifyBuilder<UnnamedAttributesProtocolMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodWithUnnamedAndNamedAttributes__at_int(`int`)), returning: (String).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -16199,6 +20167,19 @@ open class UnnamedAttributesProtocolMock: UnnamedAttributesProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -16374,7 +20355,7 @@ open class UserNetworkTypeMock: UserNetworkType, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -16409,6 +20390,57 @@ open class UserNetworkTypeMock: UserNetworkType, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: UserNetworkTypeMock
+
+
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: UserNetworkTypeMock
+        
+        public func getUser(for id: Parameter<String>, completion: Parameter<(User?) -> Void>) -> ParameterizedPerformBuilder<UserNetworkTypeMock, (String, (User?) -> Void) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getUser__for_idcompletion_completion(`id`, `completion`), performs: __cl0sur3__)
+			})
+        }
+        public func getUserEscaping(for id: Parameter<String>, completion: Parameter<(User?, Error?) -> Void>) -> ParameterizedPerformBuilder<UserNetworkTypeMock, (String, @escaping (User?, Error?) -> Void) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_getUserEscaping__for_idcompletion_completion(`id`, `completion`), performs: __cl0sur3__)
+			})
+        }
+        public func doSomething(prop: Parameter<() -> String>) -> ParameterizedPerformBuilder<UserNetworkTypeMock, (@autoclosure () -> String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_doSomething__prop_prop(`prop`), performs: __cl0sur3__)
+			})
+        }
+        public func testDefaultValues(value: Parameter<String>) -> ParameterizedPerformBuilder<UserNetworkTypeMock, (String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_testDefaultValues__value_value(`value`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: UserNetworkTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func getUser(for id: Parameter<String>, completion: Parameter<(User?) -> Void>) -> VerifyBuilder<UserNetworkTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getUser__for_idcompletion_completion(`id`, `completion`)), returning: (Void).self, file: file, line: line)
+        }
+        public func getUserEscaping(for id: Parameter<String>, completion: Parameter<(User?, Error?) -> Void>) -> VerifyBuilder<UserNetworkTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_getUserEscaping__for_idcompletion_completion(`id`, `completion`)), returning: (Void).self, file: file, line: line)
+        }
+        public func doSomething(prop: Parameter<() -> String>) -> VerifyBuilder<UserNetworkTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_doSomething__prop_prop(`prop`)), returning: (Void).self, file: file, line: line)
+        }
+        public func testDefaultValues(value: Parameter<String>) -> VerifyBuilder<UserNetworkTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_testDefaultValues__value_value(`value`)), returning: (Void).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -16434,6 +20466,19 @@ open class UserNetworkTypeMock: UserNetworkType, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -16584,7 +20629,7 @@ open class UserStorageTypeMock: UserStorageType, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -16621,6 +20666,46 @@ open class UserStorageTypeMock: UserStorageType, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: UserStorageTypeMock
+
+
+        public func surname(for name: Parameter<String>) -> GivenBuilder<UserStorageTypeMock, String> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_surname__for_name(`name`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: UserStorageTypeMock
+        
+        public func surname(for name: Parameter<String>) -> ParameterizedPerformBuilder<UserStorageTypeMock, (String) -> Void, String> {
+            ParameterizedPerformBuilder(mock: mock, returning: (String).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_surname__for_name(`name`), performs: __cl0sur3__)
+			})
+        }
+        public func storeUser(name: Parameter<String>, surname: Parameter<String>) -> ParameterizedPerformBuilder<UserStorageTypeMock, (String, String) -> Void, Void> {
+            ParameterizedPerformBuilder(mock: mock, returning: Void.self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_storeUser__name_namesurname_surname(`name`, `surname`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: UserStorageTypeMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func surname(for name: Parameter<String>) -> VerifyBuilder<UserStorageTypeMock, String> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_surname__for_name(`name`)), returning: (String).self, file: file, line: line)
+        }
+        public func storeUser(name: Parameter<String>, surname: Parameter<String>) -> VerifyBuilder<UserStorageTypeMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storeUser__name_namesurname_surname(`name`, `surname`)), returning: (Void).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -16646,6 +20731,19 @@ open class UserStorageTypeMock: UserStorageType, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -16803,7 +20901,7 @@ open class VariadicParametersProtocolMock: VariadicParametersProtocol, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -16850,6 +20948,51 @@ open class VariadicParametersProtocolMock: VariadicParametersProtocol, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: VariadicParametersProtocolMock
+
+
+        public func methodThatTakesVariadic(numbers: Parameter<[Int]>) -> GivenBuilder<VariadicParametersProtocolMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatTakesVariadic__numbers_numbers(`numbers`), products: products)
+			})
+        }
+        public func methodThatTakesVariadic(label numbers: Parameter<[Int]>) -> GivenBuilder<VariadicParametersProtocolMock, Int> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_methodThatTakesVariadic__label_numbers(`numbers`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: VariadicParametersProtocolMock
+        
+        public func methodThatTakesVariadic(numbers: Parameter<[Int]>) -> ParameterizedPerformBuilder<VariadicParametersProtocolMock, ([Int]) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesVariadic__numbers_numbers(`numbers`), performs: __cl0sur3__)
+			})
+        }
+        public func methodThatTakesVariadic(label numbers: Parameter<[Int]>) -> ParameterizedPerformBuilder<VariadicParametersProtocolMock, ([Int]) -> Void, Int> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Int).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_methodThatTakesVariadic__label_numbers(`numbers`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: VariadicParametersProtocolMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func methodThatTakesVariadic(numbers: Parameter<[Int]>) -> VerifyBuilder<VariadicParametersProtocolMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesVariadic__numbers_numbers(`numbers`)), returning: (Int).self, file: file, line: line)
+        }
+        public func methodThatTakesVariadic(label numbers: Parameter<[Int]>) -> VerifyBuilder<VariadicParametersProtocolMock, Int> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_methodThatTakesVariadic__label_numbers(`numbers`)), returning: (Int).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -16875,6 +21018,19 @@ open class VariadicParametersProtocolMock: VariadicParametersProtocol, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -17010,7 +21166,7 @@ open class WithConflictingNameMock: WithConflictingName, Mock {
     open class Given: StubbedMethod {
         fileprivate var method: MethodType
 
-        private init(method: MethodType, products: [StubProduct]) {
+        fileprivate init(method: MethodType, products: [StubProduct]) {
             self.method = method
             super.init(products)
         }
@@ -17043,6 +21199,38 @@ open class WithConflictingNameMock: WithConflictingName, Mock {
         }
     }
 
+
+    public struct GivenBuilderFactory {
+        fileprivate let mock: WithConflictingNameMock
+
+
+        public func test(with attribute: Parameter<A>) -> GivenBuilder<WithConflictingNameMock, Bool> {
+            GivenBuilder(mock: mock, stubFactory: { m, products in
+				Given(method: .m_test__with_attribute(`attribute`), products: products)
+			})
+        }
+    }
+
+    public struct PerformBuilderFactory {
+        fileprivate let mock: WithConflictingNameMock
+        
+        public func test(with attribute: Parameter<A>) -> ParameterizedPerformBuilder<WithConflictingNameMock, (A) -> Void, Bool> {
+            ParameterizedPerformBuilder(mock: mock, returning: (Bool).self, performFactory: { m, __cl0sur3__ in
+				Perform(method: .m_test__with_attribute(`attribute`), performs: __cl0sur3__)
+			})
+        }
+    }
+
+    public struct VerifyBuilderFactory {
+        fileprivate let mock: WithConflictingNameMock
+        fileprivate let file: StaticString
+        fileprivate let line: UInt
+
+        public func test(with attribute: Parameter<A>) -> VerifyBuilder<WithConflictingNameMock, Bool> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_test__with_attribute(`attribute`)), returning: (Bool).self, file: file, line: line)
+        }
+    }
+
     public func given(_ method: Given) {
         methodReturnValues.append(method)
     }
@@ -17068,6 +21256,19 @@ open class WithConflictingNameMock: WithConflictingName, Mock {
             )
         }()
         MockyAssert(success, "Expected: \(count) invocations of `\(assertionName)`, but was: \(fullMatches).\(feedback)", file: file, line: line)
+    }
+
+
+    public func buildGiven() -> GivenBuilderFactory {
+        return GivenBuilderFactory(mock: self)
+    }
+
+    public func buildPerform() -> PerformBuilderFactory {
+        return PerformBuilderFactory(mock: self)
+    }
+
+    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
