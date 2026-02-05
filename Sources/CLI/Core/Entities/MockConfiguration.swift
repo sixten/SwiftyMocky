@@ -11,7 +11,6 @@ public struct MockConfiguration {
     public var targets: [String]
     public var testable: [String]
     public var `import`: [String]
-    public var prototype: Bool
     public var sourcery: [String]
     public var template: String?
 }
@@ -26,7 +25,6 @@ extension MockConfiguration: Codable {
         case targets
         case testable
         case `import` = "import"
-        case prototype
         case sourcery
         case template
     }
@@ -39,7 +37,6 @@ extension MockConfiguration: Codable {
         targets = (try? container.decode([String].self, forKey: .targets)) ?? []
         testable = (try? container.decode([String].self, forKey: .testable)) ?? []
         `import` = (try? container.decode([String].self, forKey: .import)) ?? []
-        prototype = (try? container.decode(Bool.self, forKey: .prototype)) ?? false
         sourcery = (try? container.decode([String].self, forKey: .sourcery)) ?? []
         template = try? container.decode(.template)
     }
@@ -54,7 +51,6 @@ extension MockConfiguration: Codable {
         self.targets.isEmpty ? () : try container.encode(self.targets, forKey: .targets)
         self.testable.isEmpty ? () : try container.encode(self.testable, forKey: .testable)
         self.import.isEmpty ? () : try container.encode(self.import, forKey: .import)
-        self.prototype ? try container.encode(true, forKey: .targets) : ()
         self.sourcery.isEmpty ? () : try container.encode(self.sourcery, forKey: .sourcery)
         self.template == nil ? () : try container.encode(self.template, forKey: .template)
     }
@@ -64,7 +60,7 @@ extension MockConfiguration: Codable {
 
 public extension MockConfiguration {
 
-    var isMock: Bool { return !self.prototype }
+    var isMock: Bool { true }
 
     init(config: LegacyConfiguration) {
         self.sources = config.sources.sorted()
@@ -72,7 +68,6 @@ public extension MockConfiguration {
         self.testable = (config.args?.testable ?? config.args?.swiftyMocky?.testable ?? []).sorted()
         self.import = (config.args?.import ?? config.args?.swiftyMocky?.import ?? []).sorted()
         self.targets = [] // TODO: Resolve targets
-        self.prototype = false
         self.sourcery = []
     }
 

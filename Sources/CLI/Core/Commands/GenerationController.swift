@@ -330,11 +330,7 @@ final class GenerationController: GenerationCommand {
             return try Path(template).copy(temp.template)
         }
 
-        if mock.prototype {
-            try self.writePrototypeTemplate()
-        } else {
-            try self.writeMockTemplate()
-        }
+        try self.writeMockTemplate()
     }
 
     private func writeMockTemplate() throws {
@@ -355,27 +351,6 @@ final class GenerationController: GenerationCommand {
         } else {
             Message.info("Using template from CLI")
             try Assets.swifttemplate.mock.write(to: temp.template)
-        }
-    }
-
-    private func writePrototypeTemplate() throws {
-        let swiftPM: Path = "./.build/checkouts/SwiftyMocky/Sources/SwiftyPrototype/Prototype.swifttemplate"
-        let cocoapods: Path = "./Pods/SwiftyMocky/Sources/SwiftyPrototype/Prototype.swifttemplate"
-        let carthage: Path = "./Carthage/Checkouts/SwiftyMocky/Sources/SwiftyPrototype/Prototype.swifttemplate"
-        try? temp.template.delete()
-
-        if swiftPM.exists {
-            Message.info("Using template from SwiftPM")
-            try swiftPM.copy(temp.template)
-        } else if cocoapods.exists {
-            Message.info("Using template from Cocoapods")
-            try cocoapods.copy(temp.template)
-        } else if carthage.exists {
-            Message.info("Using template from Carthage")
-            try carthage.copy(temp.template)
-        } else {
-            Message.info("Using template from CLI")
-            try Assets.swifttemplate.prototype.write(to: temp.template)
         }
     }
 
@@ -400,7 +375,7 @@ final class GenerationController: GenerationCommand {
     }
 
     func resolveSourceryVersion() -> String? {
-        guard let path = resolveTemplatePath(for: .mock) ?? resolveTemplatePath(for: .prototype) else { return nil }
+        guard let path = resolveTemplatePath(for: .mock) else { return nil }
         guard let template: String = try? path.read() else { return nil }
         return template.firstCapturedGroup(for: #"Required Sourcery: ([0-9]+\.[0-9]+\.[0-9]+)"#)
     }
@@ -419,16 +394,13 @@ final class GenerationController: GenerationCommand {
 
     enum TemplateType: String {
         case mock = "Mock"
-        case prototype = "Prototype"
         var templateName: String { switch self {
             case .mock: return "Mock.swifttemplate"
-            case .prototype: return "Prototype.swifttemplate"
             }
         }
         var libName: String {
             switch self {
             case .mock: return "SwiftyMocky"
-            case .prototype: return "SwiftyPrototype"
             }
         }
     }

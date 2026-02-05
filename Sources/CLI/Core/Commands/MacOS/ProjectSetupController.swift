@@ -146,7 +146,6 @@ public class ProjectSetupController {
             targets: [target.name],
             testable: testable.sorted(),
             import: imports.sorted(),
-            prototype: false,
             sourcery: []
         )
         try generate.updateImports(into: &config)

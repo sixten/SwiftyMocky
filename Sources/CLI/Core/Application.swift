@@ -178,7 +178,6 @@ public class Application {
 
     public func assetizeTemplates(
         mockTemplate: Path,
-        prototypeTemplate: Path,
         allTypesTemplate: Path,
         template: Path,
         output: Path
@@ -193,16 +192,10 @@ public class Application {
         let mockContent = encoded(mockTemplate)
         Message.success("Encoded mock template")
 
-        let prototypeName = "Prototype.swifttemplate"
-        let prototypePlaceholder = "{{ \(prototypeName) }}"
-        let prototypeContent = encoded(prototypeTemplate)
-        Message.success("Encoded prototype template")
-
         Message.info("Writing assets to `\(output)` ...")
         var assetsContents: String = try! template.read()
         assetsContents = assetsContents.replacingOccurrences(of: allTypesPlaceholder, with: allTypesContent)
         assetsContents = assetsContents.replacingOccurrences(of: mockPlaceholder, with: mockContent)
-        assetsContents = assetsContents.replacingOccurrences(of: prototypePlaceholder, with: prototypeContent)
         try! output.write(assetsContents)
         Message.success("Done")
     }

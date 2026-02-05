@@ -93,7 +93,6 @@ Group() { main in
 
         application.assetizeTemplates(
             mockTemplate: pwd + "Sources/SwiftyMocky/Mock.swifttemplate",
-            prototypeTemplate: pwd + "Sources/SwiftyPrototype/Prototype.swifttemplate",
             allTypesTemplate: pwd + "Templates/AllTypes.swifttemplate",
             template: pwd + "Templates/Assets.template",
             output: pwd + "Sources/CLI/Core/Assets/Assets.swift"

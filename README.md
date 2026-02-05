@@ -61,8 +61,6 @@ CLI was moved bask to the main (this) repo. CLI in this [repository](https://git
 
 Current version has several significant changes. It removes deprecated methods (which might be breaking) and deprecates having CLI in the new [repository](https://github.com/MakeAWishFoundation/SwiftyMockyCLI).
 
-**SwiftyPrototype** was also extracted to separate library. There are no more compilation flags, so if you were relying on **SwiftyMocky** with `-DMockyCustom`, you will have to switch to `SwiftyPrototype`.
-
 We consider current version as stable. We are moving toward using the new [Mockfile][link-guides-mockfile] but the previous configuration format would be still supported. Library works with Swift **4.1, 4.2, 5.0, 5.1.2**  and  Sourcery 1.0.x.
 
 While it is technically possible to integrate SwiftyMocky on Linux targets, there is no Mock generation feature there yet. You can use SwiftyMokcy runtime via SwiftPM though, as long as your are fine with generating mocks on mac machine.
