@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "swiftymocky",
     platforms: [
-        .iOS("16.6"),
+        .iOS("16.0"),
         .macOS("12.4"),
         .tvOS("16.6"),
     ],
