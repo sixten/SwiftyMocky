@@ -1,7 +1,7 @@
 import Foundation
 
 #if os(macOS)
-class ProxyFileHandle: FileHandle {
+class ProxyFileHandle: FileHandle, @unchecked Sendable {
     override func write(_ data: Data) {
         FileHandle.standardOutput.write(data)
     }
