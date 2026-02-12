@@ -90,8 +90,8 @@ class ProtocolsWithPropertiesTests: XCTestCase {
         let mock = ProtocolWithPropertiesMock()
 
         // New builder API version
-        verify(mock).name.wasNeverCalled()
-        verify(mock).name(set: .any).wasNeverCalled()
+        verify(mock, .never).name
+        verify(mock, .never).name(set: .any)
 
         mock.name = "danny_13"
 
@@ -101,15 +101,15 @@ class ProtocolsWithPropertiesTests: XCTestCase {
             XCTAssertEqual(mock.name, "danny_13")
         }
 
-        verify(mock).name.wasCalled(.exactly(upper))
+        verify(mock, .exactly(upper)).name
     }
 
     func test_properties_setters_builderAPI() {
         let mock = ProtocolWithPropertiesMock()
 
         // New builder API version
-        verify(mock).name.wasNeverCalled()
-        verify(mock).name(set: .any).wasNeverCalled()
+        verify(mock, .never).name
+        verify(mock, .never).name(set: .any)
 
         // Set properties randomly between 10 and 20 times
         let upper = Int.random(in: 10..<20)
@@ -117,7 +117,7 @@ class ProtocolsWithPropertiesTests: XCTestCase {
             mock.name = "danny_\(i)"
         }
 
-        verify(mock).name(set: .value("danny_1")).wasCalled(.once)
-        verify(mock).name(set: .any).wasCalled(.exactly(upper))
+        verify(mock, .once).name(set: .value("danny_1"))
+        verify(mock, .exactly(upper)).name(set: .any)
     }
 }

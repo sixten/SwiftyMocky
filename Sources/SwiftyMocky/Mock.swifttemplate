@@ -1030,7 +1030,7 @@ class MethodWrapper {
 
     // Verify
     func verificationFactoryName(prefix: String = "") -> String {
-        let (annotation, _, genericConstraints) = methodInfo()
+        var (annotation, _, genericConstraints) = methodInfo()
         let methodName: String
         if methodRegistrar.returnTypeMatters(uniqueName: uniqueName) {
             methodName = method.shortName
@@ -1039,13 +1039,16 @@ class MethodWrapper {
             let generics = getGenericsAmongParameters(andReturnType: true)
             methodName = "\(method.callName)\(wrapGenerics(generics))"
         }
+        if !annotation.contains("@discardableResult") {
+            annotation = "@discardableResult " + annotation
+        }
         let returnType = returnTypeStripped(method)
         return "\(annotation)public func \(methodName)(\(parametersForProxySignature())) -> \(prefix)VerifyBuilder<\(current.selfType), \(returnType)>\(genericConstraints)"
     }
 
     func verificationFactoryBody(prefix: String = "") -> String {
         let returnType = returnTypeStripped(method)
-        return "VerifyBuilder(mock: mock, method: \(verificationProxyConstructor()), returning: (\(returnType)).self, file: file, line: line)"
+        return "VerifyBuilder(mock: mock, method: \(verificationProxyConstructor()), returning: (\(returnType)).self, count: count, file: file, line: line)"
     }
 
     func verificationProxyConstructorName(prefix: String = "") -> String {
@@ -1527,14 +1530,17 @@ class SubscriptWrapper {
     }
     func verifyFactoryName(set: Bool = false) -> String {
         let returnTypeString = set ? "Void" : TypeWrapper(wrapped.returnTypeName, current: current).stripped
-        var attributes = self.methodAttributesNonObjc
+        var attributes = methodAttributesNonObjc
+        if !attributes.contains("@discardableResult") {
+            attributes = "@discardableResult " + attributes
+        }
         attributes = attributes.isEmpty ? "" : "\(attributes)\n\t\t"
         return "\(attributes)public func `subscript`\(genericTypesModifier ?? "")(\(parametersForProxySignature())\(set ? ", set newValue: \(nestedType)" : "")) -> VerifyBuilder<\(current.selfType), \(returnTypeString)>"
     }
     func verifyFactoryBody(set: Bool = false) -> String {
         let returnType = TypeWrapper(wrapped.returnTypeName, current: current).stripped
         let returnTypeString = set ? "Void.self" : "(\(returnType)).self"
-        return "VerifyBuilder(mock: mock, method: \(verifyConstructor(set: set)), returning: \(returnTypeString), file: file, line: line)"
+        return "VerifyBuilder(mock: mock, method: \(verifyConstructor(set: set)), returning: \(returnTypeString), count: count, file: file, line: line)"
     }
 
     // Generics
@@ -1683,11 +1689,11 @@ class VariableWrapper {
 
     func propertyVerifyGetFactory() -> String {
         let strippedType = TypeWrapper(variable.typeName, current: current).stripped
-        return "public var \(variable.name): VerifyBuilder<\(current.selfType), \(strippedType)> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseGetName)), returning: (\(strippedType)).self, file: file, line: line) }"
+        return "public var \(variable.name): VerifyBuilder<\(current.selfType), \(strippedType)> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseGetName)), returning: (\(strippedType)).self, count: count, file: file, line: line) }"
     }
 
     func propertyVerifySetFactory() -> String {
-        return "public func \(variable.name)(set newValue: \(nestedType)) -> VerifyBuilder<\(current.selfType), Void> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseSetName)(newValue)), returning: Void.self, file: file, line: line) }"
+        return "public func \(variable.name)(set newValue: \(nestedType)) -> VerifyBuilder<\(current.selfType), Void> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseSetName)(newValue)), returning: Void.self, count: count, file: file, line: line) }"
     }
 
     var propertyCaseGetName: String { return "p_\(variable.name)_get".replacingOccurrences(of: "`", with: "") }
@@ -2145,6 +2151,7 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
 
     public struct VerifyBuilderFactory {
         fileprivate let mock: <%= current.selfType %>
+        fileprivate let count: Count
         fileprivate let file: StaticString
         fileprivate let line: UInt
 
@@ -2206,8 +2213,8 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
         return PerformBuilderFactory(mock: self)
     }
 
-    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
-        return VerifyBuilderFactory(mock: self, file: file, line: line)
+    public func buildVerify(count: Count, file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, count: count, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {

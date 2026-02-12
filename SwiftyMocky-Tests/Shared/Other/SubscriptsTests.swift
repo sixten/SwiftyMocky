@@ -135,7 +135,7 @@ class SubscriptsTests: XCTestCase {
         given(mock).subscript(2).willReturn("2")
 
         // New builder API version
-        verify(mock).subscript(.any(Int.self)).wasNeverCalled()
+        verify(mock, .never).subscript(.any(Int.self))
 
         XCTAssertEqual(mock[0], "0")
         XCTAssertEqual(mock[1], "1")
@@ -143,12 +143,12 @@ class SubscriptsTests: XCTestCase {
         XCTAssertEqual(mock[3], "")
         XCTAssertEqual(mock[4], "")
 
-        verify(mock).subscript(.any(Int.self)).wasCalled(.exactly(5))
-        verify(mock).subscript(0).wasCalled()
-        verify(mock).subscript(1).wasCalled()
-        verify(mock).subscript(2).wasCalled()
-        verify(mock).subscript(3).wasCalled()
-        verify(mock).subscript(4).wasCalled()
+        verify(mock, .exactly(5)).subscript(.any(Int.self))
+        verify(mock).subscript(0)
+        verify(mock).subscript(1)
+        verify(mock).subscript(2)
+        verify(mock).subscript(3)
+        verify(mock).subscript(4)
     }
 
     func test_multi_argument_subscript_usage_builderAPI() {
@@ -161,15 +161,15 @@ class SubscriptsTests: XCTestCase {
         given(mock).subscript(x: 0, y: 0).willReturn("point zero")
 
         // New builder API version
-        verify(mock).subscript(x: .any, y: .any).wasNeverCalled()
+        verify(mock, .never).subscript(x: .any, y: .any)
 
         XCTAssertEqual(mock[0,0], "point zero")
         XCTAssertEqual(mock[-1,1], "left half")
         XCTAssertEqual(mock[0,3], "on y axis")
         XCTAssertEqual(mock[3,2], "right half")
 
-        verify(mock).subscript(x: .any, y: .any).wasCalled(.exactly(4))
-        verify(mock).subscript(x: 0, y: .any).wasCalled(.exactly(2))
+        verify(mock, .exactly(4)).subscript(x: .any, y: .any)
+        verify(mock, .exactly(2)).subscript(x: 0, y: .any)
     }
 
     func test_generic_setter_subscripts_builderAPI() {
@@ -182,11 +182,11 @@ class SubscriptsTests: XCTestCase {
         mock[2,CustomStruct.self] = CustomStruct(value: 2)
 
         // New builder API version
-        verify(mock).subscript(.any, type: .any, set: .any(CustomStruct.self)).wasCalled(.exactly(3))
-        verify(mock).subscript(0, type: .value(CustomStruct.self), set: .any).wasCalled(.exactly(1))
-        verify(mock).subscript(.any, type: .value(CustomStruct.self), set: .value(CustomStruct(value: 0))).wasCalled(.exactly(1))
-        verify(mock).subscript(.any, type: .value(CustomStruct.self), set: .value(CustomStruct(value: 1))).wasCalled(.exactly(1))
-        verify(mock).subscript(.any, type: .value(CustomStruct.self), set: .value(CustomStruct(value: 2))).wasCalled(.exactly(1))
+        verify(mock, .exactly(3)).subscript(.any, type: .any, set: .any(CustomStruct.self))
+        verify(mock, .exactly(1)).subscript(0, type: .value(CustomStruct.self), set: .any)
+        verify(mock, .exactly(1)).subscript(.any, type: .value(CustomStruct.self), set: .value(CustomStruct(value: 0)))
+        verify(mock, .exactly(1)).subscript(.any, type: .value(CustomStruct.self), set: .value(CustomStruct(value: 1)))
+        verify(mock, .exactly(1)).subscript(.any, type: .value(CustomStruct.self), set: .value(CustomStruct(value: 2)))
     }
 }
 

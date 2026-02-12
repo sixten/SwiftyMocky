@@ -292,20 +292,21 @@ open class GenerationCommandMock: GenerationCommand, Mock {
 
     public struct VerifyBuilderFactory {
         fileprivate let mock: GenerationCommandMock
+        fileprivate let count: Count
         fileprivate let file: StaticString
         fileprivate let line: UInt
 
-        public func generate(disableCache: Parameter<Bool>, verbose: Parameter<Bool>) -> VerifyBuilder<GenerationCommandMock, Void> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_generate__disableCache_disableCacheverbose_verbose(`disableCache`, `verbose`)), returning: (Void).self, file: file, line: line)
+        @discardableResult public func generate(disableCache: Parameter<Bool>, verbose: Parameter<Bool>) -> VerifyBuilder<GenerationCommandMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_generate__disableCache_disableCacheverbose_verbose(`disableCache`, `verbose`)), returning: (Void).self, count: count, file: file, line: line)
         }
-        public func generate(mockName: Parameter<String>, disableCache: Parameter<Bool>, verbose: Parameter<Bool>, watch: Parameter<Bool>) -> VerifyBuilder<GenerationCommandMock, Void> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_generate__mockName_mockNamedisableCache_disableCacheverbose_verbosewatch_watch(`mockName`, `disableCache`, `verbose`, `watch`)), returning: (Void).self, file: file, line: line)
+        @discardableResult public func generate(mockName: Parameter<String>, disableCache: Parameter<Bool>, verbose: Parameter<Bool>, watch: Parameter<Bool>) -> VerifyBuilder<GenerationCommandMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_generate__mockName_mockNamedisableCache_disableCacheverbose_verbosewatch_watch(`mockName`, `disableCache`, `verbose`, `watch`)), returning: (Void).self, count: count, file: file, line: line)
         }
-        public func updateAllImports() -> VerifyBuilder<GenerationCommandMock, Void> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_updateAllImports), returning: (Void).self, file: file, line: line)
+        @discardableResult public func updateAllImports() -> VerifyBuilder<GenerationCommandMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_updateAllImports), returning: (Void).self, count: count, file: file, line: line)
         }
-        public func updateImports(forMockNamed name: Parameter<String>) -> VerifyBuilder<GenerationCommandMock, Void> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_updateImports__forMockNamed_name(`name`)), returning: (Void).self, file: file, line: line)
+        @discardableResult public func updateImports(forMockNamed name: Parameter<String>) -> VerifyBuilder<GenerationCommandMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_updateImports__forMockNamed_name(`name`)), returning: (Void).self, count: count, file: file, line: line)
         }
     }
 
@@ -345,8 +346,8 @@ open class GenerationCommandMock: GenerationCommand, Mock {
         return PerformBuilderFactory(mock: self)
     }
 
-    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
-        return VerifyBuilderFactory(mock: self, file: file, line: line)
+    public func buildVerify(count: Count, file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, count: count, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {
@@ -591,14 +592,15 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
 
     public struct VerifyBuilderFactory {
         fileprivate let mock: InstanceFactoryMock
+        fileprivate let count: Count
         fileprivate let file: StaticString
         fileprivate let line: UInt
 
-        public func resolveGenerationCommand(root: Parameter<Path>) -> VerifyBuilder<InstanceFactoryMock, GenerationCommand> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_resolveGenerationCommand__root_root(`root`)), returning: (GenerationCommand).self, file: file, line: line)
+        @discardableResult public func resolveGenerationCommand(root: Parameter<Path>) -> VerifyBuilder<InstanceFactoryMock, GenerationCommand> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_resolveGenerationCommand__root_root(`root`)), returning: (GenerationCommand).self, count: count, file: file, line: line)
         }
-        public func resolveGenerationCommand(root: Parameter<Path>, mockfile: Parameter<Mockfile>) -> VerifyBuilder<InstanceFactoryMock, GenerationCommand> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_resolveGenerationCommand__root_rootmockfile_mockfile(`root`, `mockfile`)), returning: (GenerationCommand).self, file: file, line: line)
+        @discardableResult public func resolveGenerationCommand(root: Parameter<Path>, mockfile: Parameter<Mockfile>) -> VerifyBuilder<InstanceFactoryMock, GenerationCommand> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_resolveGenerationCommand__root_rootmockfile_mockfile(`root`, `mockfile`)), returning: (GenerationCommand).self, count: count, file: file, line: line)
         }
     }
 
@@ -638,8 +640,8 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
         return PerformBuilderFactory(mock: self)
     }
 
-    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
-        return VerifyBuilderFactory(mock: self, file: file, line: line)
+    public func buildVerify(count: Count, file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, count: count, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {

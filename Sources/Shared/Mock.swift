@@ -74,10 +74,11 @@ public protocol Mock: AnyObject {
 
     /// Returns a builder factory for verification
     /// - Parameters:
+    ///   - count: Expected number of invocations
     ///   - file: Source file for XCTest assertions
     ///   - line: Source line for XCTest assertions
     /// - Returns: An instance of `VerifyBuilderFactory`
-    func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory
+    func buildVerify(count: Count, file: StaticString, line: UInt) -> VerifyBuilderFactory
 
     /// Clear mock internals. You can specify what to clear (invocations aka verify, givens or performs)
     /// or leave it empty to clear all mock internals.

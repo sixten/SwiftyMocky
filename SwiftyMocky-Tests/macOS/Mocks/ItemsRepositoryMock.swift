@@ -233,20 +233,21 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
 
     public struct VerifyBuilderFactory {
         fileprivate let mock: ItemsRepositoryMock
+        fileprivate let count: Count
         fileprivate let file: StaticString
         fileprivate let line: UInt
 
-        public func storeItems(items: Parameter<[Item]>) -> VerifyBuilder<ItemsRepositoryMock, Void> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_storeItems__items_items(`items`)), returning: (Void).self, file: file, line: line)
+        @discardableResult public func storeItems(items: Parameter<[Item]>) -> VerifyBuilder<ItemsRepositoryMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storeItems__items_items(`items`)), returning: (Void).self, count: count, file: file, line: line)
         }
-        public func storeDetails(details: Parameter<ItemDetails>) -> VerifyBuilder<ItemsRepositoryMock, Void> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_storeDetails__details_details(`details`)), returning: (Void).self, file: file, line: line)
+        @discardableResult public func storeDetails(details: Parameter<ItemDetails>) -> VerifyBuilder<ItemsRepositoryMock, Void> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storeDetails__details_details(`details`)), returning: (Void).self, count: count, file: file, line: line)
         }
-        public func storedItems() -> VerifyBuilder<ItemsRepositoryMock, [Item]?> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_storedItems), returning: ([Item]?).self, file: file, line: line)
+        @discardableResult public func storedItems() -> VerifyBuilder<ItemsRepositoryMock, [Item]?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storedItems), returning: ([Item]?).self, count: count, file: file, line: line)
         }
-        public func storedDetails(item: Parameter<Item>) -> VerifyBuilder<ItemsRepositoryMock, ItemDetails?> {
-            VerifyBuilder(mock: mock, method: Verify(method: .m_storedDetails__item_item(`item`)), returning: (ItemDetails?).self, file: file, line: line)
+        @discardableResult public func storedDetails(item: Parameter<Item>) -> VerifyBuilder<ItemsRepositoryMock, ItemDetails?> {
+            VerifyBuilder(mock: mock, method: Verify(method: .m_storedDetails__item_item(`item`)), returning: (ItemDetails?).self, count: count, file: file, line: line)
         }
     }
 
@@ -286,8 +287,8 @@ class ItemsRepositoryMock: ItemsRepository, Mock {
         return PerformBuilderFactory(mock: self)
     }
 
-    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
-        return VerifyBuilderFactory(mock: self, file: file, line: line)
+    public func buildVerify(count: Count, file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, count: count, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {

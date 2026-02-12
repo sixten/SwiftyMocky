@@ -145,31 +145,18 @@ public struct ParameterizedPerformBuilder<MockType: Mock, ClosureType, ReturnTyp
 public struct VerifyBuilder<MockType: Mock, ReturnType> {
     private let mock: MockType
     private let method: MockType.Verify
-    private let file: StaticString
-    private let line: UInt
 
     public init(
         mock: MockType,
         method: MockType.Verify,
         returning _: ReturnType.Type,
+        count: Count,
         file: StaticString,
         line: UInt
     ) {
         self.mock = mock
         self.method = method
-        self.file = file
-        self.line = line
-    }
 
-    /// Verify that the method was called with the specified count
-    ///
-    /// - Parameter count: Expected number of invocations (defaults to at least once)
-    public func wasCalled(_ count: Count = .moreOrEqual(to: 1)) {
         mock.verify(method, count: count, file: file, line: line)
-    }
-
-    /// Verify that the method was never called
-    public func wasNeverCalled() {
-        mock.verify(method, count: .never, file: file, line: line)
     }
 }

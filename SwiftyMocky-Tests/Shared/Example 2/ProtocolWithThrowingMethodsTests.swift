@@ -92,7 +92,7 @@ class ProtocolWithThrowingMethodsTests: XCTestCase {
         XCTAssertThrowsError(try mock.methodThatReturnsAndThrows(param: 404))
         XCTAssertThrowsError(try mock.methodThatReturnsAndThrows(param: 123))
 
-        verify(mock).methodThatReturnsAndThrows(param: .any).wasCalled(.exactly(3))
+        verify(mock, .exactly(3)).methodThatReturnsAndThrows(param: .any)
     }
 }
 

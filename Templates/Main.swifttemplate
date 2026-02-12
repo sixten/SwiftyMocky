@@ -408,6 +408,7 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
 
     public struct VerifyBuilderFactory {
         fileprivate let mock: <%= current.selfType %>
+        fileprivate let count: Count
         fileprivate let file: StaticString
         fileprivate let line: UInt
 
@@ -469,8 +470,8 @@ func generate(type: Type, idx: Int, methodRegistrar: MethodRegistrar, subscriptR
         return PerformBuilderFactory(mock: self)
     }
 
-    public func buildVerify(file: StaticString, line: UInt) -> VerifyBuilderFactory {
-        return VerifyBuilderFactory(mock: self, file: file, line: line)
+    public func buildVerify(count: Count, file: StaticString, line: UInt) -> VerifyBuilderFactory {
+        return VerifyBuilderFactory(mock: self, count: count, file: file, line: line)
     }
 
     private func addInvocation(_ call: MethodType) {

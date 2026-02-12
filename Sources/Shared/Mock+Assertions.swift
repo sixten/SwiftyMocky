@@ -73,10 +73,11 @@ public func Verify<T: StaticMock>(_ type: T.Type, _ count: Count, _ method: T.St
 /// - Returns: VerifyBuilderFactory for chaining
 public func verify<M: Mock>(
     _ object: M,
+    _ count: Count = .atLeastOnce,
     file: StaticString = #file,
     line: UInt = #line
 ) -> M.VerifyBuilderFactory {
-    return object.buildVerify(file: file, line: line)
+    return object.buildVerify(count: count, file: file, line: line)
 }
 
 // MARK: - Given

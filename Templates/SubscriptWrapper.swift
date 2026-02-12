@@ -184,14 +184,17 @@ class SubscriptWrapper {
     }
     func verifyFactoryName(set: Bool = false) -> String {
         let returnTypeString = set ? "Void" : TypeWrapper(wrapped.returnTypeName, current: current).stripped
-        var attributes = self.methodAttributesNonObjc
+        var attributes = methodAttributesNonObjc
+        if !attributes.contains("@discardableResult") {
+            attributes = "@discardableResult " + attributes
+        }
         attributes = attributes.isEmpty ? "" : "\(attributes)\n\t\t"
         return "\(attributes)public func `subscript`\(genericTypesModifier ?? "")(\(parametersForProxySignature())\(set ? ", set newValue: \(nestedType)" : "")) -> VerifyBuilder<\(current.selfType), \(returnTypeString)>"
     }
     func verifyFactoryBody(set: Bool = false) -> String {
         let returnType = TypeWrapper(wrapped.returnTypeName, current: current).stripped
         let returnTypeString = set ? "Void.self" : "(\(returnType)).self"
-        return "VerifyBuilder(mock: mock, method: \(verifyConstructor(set: set)), returning: \(returnTypeString), file: file, line: line)"
+        return "VerifyBuilder(mock: mock, method: \(verifyConstructor(set: set)), returning: \(returnTypeString), count: count, file: file, line: line)"
     }
 
     // Generics

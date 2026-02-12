@@ -103,11 +103,11 @@ class ExampleTests: XCTestCase {
 
         // New builder API version
         // check is Jon Snow was stored at least one time
-        verify(mockStorage).storeUser(name: .value("Jon"), surname: .value("Snow")).wasCalled()
+        verify(mockStorage).storeUser(name: .value("Jon"), surname: .value("Snow"))
         // total storeUser should be triggered 3 times, regardless of attributes values
-        verify(mockStorage).storeUser(name: .any, surname: .any).wasCalled(.exactly(3))
+        verify(mockStorage, .exactly(3)).storeUser(name: .any, surname: .any)
         // two times it should be triggered with name Johny
-        verify(mockStorage).storeUser(name: .value("Johny"), surname: .any).wasCalled(.exactly(2))
+        verify(mockStorage, .exactly(2)).storeUser(name: .value("Johny"), surname: .any)
     }
 
     func test_completionBlocksBasedApproach() {

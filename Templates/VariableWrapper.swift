@@ -83,11 +83,11 @@ class VariableWrapper {
 
     func propertyVerifyGetFactory() -> String {
         let strippedType = TypeWrapper(variable.typeName, current: current).stripped
-        return "public var \(variable.name): VerifyBuilder<\(current.selfType), \(strippedType)> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseGetName)), returning: (\(strippedType)).self, file: file, line: line) }"
+        return "public var \(variable.name): VerifyBuilder<\(current.selfType), \(strippedType)> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseGetName)), returning: (\(strippedType)).self, count: count, file: file, line: line) }"
     }
 
     func propertyVerifySetFactory() -> String {
-        return "public func \(variable.name)(set newValue: \(nestedType)) -> VerifyBuilder<\(current.selfType), Void> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseSetName)(newValue)), returning: Void.self, file: file, line: line) }"
+        return "public func \(variable.name)(set newValue: \(nestedType)) -> VerifyBuilder<\(current.selfType), Void> { VerifyBuilder(mock: mock, method: Verify(method: .\(propertyCaseSetName)(newValue)), returning: Void.self, count: count, file: file, line: line) }"
     }
 
     var propertyCaseGetName: String { return "p_\(variable.name)_get".replacingOccurrences(of: "`", with: "") }

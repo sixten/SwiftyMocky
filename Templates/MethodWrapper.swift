@@ -515,7 +515,7 @@ class MethodWrapper {
 
     // Verify
     func verificationFactoryName(prefix: String = "") -> String {
-        let (annotation, _, genericConstraints) = methodInfo()
+        var (annotation, _, genericConstraints) = methodInfo()
         let methodName: String
         if methodRegistrar.returnTypeMatters(uniqueName: uniqueName) {
             methodName = method.shortName
@@ -524,13 +524,16 @@ class MethodWrapper {
             let generics = getGenericsAmongParameters(andReturnType: true)
             methodName = "\(method.callName)\(wrapGenerics(generics))"
         }
+        if !annotation.contains("@discardableResult") {
+            annotation = "@discardableResult " + annotation
+        }
         let returnType = returnTypeStripped(method)
         return "\(annotation)public func \(methodName)(\(parametersForProxySignature())) -> \(prefix)VerifyBuilder<\(current.selfType), \(returnType)>\(genericConstraints)"
     }
 
     func verificationFactoryBody(prefix: String = "") -> String {
         let returnType = returnTypeStripped(method)
-        return "VerifyBuilder(mock: mock, method: \(verificationProxyConstructor()), returning: (\(returnType)).self, file: file, line: line)"
+        return "VerifyBuilder(mock: mock, method: \(verificationProxyConstructor()), returning: (\(returnType)).self, count: count, file: file, line: line)"
     }
 
     func verificationProxyConstructorName(prefix: String = "") -> String {
